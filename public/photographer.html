@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+
+<head>
+  <link href="./src/css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="./src/assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <!--Header-->
+  <header aria-label="header">
+    <a href="./index.html" class="logo-link" aria-label="Retour page d'accueil FishEye"><img
+        src="./src/assets/images/logo.png" class="logo" alt="page d'accueil FishEye"></a>
+  </header>
+  <!--End of Header-->
+  <!--Main-->
+  <main id="main">
+
+    <!--Photographer info section-->
+    <section class="photographer" aria-label="Informations Photographe" role="information" tabindex="0"></section>
+    <!--End of photographer info section-->
+
+    <!--Photographer Gallery section-->
+    <section class="gallery" aria-label="Galerie Photographe" role="information" tabindex="1">
+      <!--filter container-->
+      <div class="listbox-container">
+        <span class="filter-by" aria-label="liste filtrante">Trier par</span>
+        <select aria-label="filtrer par" name="filtre" id="listbox" class="listbox listbox__btn">
+          <option value="popularité">Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
+          </option>
+          <option value="date">Date</option>
+          <option value="titre">Titre</option>
+        </select>
       </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+      <!--End of filter container-->
+
+      <div class="gallery__list"></div>
+
+
+    </section>
+
+
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="./src/assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+        <div>
+          <label>Prénom</label>
+          <input />
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <script src="./src/scripts/factories/photographer.js"></script>
+  <script src="./src/scripts/pages/photographer.js"></script>
+  <script src="./src/scripts/utils/contactForm.js"></script>
+</body>
+
 </html>

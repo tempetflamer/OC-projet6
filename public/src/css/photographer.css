@@ -74,3 +74,102 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+
+/* MOI */
+.photographer{
+    background-color: #FAFAFA;
+    height: 250px;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+/*     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px; */
+}
+
+.photographer--container{
+/*     background-color: #FAFAFA;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row; */
+/*     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px; */
+}
+
+.photographer__contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photographer__contact button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.photographer__picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section Gallery */
+/* Filter */
+.listbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  .filter-by {
+    margin-right: 1rem;
+    color: #000;
+    display: unset;
+}
+  #listbox, #listbox:focus {
+    background: #901C1C;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    position: relative;
+  }
+  option::after {
+    border-radius: 10px;
+    width: 7rem;
+    line-height: 1rem;
+  }
+  .hidden {
+    display: none;
+  }
+  .fa-chevron-up {
+    display: none;
+  }
+  .listbox__btn {
+    display: flex;
+    position: unset;
+    top: unset;
+    left: unset;
+    padding: 1rem;
+  }
+  .fa-chevron-down {
+    margin-left: 0.5rem;
+  }

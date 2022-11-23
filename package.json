@@ -1,0 +1,30 @@
+{
+  "name": "oc-projet6",
+  "version": "1.0.0",
+  "description": "Plateforme de photographe",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.min.css -w --style compressed --no-source-map",
+    "prefix": "postcss ./public/css/style.min.css --use autoprefixer -d ./public/css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tempetflamer/OC-projet6.git"
+  },
+  "author": "Nicolas Lecroq",
+  "license": "ISC",
+  "browserslist": [
+    "last 4 version",
+    "> 1%",
+    "not dead"
+  ],
+  "bugs": {
+    "url": "https://github.com/tempetflamer/OC-projet6/issues"
+  },
+  "homepage": "https://github.com/tempetflamer/OC-projet6#readme",
+  "dependencies": {
+    "sass": "^1.56.1",
+    "autoprefixer": "^10.4.13"
+  }
+}
