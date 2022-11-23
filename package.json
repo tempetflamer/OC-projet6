@@ -5,7 +5,8 @@
   "main": "public/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./sass/main.scss:./public/css/style.min.css -w --style compressed --no-source-map",
+    "sass": "sass --watch ./sass/style.scss:./public/css/style.css -w --style extended --no-source-map",
+    "sass2": "sass --watch ./sass/photographer.scss:./public/css/style.css -w --style extended --no-source-map",
     "prefix": "postcss ./public/css/style.min.css --use autoprefixer -d ./public/css/"
   },
   "repository": {

@@ -9,7 +9,7 @@ console.log(idUrl);
 
 async function init() {
 
-    fetch('/public/src/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors' }) //fetch(myURL, { mode: 'no-cors'})
+    fetch('/public/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors' }) //fetch(myURL, { mode: 'no-cors'})
         .then(res => res.json())
         .then(data => {
             console.log(data);

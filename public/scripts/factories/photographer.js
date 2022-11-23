@@ -5,7 +5,7 @@ function photographerFactory(data) {
 
 
     //const picture = `./src/assets/images/${name}/${portrait}`; // finalement les photos sont dans un dossier appelé 
-    const picture = `./src/assets/images/avatar/${portrait}`;
+    const picture = `./assets/images/avatar/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
@@ -45,7 +45,7 @@ function photographerPage(data) {
     //const { name, portrait } = data;
     const { name, id, city, country, tagline, price, portrait } = data;
 
-    const picture = `./src/assets/images/avatar/${portrait}`;
+    const picture = `./assets/images/avatar/${portrait}`;
 
     /*     function getUserSection() {
             const divPhotographerModifier = document.createElement( 'div' );
@@ -142,7 +142,7 @@ function photographerPage(data) {
 
 function getNamePhotographer(id) { // en passant la fonction en async, j'obtient test : [object Promise] mais j'ai toujours le message console.log('avant echec des données')
     var namePhotographer = '';
-    fetch('/public/src/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors' }) //fetch(myURL, { mode: 'no-cors'})
+    fetch('/public/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors' }) //fetch(myURL, { mode: 'no-cors'})
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -208,8 +208,8 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         const article = document.createElement('article');
         article.classList.add('gallery__list__data');
         const img = document.createElement('img');
-        console.log("src", `./src/assets/images/${chemin}/${image}`);
-        img.src = `./src/assets/images/${chemin}/${image}`;
+        console.log("src", `./assets/images/${chemin}/${image}`);
+        img.src = `./assets/images/${chemin}/${image}`;
         //img.setAttribute("src", `./src/assets/images/${chemin}/${image}`);
         img.alt = title; //Uncaught (in promise) ReferenceError: can't access lexical declaration 'title' before initialization
         //console.log(title);

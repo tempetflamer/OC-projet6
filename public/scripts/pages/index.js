@@ -57,7 +57,7 @@ let fs = require('fs');
         //const { photographers } = await getPhotographers();
         //displayData(photographers);
         //fetch('../../data/photographers.json')
-        fetch('/public/src/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors'}) //fetch(myURL, { mode: 'no-cors'})
+        fetch('/public/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors'}) //fetch(myURL, { mode: 'no-cors'})
         /*        .then(res => {
             if (!response.ok) {
                 throw new Error("HTTP error " + response.status);
