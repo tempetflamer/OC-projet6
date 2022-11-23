@@ -77,31 +77,30 @@ form input {
 
 .photographer {
   background-color: #FAFAFA;
-  height: 250px;
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  /*     display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 70px;
-      margin-top: 100px; */
-}
-
-.photographer--container {
-  /*     background-color: #FAFAFA;
-      width: 80%;
-      display: flex;
+  height: 300px;
+  width: 100%;
+  /*     width: 90%;
+      margin-right: 5%;
+      margin-left: 5%; */
+  /*     display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
       flex-direction: row; */
   /*     display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 70px;
       margin-top: 100px; */
+  /*     padding-left: 30px;
+      padding-right: 30px; */
+}
+
+.photographer__data {
+  align-items: start;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.photographer__data__tagline {
+  color: #525252;
 }
 
 .photographer__contact {
@@ -124,6 +123,7 @@ form input {
 }
 
 .photographer__picture {
+  margin-right: -30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +144,8 @@ form input {
   display: unset;
 }
 
-#listbox, #listbox:focus {
+#listbox,
+#listbox:focus {
   background: #901C1C;
   outline: none;
   border: none;
@@ -177,4 +178,38 @@ option::after {
 
 .fa-chevron-down {
   margin-left: 0.5rem;
+}
+
+.gallery__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 0;
+}
+.gallery__list__data__img {
+  border-radius: 5px;
+  width: 450px;
+  height: 385px;
+  /*   width: 34rem;
+  height: 28rem; */
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.gallery__list__data__description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #901C1C;
+}
+.gallery__list__data__description__likes {
+  display: flex;
+  flex-direction: row;
+  gap: 0 5px;
+}
+.gallery__list__data__description__likes i {
+  margin-top: 10px;
 }

@@ -219,14 +219,20 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         const desc = document.createElement('div')
         desc.classList.add("gallery__list__data__description");
         const titlePhotographer = document.createElement('p')
+        console.log(title);
+        titlePhotographer.textContent = title ; // erreur [object HTMLDivElement] // String(title) //titlePhotographer.innerHTML = title.textContent;
         titlePhotographer.classList.add("gallery__list__data__description__title");
+        titlePhotographer.alt = title.textContent 
         const like = document.createElement('div')
-        like.classList.add("gallery__list__data__description__like");
+        like.classList.add("gallery__list__data__description__likes");
         const numberLike = document.createElement('p')
-        numberLike.classList.add("gallery__list__data__description__like__number");
+        console.log(likes);
+        like.textContent = likes;
+        numberLike.classList.add("gallery__list__data__description__likes__number");
         const iconLike = document.createElement('i')
         iconLike.classList.add("fa-solid");
         iconLike.classList.add("fa-heart");
+        iconLike.classList.add("fa-lg");
 
         desc.appendChild(titlePhotographer);
         desc.appendChild(like);
