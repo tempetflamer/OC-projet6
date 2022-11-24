@@ -207,14 +207,31 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
 
         const article = document.createElement('article');
         article.classList.add('gallery__list__data');
-        const img = document.createElement('img');
-        console.log("src", `./assets/images/${chemin}/${image}`);
-        img.src = `./assets/images/${chemin}/${image}`;
+        //const img = document.createElement('img');
+        if (dataMedia.video) { //"video" in dataMedia
+            const video = document.createElement('video');
+            console.log("ceci est le log de data video = ","src", `./assets/images/${chemin}/${dataMedia.video}`);
+            video.src = `./assets/images/${chemin}/${dataMedia.video}`;
+            video.alt = title;
+            video.type= "video/mp4";
+            video.role = "link";
+            video.classList.add('gallery__list__data__img');
+            article.appendChild(video);
+        }
+        else{
+            const img = document.createElement('img');
+            console.log("src", `./assets/images/${chemin}/${image}`);
+            img.src = `./assets/images/${chemin}/${image}`;
+            img.alt = title;
+            img.role = "link";
+            img.classList.add('gallery__list__data__img');
+            article.appendChild(img);
+        }
         //img.setAttribute("src", `./src/assets/images/${chemin}/${image}`);
-        img.alt = title; //Uncaught (in promise) ReferenceError: can't access lexical declaration 'title' before initialization
+        //img.alt = title; //Uncaught (in promise) ReferenceError: can't access lexical declaration 'title' before initialization
         //console.log(title);
         //img.setAttribute("alt", title);
-        img.classList.add('gallery__list__data__img'); // ne restera probablement pas
+        //img.classList.add('gallery__list__data__img'); // ne restera probablement pas
 
         const desc = document.createElement('div')
         desc.classList.add("gallery__list__data__description");
@@ -239,7 +256,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         like.appendChild(numberLike);
         like.appendChild(iconLike);
 
-        article.appendChild(img);
+        // article.appendChild(img);
         article.appendChild(desc);
         return (article);
     }
