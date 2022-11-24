@@ -13,6 +13,7 @@ function photographerFactory(data) {
         const imageLink = document.createElement('a');
         //on part de index.html
         imageLink.href = './photographer.html?id=' + id; // `../../../photographer.html?id=${id}`; marche pas ça memene sur la page http://localhost:8080/photographer.html?id=930 au lieu de public/
+        imageLink.tabIndex = "0";
         const img = document.createElement('img');
         img.setAttribute("src", picture)
         img.setAttribute("alt", name)
@@ -31,7 +32,9 @@ function photographerFactory(data) {
         pPrice.classList.add('photographer__data__price');
         article.appendChild(imageLink);
         imageLink.appendChild(img);
-        article.appendChild(h2);
+        imageLink.appendChild(h2);
+        //h2 se trouve dans le lien
+        //article.appendChild(h2);
         article.appendChild(pCity);
         article.appendChild(pTagline);
         article.appendChild(pPrice);
@@ -93,6 +96,7 @@ function photographerPage(data) {
 
         const divPhotographerinfo = document.createElement('div');
         divPhotographerinfo.classList.add('photographer__data');
+        divPhotographerinfo.tabIndex = "0";
 
         const namePhotographer = document.createElement('h1');
         namePhotographer.textContent = name;
@@ -118,6 +122,8 @@ function photographerPage(data) {
         const contactPhotographer = document.createElement('button');
         contactPhotographer.href = '';
         contactPhotographer.textContent = 'Contactez-moi';
+        contactPhotographer.tabIndex = "0";
+        contactPhotographer.type = "button" //accessibility
         // contactPhotographer.classList.add('photographer__contact__button')
         divPhotographerContact.appendChild(contactPhotographer);
 
@@ -128,6 +134,7 @@ function photographerPage(data) {
 
         const divPhotographerPhoto = document.createElement('div');
         divPhotographerPhoto.classList.add('photographer__picture');
+        divPhotographerPhoto.tabIndex = "0";
 
         const contactPhotographer = document.createElement('img');
         contactPhotographer.setAttribute("src", picture)
@@ -140,6 +147,7 @@ function photographerPage(data) {
     return { name, picture, getUserInfo, getUserContact, getUserPicture }
 }
 
+//sert plus
 function getNamePhotographer(id) { // en passant la fonction en async, j'obtient test : [object Promise] mais j'ai toujours le message console.log('avant echec des données')
     var namePhotographer = '';
     fetch('/public/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors' }) //fetch(myURL, { mode: 'no-cors'})
@@ -157,29 +165,29 @@ function getNamePhotographer(id) { // en passant la fonction en async, j'obtient
             const dataPhotographers = [...data.photographers];
 
             //.find
-           namePhotographer =  dataPhotographers.find(photographer => photographer.id === "id");
-           namePhotographer = namePhotographer.name;
-           console.log("find name photographers : " + namePhotographer);
-/*             dataPhotographers.forEach((photographer) => {
-                console.log("photographer.id", photographer.id);
-                console.log("id", id);
-                if (parseInt(photographer.id) === parseInt(id)) {
-                    console.log(photographer.id);
-                    console.log(photographer.name);
-                    namePhotographer = photographer.name;
-                    console.log(namePhotographer);
-                    return namePhotographer;
-                }
-            }); */
+            namePhotographer = dataPhotographers.find(photographer => photographer.id === "id");
+            namePhotographer = namePhotographer.name;
+            console.log("find name photographers : " + namePhotographer);
+            /*             dataPhotographers.forEach((photographer) => {
+                            console.log("photographer.id", photographer.id);
+                            console.log("id", id);
+                            if (parseInt(photographer.id) === parseInt(id)) {
+                                console.log(photographer.id);
+                                console.log(photographer.name);
+                                namePhotographer = photographer.name;
+                                console.log(namePhotographer);
+                                return namePhotographer;
+                            }
+                        }); */
         });
-        // si j'enlève cetet artie là il me retorune undefined, il attend pas le reste
-        console.log('avant echec des données');
-        if ( namePhotographer == '' || namePhotographer == undefined)
+    // si j'enlève cetet artie là il me retorune undefined, il attend pas le reste
+    console.log('avant echec des données');
+    if (namePhotographer == '' || namePhotographer == undefined)
         return "echec de chargement des données";
-        else
+    else
         return namePhotographer;
 
-        // ça marche toujours pas mais tester en le ajoutant un deuxieme parametre directement dans la fonction originale
+    // ça marche toujours pas mais tester en le ajoutant un deuxieme parametre directement dans la fonction originale
 }
 
 function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medias
@@ -188,7 +196,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
     // Dans le cadre d'une video, montrer une miniature
 
     //const { namePhotographers, idPhotographers} = dataPhotographers
-    
+
 
 
     function getGalleryCardDOM() {
@@ -197,7 +205,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         //const namePhotographer = getNamePhotographer(photographerId);
         //console.log(idPhotographers, photographerId) // retourne undefined and 243
         console.log(dataPhotographers.find(photographer => photographer.id === photographerId)); // .find me retourne Object { name: "Mimi Keel", id: 243, city: "London", country: "UK", tagline: "Voir le beau dans le quotidien", price: 400, portrait: "MimiKeel.jpg" }...
-        const namePhotographer =  dataPhotographers.find(photographer => photographer.id === photographerId);
+        const namePhotographer = dataPhotographers.find(photographer => photographer.id === photographerId);
         console.log("find name photographers : " + namePhotographer.name);
         //namePhotographer = namePhotographer.name; //Uncaught (in promise) TypeError: namePhotographer is undefined
         const namePhotographerArray = namePhotographer.name.split(" ");
@@ -210,15 +218,15 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         //const img = document.createElement('img');
         if (dataMedia.video) { //"video" in dataMedia
             const video = document.createElement('video');
-            console.log("ceci est le log de data video = ","src", `./assets/images/${chemin}/${dataMedia.video}`);
+            console.log("ceci est le log de data video = ", "src", `./assets/images/${chemin}/${dataMedia.video}`);
             video.src = `./assets/images/${chemin}/${dataMedia.video}`;
             video.alt = title;
-            video.type= "video/mp4";
+            video.type = "video/mp4";
             video.role = "link";
             video.classList.add('gallery__list__data__img');
             article.appendChild(video);
         }
-        else{
+        else {
             const img = document.createElement('img');
             console.log("src", `./assets/images/${chemin}/${image}`);
             img.src = `./assets/images/${chemin}/${image}`;
@@ -237,9 +245,9 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         desc.classList.add("gallery__list__data__description");
         const titlePhotographer = document.createElement('p')
         console.log(title);
-        titlePhotographer.textContent = title ; // erreur [object HTMLDivElement] // String(title) //titlePhotographer.innerHTML = title.textContent;
+        titlePhotographer.textContent = title; // erreur [object HTMLDivElement] // String(title) //titlePhotographer.innerHTML = title.textContent;
         titlePhotographer.classList.add("gallery__list__data__description__title");
-        titlePhotographer.alt = title.textContent 
+        titlePhotographer.alt = title.textContent
         const like = document.createElement('div')
         like.classList.add("gallery__list__data__description__likes");
         const numberLike = document.createElement('p')
@@ -250,6 +258,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         iconLike.classList.add("fa-solid");
         iconLike.classList.add("fa-heart");
         iconLike.classList.add("fa-lg");
+        iconLike.ariaLabel = "likes";
 
         desc.appendChild(titlePhotographer);
         desc.appendChild(like);
@@ -258,8 +267,17 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
 
         // article.appendChild(img);
         article.appendChild(desc);
+
+        //event listerner to launch lightbox // sinon je fais un fichier js séparé
+        article.addEventListener("click", () => {
+            showLightbox(media.title, media.src);
+        });
+        article.addEventListener("keydown", (e) => {
+            if (e.code === "Enter") { showLightbox(media.title, media.src); }
+        });
+
         return (article);
     }
-    
+
     return { getGalleryCardDOM }
 }

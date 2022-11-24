@@ -15,7 +15,7 @@
 <body>
   <!--Header-->
   <header aria-label="header">
-    <a href="./index.html" class="logo-link" aria-label="Retour page d'accueil FishEye"><img
+    <a href="./index.html" class="logo-link" aria-label="Retour page d'accueil FishEye" tabindex="0"><img
         src="./assets/images/logo.png" class="logo" alt="page d'accueil FishEye"></a>
   </header>
   <!--End of Header-->
@@ -26,8 +26,12 @@
     <section class="photographer" aria-label="Informations Photographe" role="information" tabindex="0"></section>
     <!--End of photographer info section-->
 
+          <!--Stats-->
+      
+        <div class="stats" tabindex="0"></div>
+
     <!--Photographer Gallery section-->
-    <section class="gallery" aria-label="Galerie Photographe" role="information" tabindex="1">
+    <section class="gallery" aria-label="Galerie Photographe" role="information" tabindex="0">
       <!--filter container-->
       <div class="listbox-container">
         <span class="filter-by" aria-label="liste filtrante">Trier par</span>
@@ -42,8 +46,16 @@
 
       <div class="gallery__list"></div>
 
-
     </section>
+
+            <!--Lightbox-->
+            <div id="lightbox">
+              <button class="close-lightbox" aria-label="fermer médias lightbox"><i class="fas fa-times"></i></button>
+               <!-- Previous and next controls -->
+              <button class="lightbox-btn" id="prev" type="button" aria-label="photo précédente"><i class="fas fa-chevron-left"></i></button>
+              <button class="lightbox-btn" id="next" type="button" aria-label="photo suivante"><i class="fas fa-chevron-right"></i></button>
+              <div class="slides"></div>
+          </div> <!--End of lightbox-->
 
 
   </main>

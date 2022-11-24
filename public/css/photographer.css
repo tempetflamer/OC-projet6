@@ -213,3 +213,24 @@ option::after {
 .gallery__list__data__description__likes i {
   margin-top: 10px;
 }
+.stats {
+  bottom: 0px;
+  right: 2%;
+  position: fixed;
+  padding-left: 3%;
+  padding-right: 3%;
+  width: 200px;
+  background-color: #DB8876;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.stats__likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0 5px;
+}

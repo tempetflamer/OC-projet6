@@ -38,6 +38,10 @@ h1 {
   flex-direction: column;
   gap: -200px 0;
 }
+.photographer__data a {
+  text-decoration: none;
+  text-align: center;
+}
 
 .photographer__data__name {
   color: #D3573C;
