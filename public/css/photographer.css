@@ -234,3 +234,149 @@ option::after {
   align-items: center;
   gap: 0 5px;
 }
+/*** CONTACT MODAL ***/
+.contact {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.contact__content {
+  margin: 5% auto;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: 0.8s ease-in-out;
+  background: #db8876;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 2rem;
+}
+.contact__content__title {
+  color: black;
+  left: 16px;
+  font-weight: 500;
+  font-size: 2.8rem;
+}
+.contact__content h1 {
+  margin: 0;
+}
+.contact__content__close {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  font-size: 3rem;
+  right: 2rem;
+  top: 1.5rem;
+  color: #fff;
+  border: none;
+  background: none;
+}
+.contact__content__body {
+  margin-top: 1.5rem;
+}
+.contact__content__body__formData {
+  margin-bottom: 1rem;
+}
+.contact__content__body__formData label {
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.contact__content__body__formData .text-control {
+  padding: 2%;
+  /*                 padding-left: 8px;
+  padding-right: -8px; */
+  width: 96%;
+  border: 0.8px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  height: 36px;
+  outline: none;
+}
+.contact__content__body__formData #message {
+  height: 8rem;
+}
+.contact__content__body #submit-btn {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  background: #911c1c;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  left: 12rem;
+}
+
+/* #submit-btn {
+    //text-align: center;
+    position: relative;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    background: #911c1c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    left: 12rem;
+}
+ */
+/* Class error for message added by JS*/
+/*   .formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 12px;
+    color: #e54858;
+    display: block;
+    margin: 7px 0;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible="true"] .text-control {
+    border: 2px solid #e54858;
+  }
+  input[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: red;
+  } */
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: white;
+}

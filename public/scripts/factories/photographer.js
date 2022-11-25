@@ -1,3 +1,15 @@
+/* 
+const modal = document.querySelector(".contact");
+
+function displayModal() {
+    //const modal = document.getElementById("contact");
+	modal.style.display = "block";
+}
+
+function closeModal() {
+    //const modal = document.getElementById("contact");
+    modal.style.display = "none";
+} */
 
 function photographerFactory(data) {
     //const { name, portrait } = data;
@@ -111,6 +123,10 @@ function photographerPage(data) {
         divPhotographerinfo.appendChild(cityPhotographer);
         divPhotographerinfo.appendChild(taglinePhotographer);
 
+        // Init contact form title 
+        const modalTitle = document.querySelector(".contact__content__title");
+        modalTitle.innerHTML = " Contactez-moi<br>"+name;
+
         return (divPhotographerinfo);
     }
 
@@ -124,6 +140,8 @@ function photographerPage(data) {
         contactPhotographer.textContent = 'Contactez-moi';
         contactPhotographer.tabIndex = "0";
         contactPhotographer.type = "button" //accessibility
+        contactPhotographer.classList.add('.photographer__contact__btn'); // ça restera peut être pas mais c'est pour tester
+        contactPhotographer.addEventListener("click", displayModal);
         // contactPhotographer.classList.add('photographer__contact__button')
         divPhotographerContact.appendChild(contactPhotographer);
 
@@ -224,6 +242,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             video.type = "video/mp4";
             video.role = "link";
             video.classList.add('gallery__list__data__img');
+            video.addEventListener("click", displayLightboxModal);
             article.appendChild(video);
         }
         else {
@@ -233,6 +252,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             img.alt = title;
             img.role = "link";
             img.classList.add('gallery__list__data__img');
+            img.addEventListener("click", closeLightboxModal);
             article.appendChild(img);
         }
         //img.setAttribute("src", `./src/assets/images/${chemin}/${image}`);
@@ -269,12 +289,12 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         article.appendChild(desc);
 
         //event listerner to launch lightbox // sinon je fais un fichier js séparé
-        article.addEventListener("click", () => {
+/*         article.addEventListener("click", () => {
             showLightbox(media.title, media.src);
         });
         article.addEventListener("keydown", (e) => {
             if (e.code === "Enter") { showLightbox(media.title, media.src); }
-        });
+        }); */
 
         return (article);
     }
