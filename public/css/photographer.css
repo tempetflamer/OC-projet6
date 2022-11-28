@@ -211,7 +211,7 @@ option::after {
   gap: 0 5px;
 }
 .gallery__list__data__description__likes i {
-  margin-top: 10px;
+  margin-top: 25px;
 }
 .stats {
   bottom: 0px;

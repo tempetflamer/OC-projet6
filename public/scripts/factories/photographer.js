@@ -242,6 +242,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             video.type = "video/mp4";
             video.role = "link";
             video.classList.add('gallery__list__data__img');
+            video.tabIndex = 0;
             article.appendChild(video);
 
             // Display Lightbox modal
@@ -265,7 +266,8 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             img.src = `./assets/images/${chemin}/${image}`;
             img.alt = title;
             img.role = "link";
-            img.classList.add('gallery__list__data__img');            
+            img.classList.add('gallery__list__data__img');
+            img.tabIndex = 0;            
             article.appendChild(img);
 
             // Display Lightbox modal
@@ -303,13 +305,16 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         like.classList.add("gallery__list__data__description__likes");
         const numberLike = document.createElement('p')
         console.log(likes);
-        like.textContent = likes;
+        //like.textContent = likes; // precent - corriger css
+        numberLike.textContent = likes;
         numberLike.classList.add("gallery__list__data__description__likes__number");
+        numberLike.tabIndex = 0; 
         const iconLike = document.createElement('i')
         iconLike.classList.add("fa-solid");
         iconLike.classList.add("fa-heart");
         iconLike.classList.add("fa-lg");
         iconLike.ariaLabel = "likes";
+        iconLike.tabIndex = 0; 
 
         desc.appendChild(titlePhotographer);
         desc.appendChild(like);

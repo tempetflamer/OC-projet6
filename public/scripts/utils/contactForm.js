@@ -72,22 +72,24 @@ function displayLightboxMedia(value, img, title) {
         createLlightboxModalMedia = document.createElement('video');
         createLlightboxModalMedia.src = img;
         createLlightboxModalMedia.type = "video/mp4";
-
+        createLlightboxModalMedia.controls = true;
     }
     else {
         createLlightboxModalMedia = document.createElement('img');
         createLlightboxModalMedia.src = img;
 
     }
-    createLlightboxModalMedia.alt = title;
+    createLlightboxModalMedia.alt = title; //tabindex="0"
     //video.role = "link";
     createLlightboxModalMedia.classList.add('lightbox-modal__content__slides__media');
+    createLlightboxModalMedia.tabIndex = 1;
     lightboxModalSlides.appendChild(createLlightboxModalMedia);
 
     //Create image title on <p> balise
     const createtitlePictureLightbox = document.createElement('p');
     createtitlePictureLightbox.textContent = title;
     createtitlePictureLightbox.classList.add('lightbox-modal__content__slides__title');
+    createtitlePictureLightbox.tabIndex = 2;
     lightboxModalSlides.appendChild(createtitlePictureLightbox);
 }
 

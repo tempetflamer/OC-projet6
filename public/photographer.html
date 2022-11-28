@@ -35,7 +35,7 @@
       <!--filter container-->
       <div class="listbox-container">
         <span class="filter-by" aria-label="liste filtrante">Trier par</span>
-        <select aria-label="filtrer par" name="filtre" id="listbox" class="listbox listbox__btn">
+        <select aria-label="filtrer par" name="filtre" id="listbox" class="listbox listbox__btn" tabindex="0">
           <option value="popularité">Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
           </option>
           <option value="date">Date</option>
@@ -87,16 +87,16 @@
     <!--Lightbox-->
     <div class="lightbox-modal">
       <div class="lightbox-modal__content">
-        <button class="lightbox-modal__content__close" aria-label="fermer la visualisation du média sélectionné"><i
+        <button class="lightbox-modal__content__close" aria-label="fermer la visualisation du média sélectionné" tabindex="3"><i
             class="fas fa-times"></i></button>
         <!-- Previous and next controls -->
-        <button class="lightbox-modal__content__btn prev" id="prev" type="button" aria-label="photo précédente"><i
+        <button class="lightbox-modal__content__btn prev" id="prev" type="button" aria-label="photo précédente" tabindex="4"><i
             class="fas fa-chevron-left"></i></button>
         <div class="lightbox-modal__content__slides">
           <!-- <img class="lightbox-modal__slides__img"> soit video soit image-->
           <!-- <p class="lightbox-modal__content__slides__title"></p> -->
         </div>
-        <button class="lightbox-modal__content__btn next" id="next" type="button" aria-label="photo suivante"><i
+        <button class="lightbox-modal__content__btn next" id="next" type="button" aria-label="photo suivante" tabindex="5"><i
             class="fas fa-chevron-right"></i></button>
       </div>
     </div>
