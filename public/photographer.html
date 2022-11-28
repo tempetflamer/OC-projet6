@@ -86,15 +86,19 @@
 
     <!--Lightbox-->
     <div class="lightbox-modal">
-      <button class="lightbox-modal__close" aria-label="fermer médias lightbox"><i class="fas fa-times"></i></button>
-      <!-- Previous and next controls -->
-      <button class="lightbox-modal__btn" id="prev" type="button" aria-label="photo précédente"><i
-          class="fas fa-chevron-left"></i></button>
-      <div class="lightbox-modal__slides">
-        <img class="lightbox-modal__slides__img">
+      <div class="lightbox-modal__content">
+        <button class="lightbox-modal__content__close" aria-label="fermer la visualisation du média sélectionné"><i
+            class="fas fa-times"></i></button>
+        <!-- Previous and next controls -->
+        <button class="lightbox-modal__content__btn prev" id="prev" type="button" aria-label="photo précédente"><i
+            class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-modal__content__slides">
+          <!-- <img class="lightbox-modal__slides__img"> soit video soit image-->
+          <!-- <p class="lightbox-modal__content__slides__title"></p> -->
+        </div>
+        <button class="lightbox-modal__content__btn next" id="next" type="button" aria-label="photo suivante"><i
+            class="fas fa-chevron-right"></i></button>
       </div>
-      <button class="lightbox-modal__btn" id="next" type="button" aria-label="photo suivante"><i
-          class="fas fa-chevron-right"></i></button>
     </div>
     <!--End of lightbox-->
   </main>

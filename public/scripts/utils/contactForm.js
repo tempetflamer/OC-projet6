@@ -7,6 +7,9 @@
 
 const modal = document.querySelector(".contact");
 const btnCloseModal = document.querySelector(".contact__content__close");
+const titlePictureLightbox = document.querySelector(".lightbox-modal__content__slides__title");
+const btnCloseLightbox = document.querySelector(".lightbox-modal__content__close");
+
 //console.log(modal)
 
 //il ne trouve aps les informations et je me demande si le fait que je créer les élément à partir du js 'empêche de les récupérer à partir de document
@@ -39,15 +42,75 @@ btnCloseModal.addEventListener("click", closeModal);
 
 //pour l'instant je met dans contact form amis apres je recrér un fichier js nommé lightbox
 const lightboxModal = document.querySelector(".lightbox-modal");
+const lightboxModalSlides = document.querySelector(".lightbox-modal__content__slides");
 
-function displayLightboxModal() {
+// Création d'une seul fonction
+/* function displayLightboxPicture(value){
+    const createLlightboxModalPicture = document.createElement('img');
+    createLlightboxModalPicture.src = `./assets/images/${chemin}/${dataMedia.video}`;
+    createLlightboxModalPicture.alt = title;
+    //createLlightboxModalPicture.type = "video/mp4";
+    //video.role = "link";
+    createLlightboxModalPicture.classList.add('lightbox-modal__slides__img');
+    lightboxModalSlides.appendChild(createLlightboxModalPicture);
+}
+
+function displayLightboxVideo(){
+    const createLlightboxModalVideo = document.createElement('video');
+    createLlightboxModalVideo.src = `./assets/images/${chemin}/${dataMedia.video}`;
+    createLlightboxModalVideo.alt = title;
+    createLlightboxModalVideo.type = "video/mp4";
+    //video.role = "link";
+    createLlightboxModalVideo.classList.add('lightbox-modal__slides__img');
+    lightboxModalSlides.appendChild(createLlightboxModalVideo);
+} */
+
+function displayLightboxMedia(value, img, title) {
+    let createLlightboxModalMedia = "";
+
+    if (value == "video") {
+        createLlightboxModalMedia = document.createElement('video');
+        createLlightboxModalMedia.src = img;
+        createLlightboxModalMedia.type = "video/mp4";
+
+    }
+    else {
+        createLlightboxModalMedia = document.createElement('img');
+        createLlightboxModalMedia.src = img;
+
+    }
+    createLlightboxModalMedia.alt = title;
+    //video.role = "link";
+    createLlightboxModalMedia.classList.add('lightbox-modal__content__slides__media');
+    lightboxModalSlides.appendChild(createLlightboxModalMedia);
+
+    //Create image title on <p> balise
+    const createtitlePictureLightbox = document.createElement('p');
+    createtitlePictureLightbox.textContent = title;
+    createtitlePictureLightbox.classList.add('lightbox-modal__content__slides__title');
+    lightboxModalSlides.appendChild(createtitlePictureLightbox);
+}
+
+/**
+ * 
+ * @param {*} value //text value for video or img
+ * @param {*} img // image source
+ */
+function displayLightboxModal(value, img, title) {
     //const modal = document.getElementById("contact");
     lightboxModal.style.display = "block";
     disableScroll();
+    displayLightboxMedia(value, img, title);
+    btnCloseLightbox.addEventListener("click", closeLightboxModal);
 }
 
 function closeLightboxModal() {
     //const modal = document.getElementById("contact");
     lightboxModal.style.display = "none";
     enableScroll();
+    // remove the created elements in lightbox
+    document.querySelector(".lightbox-modal__content__slides__media").remove();
+    document.querySelector(".lightbox-modal__content__slides__title").remove();
+
 }
+

@@ -242,8 +242,22 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             video.type = "video/mp4";
             video.role = "link";
             video.classList.add('gallery__list__data__img');
-            video.addEventListener("click", displayLightboxModal);
             article.appendChild(video);
+
+            // Display Lightbox modal
+/*             const createLlightboxModalVideo = document.createElement('video');
+            createLlightboxModalVideo.src = `./assets/images/${chemin}/${dataMedia.video}`;
+            createLlightboxModalVideo.alt = title;
+            createLlightboxModalVideo.type = "video/mp4";
+            //video.role = "link";
+            createLlightboxModalVideo.classList.add('lightbox-modal__slides__img');
+            lightboxModalSlides.appendChild(createLlightboxModalVideo); */
+            const valueTypeLightbox = "video";
+            //video.addEventListener("click", displayLightboxModal(valueTypeLightbox, video.src, title));
+            video.addEventListener("click", (e) =>  { displayLightboxModal(valueTypeLightbox, video.src, title);});
+            video.addEventListener("keydown", (e) => {
+                if (e.code === "Enter") { displayLightboxModal(valueTypeLightbox, video.src, title); }
+            });
         }
         else {
             const img = document.createElement('img');
@@ -251,9 +265,26 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             img.src = `./assets/images/${chemin}/${image}`;
             img.alt = title;
             img.role = "link";
-            img.classList.add('gallery__list__data__img');
-            img.addEventListener("click", closeLightboxModal);
+            img.classList.add('gallery__list__data__img');            
             article.appendChild(img);
+
+            // Display Lightbox modal
+            // à déplacer dans une autre fonction
+/*             const createLlightboxModalPicture = document.createElement('img');
+            createLlightboxModalPicture.src = `./assets/images/${chemin}/${dataMedia.video}`;
+            createLlightboxModalPicture.alt = title;
+            //createLlightboxModalPicture.type = "video/mp4";
+            //video.role = "link";
+            createLlightboxModalPicture.classList.add('lightbox-modal__slides__img');
+            lightboxModalSlides.appendChild(createLlightboxModalPicture); */
+            const valueTypeLightbox = "img";
+            const pictureURLightbox = img.src;
+            //img.addEventListener("click", displayLightboxModal(valueTypeLightbox, pictureURLightbox, title));
+            img.addEventListener("click", (e) =>  { displayLightboxModal(valueTypeLightbox, img.src, title);});
+            img.addEventListener("keydown", (e) => {
+                if (e.code === "Enter") { displayLightboxModal(valueTypeLightbox, img.src, title); }
+            });
+            
         }
         //img.setAttribute("src", `./src/assets/images/${chemin}/${image}`);
         //img.alt = title; //Uncaught (in promise) ReferenceError: can't access lexical declaration 'title' before initialization
