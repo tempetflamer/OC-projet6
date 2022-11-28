@@ -70,7 +70,6 @@ async function init() {
             const arrayPricePhotographer = dataPhotographers.find(photographer => photographer.id == idUrl);
             console.log("stat prix : "+arrayPricePhotographer.price)
             const pricePhotographer = arrayPricePhotographer.price;
-            //console.log("stat prix : "+pricePhotographerP)
             const priceStats = document.createElement('p')
             priceStats.textContent = pricePhotographer+"€/jour";
             priceStats.classList.add("stats__price");
@@ -79,16 +78,6 @@ async function init() {
             likesStats.appendChild(iconLikeStats);
             StatsDiv.appendChild(likesStats);
             StatsDiv.appendChild(priceStats);
-
-
-            /*         const photographersSection = document.querySelector(".photographer");
-            
-                    dataPhotographers.forEach((photographer) => {
-                        const photographerModel = photographerFactory(photographer);
-                        const userCardDOM = photographerModel.getUserCardDOM();
-                        photographersSection.appendChild(userCardDOM);
-                    }); */
-
 
         });
 

@@ -1,22 +1,6 @@
-/* 
-const modal = document.querySelector(".contact");
-
-function displayModal() {
-    //const modal = document.getElementById("contact");
-	modal.style.display = "block";
-}
-
-function closeModal() {
-    //const modal = document.getElementById("contact");
-    modal.style.display = "none";
-} */
-
 function photographerFactory(data) {
-    //const { name, portrait } = data;
     const { name, id, city, country, tagline, price, portrait } = data;
 
-
-    //const picture = `./src/assets/images/${name}/${portrait}`; // finalement les photos sont dans un dossier appelé 
     const picture = `./assets/images/avatar/${portrait}`;
 
     function getUserCardDOM() {
@@ -24,7 +8,7 @@ function photographerFactory(data) {
         article.classList.add('photographer__data');
         const imageLink = document.createElement('a');
         //on part de index.html
-        imageLink.href = './photographer.html?id=' + id; // `../../../photographer.html?id=${id}`; marche pas ça memene sur la page http://localhost:8080/photographer.html?id=930 au lieu de public/
+        imageLink.href = './photographer.html?id=' + id;
         imageLink.tabIndex = "0";
         const img = document.createElement('img');
         img.setAttribute("src", picture)
@@ -45,8 +29,6 @@ function photographerFactory(data) {
         article.appendChild(imageLink);
         imageLink.appendChild(img);
         imageLink.appendChild(h2);
-        //h2 se trouve dans le lien
-        //article.appendChild(h2);
         article.appendChild(pCity);
         article.appendChild(pTagline);
         article.appendChild(pPrice);
@@ -57,52 +39,8 @@ function photographerFactory(data) {
 
 
 function photographerPage(data) {
-    //const { name, portrait } = data;
     const { name, id, city, country, tagline, price, portrait } = data;
-
     const picture = `./assets/images/avatar/${portrait}`;
-
-    /*     function getUserSection() {
-            const divPhotographerModifier = document.createElement( 'div' );
-            divPhotographerModifier.classList.add('photographer--container');
-    
-            const divPhotographerinfo = document.createElement( 'div' );
-            const divPhotographerContact = document.createElement( 'div' );
-            const divPhotographerPhoto = document.createElement( 'div' );
-            divPhotographerinfo.classList.add('photographer__data');
-            divPhotographerContact.classList.add('photographer__contact');
-            divPhotographerPhoto.classList.add('photographer__picture');
-    
-            const namePhotographer = document.createElement( 'h1' );
-            namePhotographer.textContent = name;
-            namePhotographer.classList.add("photographer__data__name");
-            const cityPhotographer = document.createElement( 'p' );
-            cityPhotographer.textContent = city+', '+country;
-            cityPhotographer.classList.add("photographer__data__location");
-            const taglinePhotographer = document.createElement( 'p' );
-            taglinePhotographer.textContent = tagline;
-            taglinePhotographer.classList.add('photographer__data__tagline');
-            divPhotographerinfo.appendChild(namePhotographer);
-            divPhotographerinfo.appendChild(cityPhotographer);
-            divPhotographerinfo.appendChild(taglinePhotographer);
-    
-            const contactPhotographer = document.createElement( 'img' );
-            contactPhotographer.setAttribute("src", picture)
-            contactPhotographer.setAttribute("alt", name)
-            contactPhotographer.classList.add('photographer__data__img');
-            divPhotographerPhoto.appendChild(contactPhotographer);  
-    
-            const conatctPhotographer = document.createElement( 'button' );
-            conatctPhotographer.href = '';
-            conatctPhotographer.classList.add('photographer__contact__button')
-            divPhotographerContact.appendChild(conatctPhotographer);
-    
-            divPhotographerModifier.appendChild(divPhotographerinfo);
-            divPhotographerModifier.appendChild(divPhotographerContact);
-            divPhotographerModifier.appendChild(divPhotographerPhoto);
-    
-            return (divPhotographerModifier);
-        } */
 
     function getUserInfo() {
 
@@ -142,7 +80,6 @@ function photographerPage(data) {
         contactPhotographer.type = "button" //accessibility
         contactPhotographer.classList.add('.photographer__contact__btn'); // ça restera peut être pas mais c'est pour tester
         contactPhotographer.addEventListener("click", displayModal);
-        // contactPhotographer.classList.add('photographer__contact__button')
         divPhotographerContact.appendChild(contactPhotographer);
 
         return (divPhotographerContact);
@@ -165,67 +102,13 @@ function photographerPage(data) {
     return { name, picture, getUserInfo, getUserContact, getUserPicture }
 }
 
-//sert plus
-function getNamePhotographer(id) { // en passant la fonction en async, j'obtient test : [object Promise] mais j'ai toujours le message console.log('avant echec des données')
-    var namePhotographer = '';
-    fetch('/public/data/photographers.json'/*'../../data/photographers.json'*/, { mode: 'no-cors' }) //fetch(myURL, { mode: 'no-cors'})
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            try {
-                JSON.parse(data);
-            }
-            catch (error) {
-                console.log('Error parsing JSON:', error, data);
-            }
-
-            // Faut que je change le modèle de lecture il attend pas la fin du foreah avant d'envoyer la reponse
-            const dataPhotographers = [...data.photographers];
-
-            //.find
-            namePhotographer = dataPhotographers.find(photographer => photographer.id === "id");
-            namePhotographer = namePhotographer.name;
-            console.log("find name photographers : " + namePhotographer);
-            /*             dataPhotographers.forEach((photographer) => {
-                            console.log("photographer.id", photographer.id);
-                            console.log("id", id);
-                            if (parseInt(photographer.id) === parseInt(id)) {
-                                console.log(photographer.id);
-                                console.log(photographer.name);
-                                namePhotographer = photographer.name;
-                                console.log(namePhotographer);
-                                return namePhotographer;
-                            }
-                        }); */
-        });
-    // si j'enlève cetet artie là il me retorune undefined, il attend pas le reste
-    console.log('avant echec des données');
-    if (namePhotographer == '' || namePhotographer == undefined)
-        return "echec de chargement des données";
-    else
-        return namePhotographer;
-
-    // ça marche toujours pas mais tester en le ajoutant un deuxieme parametre directement dans la fonction originale
-}
-
 function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medias
-    //const { name, portrait } = data;
     const { id, photographerId, title, image, likes, date, price } = dataMedia; //image or video
-    // Dans le cadre d'une video, montrer une miniature
-
-    //const { namePhotographers, idPhotographers} = dataPhotographers
-
-
 
     function getGalleryCardDOM() {
-
-        // theoriquement je peux juste le faire en supprimant les espaces, les tirets, etc... sinon on refait une fnction pour // le rpobleme c'est que tous mes console serve a rien vu comment j'appelle la fonction utilisation de jsfiddle pour debugger
-        //const namePhotographer = getNamePhotographer(photographerId);
-        //console.log(idPhotographers, photographerId) // retourne undefined and 243
-        console.log(dataPhotographers.find(photographer => photographer.id === photographerId)); // .find me retourne Object { name: "Mimi Keel", id: 243, city: "London", country: "UK", tagline: "Voir le beau dans le quotidien", price: 400, portrait: "MimiKeel.jpg" }...
+        console.log(dataPhotographers.find(photographer => photographer.id === photographerId));
         const namePhotographer = dataPhotographers.find(photographer => photographer.id === photographerId);
         console.log("find name photographers : " + namePhotographer.name);
-        //namePhotographer = namePhotographer.name; //Uncaught (in promise) TypeError: namePhotographer is undefined
         const namePhotographerArray = namePhotographer.name.split(" ");
         console.log(namePhotographerArray[0])
         const chemin = namePhotographerArray[0].replace('-', ' '); // dans l'architecture des dossiers, nous en mettons pas de tiret mais des espaces pour les noms composé
@@ -233,7 +116,6 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
 
         const article = document.createElement('article');
         article.classList.add('gallery__list__data');
-        //const img = document.createElement('img');
         if (dataMedia.video) { //"video" in dataMedia
             const video = document.createElement('video');
             console.log("ceci est le log de data video = ", "src", `./assets/images/${chemin}/${dataMedia.video}`);
@@ -246,15 +128,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             article.appendChild(video);
 
             // Display Lightbox modal
-/*             const createLlightboxModalVideo = document.createElement('video');
-            createLlightboxModalVideo.src = `./assets/images/${chemin}/${dataMedia.video}`;
-            createLlightboxModalVideo.alt = title;
-            createLlightboxModalVideo.type = "video/mp4";
-            //video.role = "link";
-            createLlightboxModalVideo.classList.add('lightbox-modal__slides__img');
-            lightboxModalSlides.appendChild(createLlightboxModalVideo); */
             const valueTypeLightbox = "video";
-            //video.addEventListener("click", displayLightboxModal(valueTypeLightbox, video.src, title));
             video.addEventListener("click", (e) =>  { displayLightboxModal(valueTypeLightbox, video.src, title);});
             video.addEventListener("keydown", (e) => {
                 if (e.code === "Enter") { displayLightboxModal(valueTypeLightbox, video.src, title); }
@@ -272,40 +146,26 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
 
             // Display Lightbox modal
             // à déplacer dans une autre fonction
-/*             const createLlightboxModalPicture = document.createElement('img');
-            createLlightboxModalPicture.src = `./assets/images/${chemin}/${dataMedia.video}`;
-            createLlightboxModalPicture.alt = title;
-            //createLlightboxModalPicture.type = "video/mp4";
-            //video.role = "link";
-            createLlightboxModalPicture.classList.add('lightbox-modal__slides__img');
-            lightboxModalSlides.appendChild(createLlightboxModalPicture); */
             const valueTypeLightbox = "img";
             const pictureURLightbox = img.src;
-            //img.addEventListener("click", displayLightboxModal(valueTypeLightbox, pictureURLightbox, title));
             img.addEventListener("click", (e) =>  { displayLightboxModal(valueTypeLightbox, img.src, title);});
             img.addEventListener("keydown", (e) => {
                 if (e.code === "Enter") { displayLightboxModal(valueTypeLightbox, img.src, title); }
             });
             
         }
-        //img.setAttribute("src", `./src/assets/images/${chemin}/${image}`);
-        //img.alt = title; //Uncaught (in promise) ReferenceError: can't access lexical declaration 'title' before initialization
-        //console.log(title);
-        //img.setAttribute("alt", title);
-        //img.classList.add('gallery__list__data__img'); // ne restera probablement pas
 
         const desc = document.createElement('div')
         desc.classList.add("gallery__list__data__description");
         const titlePhotographer = document.createElement('p')
         console.log(title);
-        titlePhotographer.textContent = title; // erreur [object HTMLDivElement] // String(title) //titlePhotographer.innerHTML = title.textContent;
+        titlePhotographer.textContent = title;
         titlePhotographer.classList.add("gallery__list__data__description__title");
         titlePhotographer.alt = title.textContent
         const like = document.createElement('div')
         like.classList.add("gallery__list__data__description__likes");
         const numberLike = document.createElement('p')
         console.log(likes);
-        //like.textContent = likes; // precent - corriger css
         numberLike.textContent = likes;
         numberLike.classList.add("gallery__list__data__description__likes__number");
         numberLike.tabIndex = 0; 
@@ -320,17 +180,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         desc.appendChild(like);
         like.appendChild(numberLike);
         like.appendChild(iconLike);
-
-        // article.appendChild(img);
         article.appendChild(desc);
-
-        //event listerner to launch lightbox // sinon je fais un fichier js séparé
-/*         article.addEventListener("click", () => {
-            showLightbox(media.title, media.src);
-        });
-        article.addEventListener("keydown", (e) => {
-            if (e.code === "Enter") { showLightbox(media.title, media.src); }
-        }); */
 
         return (article);
     }

@@ -53,34 +53,26 @@ h1 {
   width: 200px;
   border-radius: 50%;
   object-fit: cover; /* pas besoin */
-  /* box-shadow: 0px 0px 10px 10px rgba(117,117,117,0.10); */
 }
 
 /* corriger flex at 1072px;*/
 .photographer__data__location {
-  /*text-align: center;*/
   color: #911C1C;
   font-size: 1.5rem;
-  /* line-height: 1.7rem; */
   margin-top: -8%;
 }
 
 .photographer__data__tagline {
-  /* text-align: center; */
   font-size: 1.2rem;
-  /* line-height: 1rem; */
   margin-top: -8%;
 }
 
 .photographer__data__price {
-  /* text-align: center; */
   font-size: 1.2rem;
-  /* line-height: 1rem; */
   color: #757575;
   margin-top: -6%;
 }
 
-/* mettre le 5% margin-rigth and left sur le main*/
 @media screen and (max-width: 1320px) {
   .photographer {
     grid-template-columns: 0.9fr 1.1fr 1fr;

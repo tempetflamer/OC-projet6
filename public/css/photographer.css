@@ -79,19 +79,6 @@ form input {
   background-color: #FAFAFA;
   height: 300px;
   width: 100%;
-  /*     width: 90%;
-      margin-right: 5%;
-      margin-left: 5%; */
-  /*     display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: row; */
-  /*     display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 70px;
-      margin-top: 100px; */
-  /*     padding-left: 30px;
-      padding-right: 30px; */
 }
 
 .photographer__data {
@@ -191,8 +178,6 @@ option::after {
   border-radius: 5px;
   width: 450px;
   height: 385px;
-  /*   width: 34rem;
-  height: 28rem; */
   max-width: 100%;
   max-height: 100%;
   display: block;
@@ -213,6 +198,7 @@ option::after {
 .gallery__list__data__description__likes i {
   margin-top: 25px;
 }
+
 .stats {
   bottom: 0px;
   right: 2%;
@@ -292,8 +278,6 @@ option::after {
 }
 .contact__content__body__formData .text-control {
   padding: 2%;
-  /*                 padding-left: 8px;
-  padding-right: -8px; */
   width: 96%;
   border: 0.8px solid #ccc;
   border-radius: 5px;
@@ -317,44 +301,6 @@ option::after {
   left: 12rem;
 }
 
-/* #submit-btn {
-    //text-align: center;
-    position: relative;
-
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 1rem 2rem;
-    font-weight: bold;
-    background: #911c1c;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    left: 12rem;
-}
- */
-/* Class error for message added by JS*/
-/*   .formData[data-error]::after {
-    content: attr(data-error);
-    font-size: 12px;
-    color: #e54858;
-    display: block;
-    margin: 7px 0;
-    text-align: right;
-    line-height: 0.3;
-    opacity: 0;
-    transition: 0.3s;
-  }
-  .formData[data-error-visible="true"]::after {
-    opacity: 1;
-  }
-  .formData[data-error-visible="true"] .text-control {
-    border: 2px solid #e54858;
-  }
-  input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-  } */
 @keyframes modalopen {
   from {
     opacity: 0;
@@ -389,37 +335,6 @@ option::after {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  /*         display: grid;
-  grid-template-rows: 0.5fr 1fr 0.5fr;
-  align-items: center;
-  justify-items: center; */
-  /*         .prev {
-              //position: absolute;
-              //left: 5rem; 
-              //float: right;
-          }
-
-          .next {
-              right: 10%;
-              //float: left;
-          }
-
-          #prev {
-              left: 30%;
-              //float: right;
-          }
-
-          #next {
-              right: 50%;
-              //float: left;
-          } */
-  /* 
-  .btn--right{
-      position: relative;
-      display: flex;
-      align-items: right;
-      justify-content: right;
-  } */
 }
 .lightbox-modal__content__close {
   width: 6rem;
@@ -438,11 +353,6 @@ option::after {
   color: #911c1c;
   border: none;
   background: none;
-  /*             display: flex;
-  align-items: center;
-  justify-content: center; */
-  /*             position: absolute;
-  left: 5rem; */
 }
 .lightbox-modal__content__slides {
   display: flex;
