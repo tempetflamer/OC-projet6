@@ -89,18 +89,32 @@ function displayLightboxModal(e, value, img, title) {
     displayLightboxMedia(e, value, img, title); //e évènement permettant de récupérer la source de l'image
     btnCloseLightbox.addEventListener("click", closeLightboxModal);
 
+    //remove gray class controller button
+    btnPrevLightbox.classList.remove("lightbox-modal__content__btn--gray")
+    btnNextLightbox.classList.remove("lightbox-modal__content__btn--gray")
+
     console.log("vous passez ici combien de fois"); // on y passe qu'un seul fois on part de la fonction après être allé sur le btn prev et next
 
-    //je n'ai même pas besoin de metrtes les datanum sur els flèche voire sur l'image agrandie
-    btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e)-1, value, img, title); });
-    btnPrevLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e)-1, value, img, title); }
-    });
+    if (e == 0) {
+        btnPrevLightbox.classList.add("lightbox-modal__content__btn--gray")
 
-    btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e)+1, value, img, title); });
-    btnNextLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e)+1, value, img, title); }
-    });
+    }
+    else {
+        btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); });
+        btnPrevLightbox.addEventListener("keydown", (event) => {
+            if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); }
+        });
+    }
+
+    if (e == arrayLightbox.size - 1) {
+        btnNextLightbox.classList.add("lightbox-modal__content__btn--gray")
+    }
+    else {
+        btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); });
+        btnNextLightbox.addEventListener("keydown", (event) => {
+            if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); }
+        });
+    }
 
 }
 
@@ -118,7 +132,11 @@ function prevPictureLightboxModal(e, value, img, title) {
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();
 
-    swapLightboxMedia(parseInt(e)-1, value, img, title);
+    swapLightboxMedia(parseInt(e), value, img, title);
+
+    //remove gray class controller button
+    btnPrevLightbox.classList.remove("lightbox-modal__content__btn--gray")
+    btnNextLightbox.classList.remove("lightbox-modal__content__btn--gray")
 
     //Faire une fonction controller
 
@@ -127,15 +145,21 @@ function prevPictureLightboxModal(e, value, img, title) {
     console.log("vous passez ici combien de fois"); // on y passe qu'un seul fois on part de la fonction après être allé sur le btn prev et next
 
     //je n'ai même pas besoin de metrtes les datanum sur els flèche voire sur l'image agrandie
-    btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e)-1, value, img, title); });
-    btnPrevLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e)-1, value, img, title); }
+    btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); });
+    btnNextLightbox.addEventListener("keydown", (event) => {
+        if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); }
     });
 
-    btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e)+1, value, img, title); });
-    btnNextLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e)+1, value, img, title); }
-    });
+    if (e == 0) {
+        btnPrevLightbox.classList.add("lightbox-modal__content__btn--gray")
+
+    }
+    else {
+        btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); });
+        btnPrevLightbox.addEventListener("keydown", (event) => {
+            if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); }
+        });
+    }
 }
 
 function nextPictureLightboxModal(e, value, img, title) {
@@ -147,18 +171,27 @@ function nextPictureLightboxModal(e, value, img, title) {
 
     btnCloseLightbox.addEventListener("click", closeLightboxModal);
 
+    //remove gray class controller button
+    btnPrevLightbox.classList.remove("lightbox-modal__content__btn--gray") // on a aps d'erreur si la classe existe pas
+    btnNextLightbox.classList.remove("lightbox-modal__content__btn--gray")
+
     console.log("vous passez ici combien de fois"); // on y passe qu'un seul fois on part de la fonction après être allé sur le btn prev et next
 
     //je n'ai même pas besoin de metrtes les datanum sur els flèche voire sur l'image agrandie
-    btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e)-1, value, img, title); });
+    btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); });
     btnPrevLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e)-1, value, img, title); }
+        if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); }
     });
 
-    btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e)+1, value, img, title); });
-    btnNextLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e)+1, value, img, title); }
-    });
+    if (e == arrayLightbox.size - 1) {
+        btnNextLightbox.classList.add("lightbox-modal__content__btn--gray")
+    }
+    else {
+        btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); });
+        btnNextLightbox.addEventListener("keydown", (event) => {
+            if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); }
+        });
+    }
 
 
 }

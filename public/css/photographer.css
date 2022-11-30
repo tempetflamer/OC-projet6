@@ -392,6 +392,9 @@ option::after {
   border: none;
   background: none;
 }
+.lightbox-modal__content__btn--gray {
+  color: gray;
+}
 .lightbox-modal__content__slides {
   display: flex;
   align-items: right;
