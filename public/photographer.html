@@ -88,21 +88,31 @@
     <!--Lightbox-->
     <div class="lightbox-modal">
       <div class="lightbox-modal__content">
-        <button class="lightbox-modal__content__close" aria-label="fermer la visualisation du média sélectionné" tabindex="3"><i
-            class="fas fa-times"></i></button>
         <!-- Previous button -->
-        <button class="lightbox-modal__content__btn prev" id="prev" type="button" aria-label="photo précédente" tabindex="4"><i
-            class="fas fa-chevron-left"></i></button>
-        <div class="lightbox-modal__content__slides"></div>
+        <button class="lightbox-modal__content__btn prev" id="prev" type="button" aria-label="photo précédente"
+          tabindex="4"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-modal__content__slides">
+          <div class="lightbox-modal__content--top">
+            <button class="lightbox-modal__content__close" aria-label="fermer la visualisation du média sélectionné"
+              tabindex="3"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
         <!--Next button-->
-        <button class="lightbox-modal__content__btn next" id="next" type="button" aria-label="photo suivante" tabindex="5"><i
-            class="fas fa-chevron-right"></i></button>
+        <button class="lightbox-modal__content__btn next" id="next" type="button" aria-label="photo suivante"
+          tabindex="5"><i class="fas fa-chevron-right"></i></button>
+
+        <!--  L'avantage est que ça ne gêne plus en appuyant sur le bouton suivant (hitbox)          
+              <div class="lightbox-modal__content--top">
+              <button class="lightbox-modal__content__close" aria-label="fermer la visualisation du média sélectionné"
+              tabindex="3"><i class="fas fa-times"></i></button>
+            </div> -->
       </div>
     </div>
     <!--End of lightbox-->
   </main>
   <script src="./scripts/factories/photographer.js"></script>
   <script src="./scripts/utils/contactForm.js"></script>
+  <script src="./scripts/utils/lightbox.js"></script>
   <script src="./scripts/pages/photographer.js"></script>
   <!-- <script src="./scripts/utils/contactForm.js"></script> defer chaneg rien -->
 </body>

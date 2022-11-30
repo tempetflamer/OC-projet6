@@ -125,13 +125,16 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             video.role = "link";
             video.classList.add('gallery__list__data__img');
             video.tabIndex = 0;
+            video.dataset.num = indexLightbox; // number used to init the array for the lightbox and controllers (prev, next) 
             article.appendChild(video);
 
-            // Display Lightbox modal
+            initArrayLightbox("video", video.src, title);
+
+            // Display Lightbox modal // remplacer e par e.target.dataset.num puis l'incrémenter
             const valueTypeLightbox = "video";
-            video.addEventListener("click", (e) =>  { displayLightboxModal(valueTypeLightbox, video.src, title);});
+            video.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, valueTypeLightbox, video.src, title);});
             video.addEventListener("keydown", (e) => {
-                if (e.code === "Enter") { displayLightboxModal(valueTypeLightbox, video.src, title); }
+                if (e.code === "Enter") { displayLightboxModal(e.target.dataset.num, valueTypeLightbox, video.src, title); }
             });
         }
         else {
@@ -141,16 +144,19 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             img.alt = title;
             img.role = "link";
             img.classList.add('gallery__list__data__img');
-            img.tabIndex = 0;            
+            img.tabIndex = 0;
+            img.dataset.num = indexLightbox; // number used to init the array for the lightbox and controllers (prev, next)             
             article.appendChild(img);
 
-            // Display Lightbox modal
+            initArrayLightbox("img", img.src, title);
+
+            // Display Lightbox modal // remplacer e par e.target.dataset.num puis l'incrémenter
             // à déplacer dans une autre fonction
             const valueTypeLightbox = "img";
             const pictureURLightbox = img.src;
-            img.addEventListener("click", (e) =>  { displayLightboxModal(valueTypeLightbox, img.src, title);});
+            img.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, valueTypeLightbox, img.src, title);});
             img.addEventListener("keydown", (e) => {
-                if (e.code === "Enter") { displayLightboxModal(valueTypeLightbox, img.src, title); }
+                if (e.code === "Enter") { displayLightboxModal(e.target.dataset.num, valueTypeLightbox, img.src, title); }
             });
             
         }

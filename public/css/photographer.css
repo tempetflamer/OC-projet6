@@ -161,6 +161,7 @@ option::after {
   top: unset;
   left: unset;
   padding: 1rem;
+  font-size: 1.2rem;
 }
 
 .fa-chevron-down {
@@ -325,24 +326,61 @@ option::after {
   width: 100%;
   overflow: auto;
   background-color: white;
+  flex-direction: column;
+}
+.lightbox-modal--top {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.lightbox-modal__close {
+  /*         width: 60px;
+  height: 6rem;
+  position: absolute;
+  font-size: 3rem;
+  right: 10%;
+  top: -3%; */
+  margin-top: 500px;
+  color: #911c1c;
+  border: none;
+  background: none;
 }
 .lightbox-modal__content {
   position: absolute;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  /*         margin-top: 5%;
+  margin-bottom: 5%; */
   color: #911c1c;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  /*         &--row{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: row;
+          } */
+}
+.lightbox-modal__content--top {
+  height: 84%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -38px;
+  margin-right: -50px;
 }
 .lightbox-modal__content__close {
+  /*
   width: 6rem;
   height: 6rem;
   position: absolute;
   font-size: 3rem;
   right: 10%;
-  top: -3%;
+  top: -3%; */
+  max-height: 84%;
+  font-size: 3rem;
   color: #911c1c;
   border: none;
   background: none;
@@ -363,62 +401,93 @@ option::after {
   max-width: 70%;
 }
 .lightbox-modal__content__slides__media {
-  max-height: 100%;
+  max-height: 84vh;
   max-width: 100%;
 }
-@media screen and (max-width: 1600px) {
-  .lightbox-modal__content__close {
-    right: 9%;
-    top: -5%;
-  }
+/* @media screen and (max-width: 1600px) {
+    .lightbox-modal {
+        &__content {
+            &__close {
+                right: 9%;
+                top: -5%;
+            }
+        }
+    }
 }
+
 @media screen and (max-width: 1400px) {
-  .lightbox-modal__content__close {
-    right: 8%;
-    top: -7%;
-  }
+    .lightbox-modal {
+        &__content {
+            &__close {
+                right: 8%;
+                top: -7%;
+            }
+        }
+    }
 }
+
 @media screen and (max-width: 1080px) {
-  .lightbox-modal__content__close {
-    width: 5rem;
-    height: 5rem;
-    font-size: 2.5rem;
-    right: 6%;
-    top: -8%;
-  }
+    .lightbox-modal {
+        &__content {
+            &__close {
+                width: 5rem;
+                height: 5rem;
+                font-size: 2.5rem;
+                right: 6%;
+                top: -8%;
+            }
+        }
+    }
 }
+
 @media screen and (max-width: 800px) {
-  .lightbox-modal__content__close {
-    width: 4rem;
-    height: 4rem;
-    font-size: 2.5rem;
-    right: 6%;
-    top: -8%;
-  }
+    .lightbox-modal {
+        &__content {
+            &__close {
+                width: 4rem;
+                height: 4rem;
+                font-size: 2.5rem;
+                right: 6%;
+                top: -8%;
+            }
+        }
+    }
 }
+
 @media screen and (max-width: 600px) {
-  .lightbox-modal__content__close {
-    width: 4rem;
-    height: 4rem;
-    font-size: 2rem;
-    right: 5%;
-    top: -9%;
-  }
-  .lightbox-modal__content__btn {
-    width: 3rem;
-    font-size: 2rem;
-  }
+    .lightbox-modal {
+        &__content {
+            &__close {
+                width: 4rem;
+                height: 4rem;
+                font-size: 2rem;
+                right: 5%;
+                top: -9%;
+            }
+
+            &__btn {
+                width: 3rem;
+                font-size: 2rem;
+            }
+        }
+    }
 }
+
 @media screen and (max-width: 480px) {
-  .lightbox-modal__content__close {
-    width: 4rem;
-    height: 4rem;
-    font-size: 2rem;
-    right: 3%;
-    top: -11%;
-  }
-  .lightbox-modal__content__btn {
-    width: 2.5rem;
-    font-size: 1.5rem;
-  }
-}
+    .lightbox-modal {
+        &__content {
+            &__close {
+                width: 4rem;
+                height: 4rem;
+                font-size: 2rem;
+                right: 3%;
+                top: -11%;
+            }
+
+            &__btn {
+                width: 2.5rem;
+                font-size: 1.5rem;
+            }
+        }
+    }
+} */
