@@ -46,8 +46,6 @@ function photographerPage(data) {
 
         const divPhotographerinfo = document.createElement('div');
         divPhotographerinfo.classList.add('photographer__data');
-        divPhotographerinfo.tabIndex = "0";
-
         const namePhotographer = document.createElement('h1');
         namePhotographer.textContent = name;
         namePhotographer.classList.add("photographer__data__name");
@@ -89,8 +87,6 @@ function photographerPage(data) {
 
         const divPhotographerPhoto = document.createElement('div');
         divPhotographerPhoto.classList.add('photographer__picture');
-        divPhotographerPhoto.tabIndex = "0";
-
         const contactPhotographer = document.createElement('img');
         contactPhotographer.setAttribute("src", picture)
         contactPhotographer.setAttribute("alt", name)

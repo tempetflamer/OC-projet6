@@ -372,6 +372,10 @@ option::after {
   max-height: 84vh;
   max-width: 100%;
 }
+.lightbox-modal__content__slides__title {
+  color: #911c1c;
+}
+
 /* @media screen and (max-width: 1600px) {
     .lightbox-modal {
         &__content {

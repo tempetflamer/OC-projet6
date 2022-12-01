@@ -6,6 +6,17 @@ const lightboxModalSlides = document.querySelector(".lightbox-modal__content__sl
 const btnPrevLightbox = document.getElementById("prev");
 const btnNextLightbox = document.getElementById("next");
 
+const sectionPhotographer = document.querySelector(".photographer");
+const sectionStats = document.querySelector(".stats");
+const sectionGallery = document.querySelector(".gallery");
+const partGallerylist = document.querySelector(".gallery__list");
+const partHeader = document.querySelector("header");
+
+//aria-hidden n'a aucun effet sur le tab
+partHeader.ariaHidden = true; // essayer avec false et aussi directement dans la balise aria-hidden="true" mais rien à faire
+sectionStats.ariaHidden = true;
+//sectionPhotographer.style.visibility = "hidden"; //le champ entier est plus affiché
+
 let arrayLightbox = new Map();
 let indexLightbox = 0;
 
@@ -34,7 +45,6 @@ function displayLightboxMedia(e, value, img, title) {
     createLlightboxModalMedia.alt = title;
     //video.role = "link";
     createLlightboxModalMedia.classList.add('lightbox-modal__content__slides__media');
-    createLlightboxModalMedia.tabIndex = 1;
     createLlightboxModalMedia.dataset.num = e
     lightboxModalSlides.appendChild(createLlightboxModalMedia);
 
@@ -42,7 +52,6 @@ function displayLightboxMedia(e, value, img, title) {
     const createtitlePictureLightbox = document.createElement('p');
     createtitlePictureLightbox.textContent = title;
     createtitlePictureLightbox.classList.add('lightbox-modal__content__slides__title');
-    createtitlePictureLightbox.tabIndex = 2;
     lightboxModalSlides.appendChild(createtitlePictureLightbox);
 }
 
@@ -84,6 +93,13 @@ function swapLightboxMedia(indexMedia, value, img, title) {
  * @param {*} img // image source
  */
 function displayLightboxModal(e, value, img, title) {
+    //change accessibility focus
+    sectionPhotographer.ariaHidden = true;
+    sectionStats.ariaHidden = true;
+    sectionGallery.ariaHidden = true;
+    partGallerylist.ariaHidden = true;
+    partHeader.ariaHidden = true;
+
     lightboxModal.style.display = "block";
     disableScroll();
     displayLightboxMedia(e, value, img, title); //e évènement permettant de récupérer la source de l'image
