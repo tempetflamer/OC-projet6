@@ -53,30 +53,30 @@
     <div class="contact" role="dialog">
       <div class="contact__content" aria-label="modale de contact" id="focus">
         <h1 class="contact__content__title"></h1>
-        <button class="contact__content__close"><i class="fas fa-times"></i></button>
+        <button class="contact__content__close" aria-label="Fermer le formulaire de contact"><i class="fas fa-times"></i></button>
         <div class="contact__content__body" id="modal-div" role="dialog">
           <form name="contact__photographer" action="./photographerPage.html" method="post" id="contact-form"
             role="dialog">
 
-            <div class="contact__content__body__formData" aria-label="entrer votre prénom">
+            <div class="contact__content__body__formData" aria-label="Entrer votre prénom">
               <label for="prenom">Prénom</label>
               <input class="text-control" type="text" name="prenom" id="prenom" required>
             </div>
-            <div class="contact__content__body__formData" aria-label="entrer votre nom">
+            <div class="contact__content__body__formData" aria-label="Entrer votre nom">
               <label for="nom">Nom</label>
               <input class="text-control" type="text" name="nom" id="nom" required>
             </div>
-            <div class="contact__content__body__formData" aria-label="entrer votre email">
+            <div class="contact__content__body__formData" aria-label="Entrer votre email">
               <label for="email">email</label>
               <input class="text-control" type="email" name="email" id="email" required>
             </div>
-            <div class="contact__content__body__formData" aria-label="entrer votre message">
+            <div class="contact__content__body__formData" aria-label="Entrer votre message">
               <label for="message">Votre message</label>
               <input class="text-control" type="text" name="message" id="message" required>
             </div>
 
             <button id="submit-btn" class="btn contact__content__body__submit" type="submit"
-              aria-label="envoyer formulaire">Envoyer</button>
+              aria-label="Envoyer le formulaire">Envoyer</button>
           </form>
         </div>
       </div>

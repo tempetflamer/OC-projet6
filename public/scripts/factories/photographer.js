@@ -170,7 +170,6 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         console.log(likes);
         numberLike.textContent = likes;
         numberLike.classList.add("gallery__list__data__description__likes__number");
-        numberLike.tabIndex = 0; 
         const iconLike = document.createElement('i')
         iconLike.classList.add("fa-solid");
         iconLike.classList.add("fa-heart");

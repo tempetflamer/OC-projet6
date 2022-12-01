@@ -9,18 +9,17 @@ const btnNextLightbox = document.getElementById("next");
 const sectionPhotographer = document.querySelector(".photographer");
 const sectionStats = document.querySelector(".stats");
 const sectionGallery = document.querySelector(".gallery");
-const partGallerylist = document.querySelector(".gallery__list");
+//const partGallerylist = document.querySelector(".gallery__list");
 const partHeader = document.querySelector("header");
 
+//test
 //aria-hidden n'a aucun effet sur le tab
-partHeader.ariaHidden = true; // essayer avec false et aussi directement dans la balise aria-hidden="true" mais rien à faire
-sectionStats.ariaHidden = true;
+//partHeader.ariaHidden = true; // essayer avec false et aussi directement dans la balise aria-hidden="true" mais rien à faire
+//sectionStats.ariaHidden = true;
 //sectionPhotographer.style.visibility = "hidden"; //le champ entier est plus affiché
 
 let arrayLightbox = new Map();
 let indexLightbox = 0;
-
-
 
 //tester ça marche
 function initArrayLightbox(value, media, title) {
@@ -96,7 +95,7 @@ function displayLightboxModal(e, value, img, title) {
     sectionPhotographer.ariaHidden = true;
     sectionStats.ariaHidden = true;
     sectionGallery.ariaHidden = true;
-    partGallerylist.ariaHidden = true;
+    //partGallerylist.ariaHidden = true;
     partHeader.ariaHidden = true;
 
     lightboxModal.style.display = "block";
@@ -153,6 +152,13 @@ function closeLightboxModal() {
     // remove the created elements in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();
+
+        //change accessibility focus
+        sectionPhotographer.ariaHidden = false;
+        sectionStats.ariaHidden = false;
+        sectionGallery.ariaHidden = false;
+        //partGallerylist.ariaHidden = false; galelrie list est une partie de section gallerie
+        partHeader.ariaHidden = false;
 }
 
 // je comprend pas ce qui provoque ces bugs de multiple parcours à certains moments
