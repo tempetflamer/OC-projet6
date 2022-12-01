@@ -21,6 +21,7 @@ let arrayLightbox = new Map();
 let indexLightbox = 0;
 
 
+
 //tester ça marche
 function initArrayLightbox(value, media, title) {
     arrayLightbox.set(indexLightbox, [title, media, value]);
@@ -74,7 +75,6 @@ function swapLightboxMedia(indexMedia, value, img, title) {
     createLlightboxModalMedia.alt = arrayLightbox.get(indexMedia)[0];
     //video.role = "link";
     createLlightboxModalMedia.classList.add('lightbox-modal__content__slides__media');
-    createLlightboxModalMedia.tabIndex = 1;
     createLlightboxModalMedia.dataset.num = indexMedia;
     lightboxModalSlides.appendChild(createLlightboxModalMedia);
 
@@ -82,7 +82,6 @@ function swapLightboxMedia(indexMedia, value, img, title) {
     const createtitlePictureLightbox = document.createElement('p');
     createtitlePictureLightbox.textContent = arrayLightbox.get(indexMedia)[0];
     createtitlePictureLightbox.classList.add('lightbox-modal__content__slides__title');
-    createtitlePictureLightbox.tabIndex = 2;
     lightboxModalSlides.appendChild(createtitlePictureLightbox);
     console.log("test de passage ici"); // vu que ej tarnsfert le smême données images c'est évident que ce sera toujours la même image qui sera affiché
 }
@@ -101,6 +100,8 @@ function displayLightboxModal(e, value, img, title) {
     partHeader.ariaHidden = true;
 
     lightboxModal.style.display = "block";
+    // lightboxModal.showModal();
+    btnPrevLightbox.focus()
     disableScroll();
     displayLightboxMedia(e, value, img, title); //e évènement permettant de récupérer la source de l'image
     btnCloseLightbox.addEventListener("click", closeLightboxModal);
@@ -110,6 +111,8 @@ function displayLightboxModal(e, value, img, title) {
     btnNextLightbox.classList.remove("lightbox-modal__content__btn--gray")
 
     console.log("vous passez ici combien de fois"); // on y passe qu'un seul fois on part de la fonction après être allé sur le btn prev et next
+
+    //trapFocus(activeFocus);
 
     if (e == 0) {
         btnPrevLightbox.classList.add("lightbox-modal__content__btn--gray")
@@ -132,6 +135,16 @@ function displayLightboxModal(e, value, img, title) {
         });
     }
 
+    trapFocusLightbox();//j'ai l'impression que j'ai aps besoin de le mettre sur l'image suivante et précédente
+
+
+    //trapfocus
+/*     btnlisten.addEventListener('click', (e) => {
+        console.log("test")
+        modalisten.style.display = "block";
+          trapFocus(e);
+        }); */
+
 }
 
 function closeLightboxModal() {
@@ -142,7 +155,7 @@ function closeLightboxModal() {
     document.querySelector(".lightbox-modal__content__slides__title").remove();
 }
 
-// ne pas oublier de mettre un blocage pour la première est dernière
+// je comprend pas ce qui provoque ces bugs de multiple parcours à certains moments
 function prevPictureLightboxModal(e, value, img, title) {
     // remove the created elements in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();

@@ -134,7 +134,6 @@ form input {
 #listbox,
 #listbox:focus {
   background: #901C1C;
-  outline: none;
   border: none;
   border-radius: 12px;
   color: #fff;
