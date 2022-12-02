@@ -12,7 +12,7 @@ function enableScroll() {
 }
 
 function displayModal() {
-    modal.style.display = "block";
+    modal.style.display = "flex";
     inputFirstname.focus()
     disableScroll();
     trapFocusContact();

@@ -205,11 +205,12 @@ option::after {
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
 }
 .contact__content {
-  margin: 5% auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -264,6 +265,7 @@ option::after {
 }
 .contact__content__body__formData #message {
   height: 8rem;
+  resize: none;
 }
 .contact__content__body #submit-btn {
   position: relative;
