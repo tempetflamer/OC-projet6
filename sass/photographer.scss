@@ -1,0 +1,5 @@
+@import "./base/set";
+@import "./utils/animations";
+@import "./pages/photographer", "./pages/gallery", "./pages/stats", "./pages/contact";
+@import "./layouts/scroll"; // bon normalemnt scroll faudrait le mettre dans util ou dans base
+@import "./components/lightbox";

@@ -1,86 +1,42 @@
-#contact_modal {
-  display: none;
+body {
+  font-family: "DM Sans", sans-serif;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
-.photograph-header {
-  background-color: #FAFAFA;
-  height: 300px;
-  margin: 0 100px;
-}
-
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901C1C;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.modal {
-  border-radius: 5px;
-  background-color: #DB8876;
-  width: 50%;
+header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+  height: 90px;
 }
 
-.modal header {
-  justify-content: space-between;
-  width: 100%;
+h1 {
+  color: #901C1C;
+  margin-right: 100px;
 }
 
-.modal header img {
-  cursor: pointer;
+.logo {
+  height: 50px;
+  margin-left: 100px;
 }
 
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-form label {
-  color: #312E2E;
-  font-size: 36px;
-}
-
-form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  height: 68px;
-  border: none;
-  border-radius: 5px;
-}
-
 .photographer {
   background-color: #FAFAFA;
   height: 300px;
   width: 100%;
 }
-
 .photographer__data {
   align-items: start;
   margin-left: 30px;
@@ -89,18 +45,15 @@ form input {
 .photographer__data__tagline {
   color: #525252;
 }
-
 .photographer__contact {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.photographer__contact button {
+.photographer__contact__btn {
   font-size: 20px;
   font-weight: bold;
   color: white;
-  padding: 11px;
   width: 170px;
   height: 70px;
   border: none;
@@ -108,12 +61,35 @@ form input {
   border-radius: 5px;
   cursor: pointer;
 }
-
 .photographer__picture {
   margin-right: -30px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+form label {
+  color: #312E2E;
+  font-size: 36px;
+}
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
+}
+form input {
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
 }
 
 /* Section Gallery */
@@ -220,7 +196,7 @@ option::after {
   align-items: center;
   gap: 0 5px;
 }
-/*** CONTACT MODAL ***/
+/*** Contact modal ***/
 .contact {
   display: none;
   position: fixed;
@@ -264,6 +240,7 @@ option::after {
   color: #fff;
   border: none;
   background: none;
+  cursor: pointer;
 }
 .contact__content__body {
   margin-top: 1.5rem;
@@ -299,17 +276,9 @@ option::after {
   border-radius: 5px;
   color: #fff;
   left: 12rem;
+  cursor: pointer;
 }
 
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-  to {
-    opacity: 1;
-  }
-}
 .stop-scrolling {
   height: 100%;
   overflow: hidden;

@@ -76,7 +76,7 @@ function photographerPage(data) {
         contactPhotographer.textContent = 'Contactez-moi';
         contactPhotographer.tabIndex = "0";
         contactPhotographer.type = "button" //accessibility
-        contactPhotographer.classList.add('.photographer__contact__btn'); // ça restera peut être pas mais c'est pour tester
+        contactPhotographer.classList.add('photographer__contact__btn'); // ça restera peut être pas mais c'est pour tester
         contactPhotographer.addEventListener("click", displayModal);
         divPhotographerContact.appendChild(contactPhotographer);
 

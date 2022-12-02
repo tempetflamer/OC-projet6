@@ -1,0 +1,92 @@
+/* Section Gallery */
+/* Filter */
+.listbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.filter-by {
+  margin-right: 1rem;
+  color: #000;
+  display: unset;
+}
+
+#listbox,
+#listbox:focus {
+  background: #901C1C;
+  //outline: none; // cache le cadre du focus
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  position: relative;
+}
+
+option::after {
+  border-radius: 10px;
+  width: 7rem;
+  line-height: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.fa-chevron-up {
+  display: none;
+}
+
+.listbox__btn {
+  display: flex;
+  position: unset;
+  top: unset;
+  left: unset;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.fa-chevron-down {
+  margin-left: 0.5rem;
+}
+
+.gallery__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 0;
+
+  &__data {
+    &__img {
+      border-radius: 5px;
+      width: 450px;
+      height: 385px;
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    &__description {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      color: #901C1C;
+
+      &__likes {
+        display: flex;
+        flex-direction: row;
+        gap: 0 5px;
+
+        i {
+          margin-top: 25px;
+        }
+
+      }
+
+    }
+
+  }
+}

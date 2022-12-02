@@ -1,0 +1,55 @@
+@media screen and (max-width: 1320px) {
+    .photographer {
+        grid-template-columns: 0.9fr 1.1fr 1fr;
+
+    }
+}
+
+
+@media screen and (max-width: 1235px) {
+    .photographer {
+        grid-template-columns: 1fr 1fr;
+
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .photographer {
+        grid-template-columns: 1fr;
+
+    }
+
+    header {
+        justify-content:space-around;
+        gap: 0 20px;
+
+        h1{
+            margin-right: 0;
+        }
+
+        .logo{
+            margin-left: 0;
+        }
+    }
+
+}
+
+@media screen and (max-width: 565px) { // 565 passe sur chrome mais aps sur firefox, ya un pixel qui casse les couilles sur firefox mais d'après le html je suis en 557px ?
+
+    header {
+        flex-direction: column;
+
+        h1{
+            margin: 0;
+        }
+
+        .logo{
+            margin-top: 45px;
+        }
+    }
+
+
+}
+
+//Responsive jusqu'à 400px;
+//faire attention ce responsive est appliqué à la page des photographe aussi

@@ -1,0 +1,97 @@
+/*** Contact modal ***/
+.contact {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    &__content {
+        margin: 5% auto;
+        width: 100%;
+        max-width: 500px;
+        animation-name: modalopen;
+        animation-duration: 0.8s ease-in-out;
+        background: #db8876;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        padding: 1.5rem 2rem;
+
+        &__title {
+            color: black;
+            left: 16px;
+            font-weight: 500;
+            font-size: 2.8rem;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        &__close {
+            display: block;
+            width: 4rem;
+            height: 4rem;
+            position: absolute;
+            font-size: 3rem;
+            right: 2rem;
+            top: 1.5rem;
+            color: #fff;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        &__body {
+            margin-top: 1.5rem;
+
+            &__formData {
+
+                    margin-bottom: 1rem;
+
+                    label {
+                        font-size: 1.6rem;
+                        font-weight: normal;
+                        margin-bottom: 5px;
+                    }
+
+                    .text-control {
+                        padding: 2%;
+                        width: 96%;
+                        border: 0.8px solid #ccc;
+                        border-radius: 5px;
+                        font-size: 20px;
+                        height: 36px;
+                        outline: none;
+                    }
+
+                    #message {
+                        height: 8rem;
+                    }
+                    
+                }
+
+                #submit-btn{
+                    position: relative;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    padding: 1rem 2rem;
+                    font-weight: bold;
+                    background: #911c1c;
+                    border: none;
+                    border-radius: 5px;
+                    color: #fff;
+                    left: 12rem;
+                    cursor: pointer;   
+                }
+            
+        }
+        
+    }
+    
+}
