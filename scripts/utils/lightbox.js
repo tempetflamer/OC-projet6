@@ -198,6 +198,7 @@ function prevPictureLightboxModal(e, value, img, title) {
 }
 
 function nextPictureLightboxModal(e, value, img, title) {
+    //faut que je remette tous ça dans l'élément d'après vérification sinon il refait à chaque fois toutes la manip
     // remove the created elements in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();

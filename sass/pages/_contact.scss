@@ -7,11 +7,12 @@
     top: 0;
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
 
     &__content {
-        margin: 5% auto;
         width: 100%;
         max-width: 500px;
         animation-name: modalopen;
@@ -51,7 +52,6 @@
             margin-top: 1.5rem;
 
             &__formData {
-
                     margin-bottom: 1rem;
 
                     label {
@@ -72,12 +72,23 @@
 
                     #message {
                         height: 8rem;
+                        resize : none;
+                    }
+
+                    .error{
+                        font-size: 1.2em;
+                        color: #525252;
                     }
                     
                 }
 
+                &--flex-start {
+                    display: flex;
+                    align-items: flex-start;
+                }
+
                 #submit-btn{
-                    position: relative;
+                    //position: relative; // plus besoin de le centrer
                     margin-top: 1rem;
                     margin-bottom: 1rem;
                     padding: 1rem 2rem;
@@ -94,4 +105,31 @@
         
     }
     
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    label {
+        color: #312E2E;
+        font-size: 36px;
+    }
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: self-start;
+        margin-bottom: 26px;
+    }
+    
+    input {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: 5px;
+    }
 }

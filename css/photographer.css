@@ -301,6 +301,10 @@ option::after {
   height: 8rem;
   resize: none;
 }
+.contact__content__body__formData .error {
+  font-size: 1.2em;
+  color: #525252;
+}
 .contact__content__body--flex-start {
   display: flex;
   align-items: flex-start;
@@ -356,8 +360,6 @@ form input {
   .photographer {
     margin-top: 25px;
     grid-template-columns: 1fr;
-    /*         display : flex;
-            flex-direction: column; */
     order: 3 1 2;
     height: 100%;
     padding: 20px 0;
@@ -377,9 +379,6 @@ form input {
     order: 1;
     margin-right: 0;
   }
-  /*     .photographer__picture{
-      margin-top: -600px;
-  } */
 }
 .lightbox-modal {
   display: none;
@@ -408,6 +407,7 @@ form input {
   color: #911c1c;
   border: none;
   background: none;
+  cursor: pointer;
 }
 .lightbox-modal__content__btn {
   width: 4rem;
