@@ -31,6 +31,11 @@ async function init() {
 
             dataPhotographers.forEach((photographer) => {
                 if (photographer.id == idUrl){
+
+                    //init meta description
+                    document.querySelector('meta[name="description"]').setAttribute("content", "FishEye, page du photographe "  + photographer.name);
+
+
                     console.log('test photographe reussie');
                     const photographerModel = photographerPage(photographer);
                     const userInfo = photographerModel.getUserInfo();
