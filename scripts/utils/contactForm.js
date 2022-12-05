@@ -1,11 +1,12 @@
 // DOM Elements
 const modal = document.querySelector(".contact");
 const btnCloseModal = document.querySelector(".contact__content__close");
+const contactForm = document.getElementById("contact-form");
 const inputFirstname = document.getElementById("prenom");
-const inputLastname = document.getElementById("nom"); //non utilisé
-const inputEmail = document.getElementById("email"); //non utilisé
-const inputMessage = document.getElementById("message"); //non utilisé
-const submitForm = document.getElementById("submit-btn"); //non utilisé
+const inputLastname = document.getElementById("nom");
+const inputEmail = document.getElementById("email");
+const inputMessage = document.getElementById("message");
+const submitContactForm = document.getElementById("submit-btn");
 
 function disableScroll() {
     document.body.classList.add("stop-scrolling");
@@ -46,13 +47,14 @@ function getCheckName(element, value) {
     if ((value.length < 3 || !value.match(/^[A-Za-z\é\è\ê\-]+$/gm))) {
         const error = document.createElement('span');
         error.classList.add("error");
-        error.textContent = "Le " + (element.id).replace('e','é') + " doit être composé de 3 lettres minimum";
+        error.textContent = "Le " + (element.id).replace('e', 'é') + " doit être composé de 3 lettres minimum";
         parent.appendChild(error);
     }
     else {
         isValid = true;
     }
 
+    return isValid;
 }
 
 function getCheckMail(element, value) {
@@ -77,6 +79,7 @@ function getCheckMail(element, value) {
         isValid = true;
     }
 
+    return isValid;
 }
 
 function getCheckMessage(element, value) {
@@ -101,6 +104,7 @@ function getCheckMessage(element, value) {
         isValid = true;
     }
 
+    return isValid;
 }
 
 function submitContact(e) {
@@ -122,11 +126,20 @@ function submitContact(e) {
     const setMessage = document.getElementById("message").value;
 
 
-    getCheckName(inputFirstname, setFirstname);
-    getCheckName(inputLastname, setLastname);
-    getCheckMail(inputEmail, setEmail);
-    getCheckMessage(inputMessage, setMessage);
+    const firstnameChecker = getCheckName(inputFirstname, setFirstname);
+    const lastnameChecker = getCheckName(inputLastname, setLastname);
+    const emailChecker = getCheckMail(inputEmail, setEmail);
+    const messageChecker = getCheckMessage(inputMessage, setMessage);
+
+    if (firstnameChecker && lastnameChecker && emailChecker && messageChecker) {
+        console.log("Prénom : " + setFirstname);
+        console.log("Nom : " + setLastname);
+        console.log("Email : " + setEmail);
+        console.log("Message : " + setMessage);
+        closeModal();
+        contactForm.reset();
+    }
 
 }
 
-submitForm.addEventListener("click", (e) => submitContact(e));
+submitContactForm.addEventListener("click", (e) => submitContact(e));
