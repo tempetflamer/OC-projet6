@@ -1,0 +1,24 @@
+@mixin primary-color {
+    background: #901C1C;
+    color: white;
+}
+
+@mixin primary-color-2 {
+    background: white;
+    color: #D3573C;
+}
+
+@mixin secondary-color {
+    background: #DB8876;
+    color: black;
+}
+
+@mixin secondary-color-2 {
+    background: #FAFAFA;
+    color: #525252;
+}
+
+@mixin secondary-color-3 {
+    background: #FFFFFF;
+    color: #901C1C;
+}
