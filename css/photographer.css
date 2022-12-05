@@ -117,6 +117,10 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
 }
+.photographer__contact__btn:hover, .photographer__contact__btn:focus {
+  background: #DB8876;
+  color: black;
+}
 .photographer__picture {
   margin-right: -30px;
   display: flex;
@@ -320,6 +324,10 @@ option::after {
   color: #fff;
   left: 12rem;
   cursor: pointer;
+}
+.contact__content__body #submit-btn:hover, .contact__content__body #submit-btn:focus {
+  background: #FAFAFA;
+  color: #525252;
 }
 
 form {
