@@ -9,25 +9,30 @@ const btnNextLightbox = document.getElementById("next");
 const sectionPhotographer = document.querySelector(".photographer");
 const sectionStats = document.querySelector(".stats");
 const sectionGallery = document.querySelector(".gallery");
-//const partGallerylist = document.querySelector(".gallery__list");
 const partHeader = document.querySelector("header");
-
-//test
-//aria-hidden n'a aucun effet sur le tab
-//partHeader.ariaHidden = true; // essayer avec false et aussi directement dans la balise aria-hidden="true" mais rien à faire
-//sectionStats.ariaHidden = true;
-//sectionPhotographer.style.visibility = "hidden"; //le champ entier est plus affiché
 
 let arrayLightbox = new Map();
 let indexLightbox = 0;
 
-//tester ça marche
+initArrayLightbox("video", video.src, title);
+/**
+ * Function to init an array of all media
+ * @param {*} value - media type (video or picture)
+ * @param {*} media - media link
+ * @param {*} title - media name
+ */
 function initArrayLightbox(value, media, title) {
     arrayLightbox.set(indexLightbox, [title, media, value]);
     console.log("Test de déclaration du tableau de lightbox : " + arrayLightbox.get(indexLightbox)[0]); // doit renvoyer le titre de la ligne ajouté
     indexLightbox = indexLightbox + 1; // maybe, il faudra l'incrémenter dans la fonction display // non c'est bon j'ai changé le mode de fonctionneemnt
 }
 
+/**
+ * @param {*} e - numéro du média
+ * @param {*} value - media type (video or picture)
+ * @param {*} img - media link
+ * @param {*} title - media name
+ */
 function displayLightboxMedia(e, value, img, title) {
     let createLlightboxModalMedia = "";
 
@@ -55,6 +60,12 @@ function displayLightboxMedia(e, value, img, title) {
     lightboxModalSlides.appendChild(createtitlePictureLightbox);
 }
 
+/**
+ * @param {*} indexMedia - numéro du média
+ * @param {*} value - media type (video or picture)
+ * @param {*} img - media link
+ * @param {*} title - media name
+ */
 function swapLightboxMedia(indexMedia, value, img, title) {
     let createLlightboxModalMedia = "";
     //arrayLightbox.set(indexLightbox, [title, media, value]);
@@ -85,10 +96,13 @@ function swapLightboxMedia(indexMedia, value, img, title) {
     console.log("test de passage ici"); // vu que ej tarnsfert le smême données images c'est évident que ce sera toujours la même image qui sera affiché
 }
 
+
+
 /**
- * 
- * @param {*} value //text value for video or img
- * @param {*} img // image source
+ * @param {*} e - numéro du média
+ * @param {*} value - media type (video or picture)
+ * @param {*} img - media link
+ * @param {*} title - media name
  */
 function displayLightboxModal(e, value, img, title) {
     //change accessibility focus
@@ -162,6 +176,12 @@ function closeLightboxModal() {
 }
 
 // je comprend pas ce qui provoque ces bugs de multiple parcours à certains moments
+/**
+ * @param {*} e - numéro du média
+ * @param {*} value - media type (video or picture)
+ * @param {*} img - media link
+ * @param {*} title - media name
+ */
 function prevPictureLightboxModal(e, value, img, title) {
     // remove the created elements in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();
@@ -197,6 +217,12 @@ function prevPictureLightboxModal(e, value, img, title) {
     }
 }
 
+/**
+ * @param {*} e - numéro du média
+ * @param {*} value - media type (video or picture)
+ * @param {*} img - media link
+ * @param {*} title - media name
+ */
 function nextPictureLightboxModal(e, value, img, title) {
     //faut que je remette tous ça dans l'élément d'après vérification sinon il refait à chaque fois toutes la manip
     // remove the created elements in lightbox

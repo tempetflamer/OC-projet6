@@ -1,6 +1,6 @@
 // DOM Elements
-const modal = document.querySelector(".contact");
-const btnCloseModal = document.querySelector(".contact__content__close");
+const contactModal = document.querySelector(".contact");
+const btnCloseContactModal = document.querySelector(".contact__content__close");
 const contactForm = document.getElementById("contact-form");
 const inputFirstname = document.getElementById("prenom");
 const inputLastname = document.getElementById("nom");
@@ -17,23 +17,27 @@ function enableScroll() {
 }
 
 function displayModal() {
-    modal.style.display = "flex";
+    contactModal.style.display = "flex";
     inputFirstname.focus()
     disableScroll();
     trapFocusContact();
 }
 
 function closeModal() {
-    modal.style.display = "none";
+    contactModal.style.display = "none";
     enableScroll();
 }
 
-btnCloseModal.addEventListener("click", closeModal);
+btnCloseContactModal.addEventListener("click", closeModal);
 
 
 
-// Check form
-
+/**
+ *  Function check firstname and lastname fields
+ * @param {*} element - Dom element
+ * @param {*} value - field value
+ * @returns - Bool value
+ */
 function getCheckName(element, value) {
 
     // variables
@@ -57,6 +61,12 @@ function getCheckName(element, value) {
     return isValid;
 }
 
+/**
+ * Function check email field
+ * @param {*} element - Dom element
+ * @param {*} value - field value
+ * @returns - Bool value
+ */
 function getCheckMail(element, value) {
 
     // variables
@@ -82,6 +92,12 @@ function getCheckMail(element, value) {
     return isValid;
 }
 
+/**
+ *  Function check message field
+ * @param {*} element - Dom element
+ * @param {*} value - field value
+ * @returns - Bool value
+ */
 function getCheckMessage(element, value) {
 
     // variables

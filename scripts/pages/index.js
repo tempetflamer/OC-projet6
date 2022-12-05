@@ -1,4 +1,4 @@
-async function displayData(photographers) {
+/* async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer");
 
     photographers.forEach((photographer) => {
@@ -6,7 +6,7 @@ async function displayData(photographers) {
         const userSection = photographerModel.getUserSection();
         photographersSection.appendChild(userSection);
     });
-};
+}; */
 
 async function init() {
     fetch('./data/photographers.json', { mode: 'no-cors' })
