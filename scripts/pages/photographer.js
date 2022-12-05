@@ -63,8 +63,8 @@ async function init() {
             const likesStats = document.createElement('div')
             likesStats.classList.add("stats__likes");
             console.log("total de like : "+totaLikeStats)
-            likesStats.textContent = totaLikeStats;
             const likesStatsNumber = document.createElement('p')
+            likesStatsNumber.textContent = totaLikeStats;
             likesStatsNumber.classList.add("stats__likes__number");
             const iconLikeStats = document.createElement('i')
             iconLikeStats.classList.add("fa-solid");
