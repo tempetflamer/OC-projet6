@@ -7,7 +7,6 @@ function photographerFactory(data) {
         const article = document.createElement('article');
         article.classList.add('photographer__data');
         const imageLink = document.createElement('a');
-        //on part de index.html
         imageLink.href = './photographer.html?id=' + id;
         imageLink.tabIndex = "0";
         const img = document.createElement('img');
@@ -102,19 +101,14 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
     const { id, photographerId, title, image, likes, date, price } = dataMedia; //image or video
 
     function getGalleryCardDOM() {
-        console.log(dataPhotographers.find(photographer => photographer.id === photographerId));
         const namePhotographer = dataPhotographers.find(photographer => photographer.id === photographerId);
-        console.log("find name photographers : " + namePhotographer.name);
         const namePhotographerArray = namePhotographer.name.split(" ");
-        console.log(namePhotographerArray[0])
         const chemin = namePhotographerArray[0].replace('-', ' '); // dans l'architecture des dossiers, nous en mettons pas de tiret mais des espaces pour les noms composé
-        console.log(chemin);
 
         const article = document.createElement('article');
         article.classList.add('gallery__list__data');
-        if (dataMedia.video) { //"video" in dataMedia
+        if (dataMedia.video) {
             const video = document.createElement('video');
-            console.log("ceci est le log de data video = ", "src", `./assets/images/${chemin}/${dataMedia.video}`);
             video.src = `./assets/images/${chemin}/${dataMedia.video}`;
             video.alt = title;
             video.type = "video/mp4";
@@ -126,7 +120,6 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
 
             initArrayLightbox("video", video.src, title);
 
-            // Display Lightbox modal // remplacer e par e.target.dataset.num puis l'incrémenter
             const valueTypeLightbox = "video";
             video.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, valueTypeLightbox, video.src, title);});
             video.addEventListener("keydown", (e) => {
@@ -135,7 +128,6 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         }
         else {
             const img = document.createElement('img');
-            console.log("src", `./assets/images/${chemin}/${image}`);
             img.src = `./assets/images/${chemin}/${image}`;
             img.alt = title;
             img.role = "link";
@@ -146,8 +138,6 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
 
             initArrayLightbox("img", img.src, title);
 
-            // Display Lightbox modal // remplacer e par e.target.dataset.num puis l'incrémenter
-            // à déplacer dans une autre fonction
             const valueTypeLightbox = "img";
             const pictureURLightbox = img.src;
             img.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, valueTypeLightbox, img.src, title);});
@@ -160,20 +150,19 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         const desc = document.createElement('div')
         desc.classList.add("gallery__list__data__description");
         const titlePhotographer = document.createElement('p')
-        console.log(title);
         titlePhotographer.textContent = title;
         titlePhotographer.classList.add("gallery__list__data__description__title");
         titlePhotographer.alt = title.textContent
         const like = document.createElement('div')
         like.classList.add("gallery__list__data__description__likes");
         const numberLike = document.createElement('p')
-        console.log(likes);
         numberLike.textContent = likes;
         numberLike.classList.add("gallery__list__data__description__likes__number");
         const iconLike = document.createElement('i')
         iconLike.classList.add("fa-solid");
         iconLike.classList.add("fa-heart");
         iconLike.classList.add("fa-lg");
+        iconLike.classList.add("heart--empty");
         iconLike.ariaLabel = "likes";
         iconLike.tabIndex = 0; 
 
@@ -183,8 +172,31 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         like.appendChild(iconLike);
         article.appendChild(desc);
 
+        //Add or remove medias liked
+        iconLike.addEventListener("click", (e) =>  { changelikes(e, iconLike, numberLike);});
+        iconLike.addEventListener("keydown", (e) => {
+            if (e.code === "Enter") { changelikes(e, iconLike, numberLike); }
+        });
+
         return (article);
     }
 
     return { getGalleryCardDOM }
+}
+
+function changelikes(e, icon, number) {
+    const totaLikes = document.querySelector(".stats__likes__number");
+    if (icon.classList.contains("heart--empty")){
+        number.textContent = parseInt(number.textContent) + 1; 
+        totaLikes.textContent = parseInt(totaLikes.textContent) + 1;
+        icon.classList.remove("heart--empty");
+        icon.classList.add("heart--filled");
+    }
+    else {
+        number.textContent = parseInt(number.textContent) - 1; 
+        totaLikes.textContent = parseInt(totaLikes.textContent) - 1;
+        icon.classList.remove("heart--filled");
+        icon.classList.add("heart--empty");     
+    }
+
 }

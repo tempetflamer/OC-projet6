@@ -44,10 +44,6 @@ function getCheckName(element, value) {
     const parent = element.parentNode;
     let isValid = false;
 
-    //debug
-    console.log(parent);
-    console.log(element.id)
-
     if ((value.length < 3 || !value.match(/^[A-Za-z\é\è\ê\-]+$/gm))) {
         const error = document.createElement('span');
         error.classList.add("error");
@@ -73,12 +69,6 @@ function getCheckMail(element, value) {
     const parent = element.parentNode;
     let isValid = false;
 
-    //debug
-    console.log(parent);
-    console.log(element.id)
-
-
-
     if (!value.match(/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,9}/mg)) {
         const error = document.createElement('span');
         error.classList.add("error");
@@ -103,12 +93,6 @@ function getCheckMessage(element, value) {
     // variables
     const parent = element.parentNode;
     let isValid = false;
-
-    //debug
-    console.log(parent);
-    console.log(element.id)
-
-
 
     if (!value) {
         const error = document.createElement('span');
