@@ -159,7 +159,7 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
         numberLike.textContent = likes;
         numberLike.classList.add("gallery__list__data__description__likes__number");
         const iconLike = document.createElement('i')
-        iconLike.classList.add("fa-solid");
+        iconLike.classList.add("fa-regular");
         iconLike.classList.add("fa-heart");
         iconLike.classList.add("fa-lg");
         iconLike.classList.add("heart--empty");
@@ -190,13 +190,17 @@ function changelikes(e, icon, number) {
         number.textContent = parseInt(number.textContent) + 1; 
         totaLikes.textContent = parseInt(totaLikes.textContent) + 1;
         icon.classList.remove("heart--empty");
+        icon.classList.remove("fa-regular");
         icon.classList.add("heart--filled");
+        icon.classList.add("fa-solid");   
     }
     else {
-        number.textContent = parseInt(number.textContent) - 1; 
+        number.textContent = parseInt(number.textContent) - 1;
         totaLikes.textContent = parseInt(totaLikes.textContent) - 1;
         icon.classList.remove("heart--filled");
-        icon.classList.add("heart--empty");     
+        icon.classList.remove("fa-solid");
+        icon.classList.add("heart--empty");  
+        icon.classList.add("fa-regular");
     }
 
 }

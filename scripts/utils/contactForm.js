@@ -30,8 +30,6 @@ function closeModal() {
 
 btnCloseContactModal.addEventListener("click", closeModal);
 
-
-
 /**
  *  Function check firstname and lastname fields
  * @param {*} element - Dom element
