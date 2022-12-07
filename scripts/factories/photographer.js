@@ -118,7 +118,9 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             video.dataset.num = indexLightbox; // number used to init the array for the lightbox and controllers (prev, next) 
             article.appendChild(video);
 
+            //initArrayLightbox("video", video.src, title); // un seul tableau pour lightbox et trie
             initArrayLightbox("video", video.src, title);
+            initArrayLFilter(title, dataMedia.likes, dataMedia.date, indexLightbox);
 
             const valueTypeLightbox = "video";
             video.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, valueTypeLightbox, video.src, title);});
@@ -136,7 +138,9 @@ function photographerGallery(dataMedia, dataPhotographers) { // ajouter les medi
             img.dataset.num = indexLightbox; // number used to init the array for the lightbox and controllers (prev, next)             
             article.appendChild(img);
 
+            //initArrayLightbox("img", img.src, title); // un seul tableau pour lightbox et trie
             initArrayLightbox("img", img.src, title);
+            initArrayLFilter(title, dataMedia.likes, dataMedia.date, indexLightbox);
 
             const valueTypeLightbox = "img";
             const pictureURLightbox = img.src;
