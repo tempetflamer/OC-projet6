@@ -6,6 +6,10 @@ const lightboxModalSlides = document.querySelector(".lightbox-modal__content__sl
 const btnPrevLightbox = document.getElementById("prev");
 const btnNextLightbox = document.getElementById("next");
 
+/* const lightboxModalMedia = document.querySelector(".lightbox-modal__content__slides__media");
+const mediaDataset = parseInt(lightboxModalMedia.dataset.num) */
+let setIndexMedia = 0;
+
 const sectionPhotographer = document.querySelector(".photographer");
 const sectionStats = document.querySelector(".stats");
 const sectionGallery = document.querySelector(".gallery");
@@ -89,8 +93,6 @@ function swapLightboxMedia(indexMedia, value, img, title) {
     lightboxModalSlides.appendChild(createtitlePictureLightbox);
 }
 
-
-
 /**
  * @param {*} e - numéro du média
  * @param {*} value - media type (video or picture)
@@ -110,33 +112,12 @@ function displayLightboxModal(e, value, img, title) {
     displayLightboxMedia(e, value, img, title);
     btnCloseLightbox.addEventListener("click", closeLightboxModal);
 
-    //remove gray class controller button
-    btnPrevLightbox.classList.remove("lightbox-modal__content__btn--gray")
-    btnNextLightbox.classList.remove("lightbox-modal__content__btn--gray")
+    var lightboxModalMedia = document.querySelector(".lightbox-modal__content__slides__media");
+    setIndexMedia = parseInt(lightboxModalMedia.dataset.num);
 
-    if (e == 0) {
-        btnPrevLightbox.classList.add("lightbox-modal__content__btn--gray")
-
-    }
-    else {
-        btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); });
-/*         btnPrevLightbox.addEventListener("keydown", (event) => {
-            if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); }
-        }); */
-    }
-
-    if (e == arrayLightbox.size - 1) {
-        btnNextLightbox.classList.add("lightbox-modal__content__btn--gray")
-    }
-    else {
-        btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); });
-/*         btnNextLightbox.addEventListener("keydown", (event) => {
-            if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); }
-        }); */
-    }
-
+    btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(setIndexMedia, value, img, title); });
+    btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(setIndexMedia, value, img, title); });
     trapFocusLightbox();
-
 }
 
 function closeLightboxModal() {
@@ -150,48 +131,27 @@ function closeLightboxModal() {
     sectionPhotographer.ariaHidden = false;
     sectionStats.ariaHidden = false;
     sectionGallery.ariaHidden = false;
-    //partGallerylist.ariaHidden = false; galelrie list est une partie de section gallerie
     partHeader.ariaHidden = false;
 }
 
-// je comprend pas ce qui provoque ces bugs de multiple parcours à certains moments
 /**
  * @param {*} e - numéro du média
  * @param {*} value - media type (video or picture)
  * @param {*} img - media link
  * @param {*} title - media name
  */
-function prevPictureLightboxModal(e, value, img, title) {
+function prevPictureLightboxModal(indexMedia, value, img, title) {
     // remove the created elements in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();
 
-    swapLightboxMedia(parseInt(e), value, img, title);
-
-    console.log("passage dans previous picture");
-
-    //remove gray class controller button
-    btnPrevLightbox.classList.remove("lightbox-modal__content__btn--gray")
-    btnNextLightbox.classList.remove("lightbox-modal__content__btn--gray")
-
-    btnCloseLightbox.addEventListener("click", closeLightboxModal);
-
-    //je n'ai même pas besoin de metrtes les datanum sur els flèche voire sur l'image agrandie
-    btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); }); // j'ai essayer de mettre des remove event listerner ici aussi mais ça marche pas
-/*     btnNextLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); }
-    }); */
-
-    if (e == 0) {
-        btnPrevLightbox.classList.add("lightbox-modal__content__btn--gray")
-
+    if (setIndexMedia == 0) {
+        setIndexMedia = arrayLightbox.size - 1;
     }
-    else {
-        btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); });
-/*         btnPrevLightbox.addEventListener("keydown", (event) => {
-            if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); }
-        }); */
+    else{
+        setIndexMedia = setIndexMedia - 1;
     }
+    swapLightboxMedia(parseInt(setIndexMedia), value, img, title);
 }
 
 /**
@@ -200,42 +160,15 @@ function prevPictureLightboxModal(e, value, img, title) {
  * @param {*} img - media link
  * @param {*} title - media name
  */
-function nextPictureLightboxModal(e, value, img, title) {
-    //faut que je remette tous ça dans l'élément d'après vérification sinon il refait à chaque fois toutes la manip
-    // remove the created elements in lightbox
+function nextPictureLightboxModal(mediaDataset, value, img, title) {
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();
 
-    swapLightboxMedia(parseInt(e), value, img, title);
-
-    //btnCloseLightbox.addEventListener("click", closeLightboxModal); // pas besoin de la rajouter encore
-    console.log("passage dans next picture");
-    //remove gray class controller button
-    btnPrevLightbox.classList.remove("lightbox-modal__content__btn--gray") // on a aps d'erreur si la classe existe pas
-    btnNextLightbox.classList.remove("lightbox-modal__content__btn--gray")
-
-    //Test
-    btnNextLightbox.removeEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e), value, img, title); });
-    btnPrevLightbox.removeEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e), value, img, title); });
-
-
-
-    //je n'ai même pas besoin de metrtes les datanum sur els flèche voire sur l'image agrandie
-    btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); });
-/*     btnPrevLightbox.addEventListener("keydown", (event) => {
-        if (event.code === "Enter") { prevPictureLightboxModal(parseInt(e) - 1, value, img, title); }
-    }); */
-
-    if (e == arrayLightbox.size - 1) {
-        btnNextLightbox.classList.add("lightbox-modal__content__btn--gray")
-        btnNextLightbox.removeEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); });
-    }
-     else {
-        btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); });
-/*         btnNextLightbox.addEventListener("keydown", (event) => { // y'en a pas besoin trop mdr
-            if (event.code === "Enter") { nextPictureLightboxModal(parseInt(e) + 1, value, img, title); }
-        }); */
-    } 
-
-
+    if (setIndexMedia === arrayLightbox.size - 1) {
+        setIndexMedia = 0;
+     }
+     else{
+        setIndexMedia = setIndexMedia + 1;
+     }
+    swapLightboxMedia(parseInt(setIndexMedia), value, img, title);
 }
