@@ -66,7 +66,7 @@ option::after {
       max-height: 100%;
       display: block;
       object-fit: cover;
-      cursor: pointer;   
+      cursor: pointer;
     }
 
     &__description {
@@ -82,8 +82,10 @@ option::after {
         gap: 0 5px;
 
         i {
-          margin-top: 25px;
-          cursor: pointer;   
+          //margin-top: 25px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
         }
 
       }
