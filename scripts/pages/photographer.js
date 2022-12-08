@@ -20,7 +20,7 @@ async function init() {
 
             document.querySelector('meta[name="description"]').setAttribute("content", "FishEye, page du photographe " + photographer.name);
 
-            const photographerModel = photographerPage(photographer);
+            const photographerModel = photographerFactory(photographer);
             const userInfo = photographerModel.getUserInfo();
             const userContact = photographerModel.getUserContact();
             const userPicture = photographerModel.getUserPicture();
@@ -32,7 +32,7 @@ async function init() {
 
     data.medias.forEach((photographer) => {
         if (photographer.photographerId == idUrl) {
-            const photographerModel = photographerGallery(photographer, data.photographers);
+            const photographerModel = mediasFactory(photographer, data.photographers);
             const userCardDOM = photographerModel.getGalleryCardDOM();
             GallerySection.appendChild(userCardDOM);
 
