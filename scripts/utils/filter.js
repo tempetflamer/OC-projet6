@@ -1,8 +1,11 @@
-const select = document.querySelector(".listbox");
+const select = document.querySelector(".gallery__listbox-container__listbox");
 const galeryListData = document.querySelector(".gallery__list__data");
 
 let arrayFilter = [];
 let indexFilter = 0;
+
+//By defaut, order by popularity, so popularity option id hidden
+select.children[0].style.display = "none";
 
 /**
  * Filter array initialization 
@@ -24,6 +27,9 @@ function filterBy(e) {
 
   switch (filter) {
     case "popularité":
+      select.children[0].style.display = "none";
+      select.children[1].style.display = "block";
+      select.children[2].style.display = "block";
       i = 0;
       arrayEnd = arrayStart.sort((a, b) => b.likes - a.likes);
       arrayEnd.forEach((element) => {
@@ -34,6 +40,9 @@ function filterBy(e) {
       break;
 
     case "date":
+      select.children[0].style.display = "block";
+      select.children[1].style.display = "none";
+      select.children[2].style.display = "block";
       i = 0;
       arrayEnd = arrayStart.sort((a, b) => new Date(b.date) - new Date(a.date));
       arrayEnd.forEach((element) => {
@@ -44,6 +53,9 @@ function filterBy(e) {
       break;
 
     case "titre":
+      select.children[0].style.display = "block";
+      select.children[1].style.display = "block";
+      select.children[2].style.display = "none";
       i = 0;
       arrayEnd = arrayStart.sort(function (a, b) {
         if (a.title < b.title) {
@@ -68,6 +80,6 @@ function filterBy(e) {
 
 
 }
-
+//style="display: none;"
 //Gallery filter event listener
 select.addEventListener("change", filterBy);
