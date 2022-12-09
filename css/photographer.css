@@ -129,6 +129,10 @@ h1 {
 }
 
 /* Section Gallery */
+.hidden {
+  display: none;
+}
+
 .gallery {
   /* Filter */
 }
@@ -161,22 +165,51 @@ h1 {
   color: #000;
   display: unset;
 }
+.gallery__listbox-container--state {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 5px;
+  padding-right: 1.5rem;
+  z-index: 1;
+  overflow: hidden;
+}
+.gallery__listbox-container--state i {
+  margin-left: -45px;
+  z-index: 1;
+}
 .gallery__listbox-container__listbox, .gallery__listbox-container__listbox:focus {
+  appearance: none;
   display: flex;
   position: relative;
   top: unset;
   left: unset;
   padding: 1rem;
+  padding-right: 3.5rem;
   font-size: 1.2rem;
-  background: #901C1C;
+  background-color: transparent;
   color: #fff;
   border: none;
   border-radius: 5px;
+  z-index: 2;
+}
+.gallery__listbox-container__listbox option, .gallery__listbox-container__listbox:focus option {
+  background-color: #901C1C;
+  padding: 1rem;
+  border: 10px solid blue;
 }
 .gallery__listbox-container__listbox option::after, .gallery__listbox-container__listbox:focus option::after {
   border-radius: 10px;
   width: 7rem;
   line-height: 1rem;
+}
+.gallery__listbox-container__listbox br, .gallery__listbox-container__listbox:focus br {
+  width: 50px;
+  border: 10px solid blue;
 }
 .gallery__list {
   display: flex;

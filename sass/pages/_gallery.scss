@@ -1,4 +1,7 @@
 /* Section Gallery */
+.hidden {
+  display: none;
+}
 .gallery {
 
   /* Filter */
@@ -14,26 +17,67 @@
       display: unset;
     }
 
+    &--state{
+      //width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: white;
+      // width: 141px;
+      //background-color: transparent;
+      background-color: #901C1C;
+      border: none;
+      border-radius: 5px;
+      //padding: 1rem;
+      padding-right: 1.5rem;
+      z-index: 1;
+      overflow: hidden; // cache le blanc en plus qui va ressortir du cadre
+
+      i{
+        //background: #901C1C;
+        margin-left: -45px;
+        z-index: 1;
+      }
+    }
+
     &__listbox,
     &__listbox:focus {
+      appearance: none;
       display: flex;
       //position: unset;
       position: relative;
       top: unset;
       left: unset;
       padding: 1rem;
+      padding-right: 3.5rem;
       font-size: 1.2rem;
 
-      background: #901C1C;
+      //background: #901C1C;
+      background-color: transparent;
       color: #fff;
       //outline: none; // cache le cadre du focus
       border: none;
       border-radius: 5px;
+      z-index: 2;
+
+      option{
+        background-color: #901C1C;
+        padding: 1rem;
+        border : 10px solid blue;
+        //visibility: hidden; // a combiner avec transparent si on veut faire passer le menu créer avec des divs devant
+
+      }
 
       option::after {
         border-radius: 10px;
         width: 7rem;
         line-height: 1rem;
+      }
+
+      br{
+        width: 50px;
+        border : 10px solid blue;
       }
     }
 

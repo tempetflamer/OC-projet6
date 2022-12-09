@@ -19,6 +19,13 @@ function initArrayLFilter(title, likes, date, indexFilter) {
   indexFilter = indexFilter + 1;
 }
 
+function swapArrow() {
+  const arrowUp = document.querySelector(".fa-chevron-up");
+  const arrowDown = document.querySelector(".fa-chevron-down");
+  arrowUp.classList.toggle("hidden");
+  arrowDown.classList.toggle("hidden");
+}
+
 function filterBy(e) {
   const filter = e.currentTarget.value;
   let arrayStart = arrayFilter;
@@ -83,3 +90,4 @@ function filterBy(e) {
 //style="display: none;"
 //Gallery filter event listener
 select.addEventListener("change", filterBy);
+select.addEventListener("click", swapArrow);

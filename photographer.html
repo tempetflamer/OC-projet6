@@ -39,12 +39,15 @@
       <!--filter container-->
       <div class="gallery__listbox-container">
         <span class="gallery__listbox-container__filter-by" aria-label="liste filtrante">Trier par</span>
-        <select aria-label="filtrer par" name="filtre" id="listbox" class="gallery__listbox-container__listbox" tabindex="0">
-          <option value="popularité">Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
-          </option>
-          <option value="date">Date</option>
-          <option value="titre">Titre</option>
-        </select>
+        <div class="gallery__listbox-container--state">
+          <select aria-label="filtrer par" name="filtre" id="listbox" class="gallery__listbox-container__listbox" tabindex="0">
+            <option value="popularité">Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
+            </option>
+            <option value="date">Date</option>
+            <option value="titre">Titre</option>
+          </select>
+          <i class="fa-sharp fa-solid fa-chevron-down fa-sm"></i> <i class="fa-sharp fa-solid fa-chevron-up fa-sm hidden"></i>
+        </div>
       </div>
       <!--End of filter container-->
       <!--Gallery list container-->
