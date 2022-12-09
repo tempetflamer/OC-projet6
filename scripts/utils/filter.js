@@ -1,3 +1,5 @@
+const containerListbox = document.querySelector(".gallery__listbox-container");
+const containerListboxState = document.querySelector(".gallery__listbox-container--state");
 const select = document.querySelector(".gallery__listbox-container__listbox");
 const galeryListData = document.querySelector(".gallery__list__data");
 
@@ -24,6 +26,27 @@ function swapArrow() {
   const arrowDown = document.querySelector(".fa-chevron-down");
   arrowUp.classList.toggle("hidden");
   arrowDown.classList.toggle("hidden");
+
+  let listboxOptionsDesign = document.createElement("div");
+  listboxOptionsDesign.classList.add("gallery__listbox-container__options-design");
+  listboxOptionsDesign.style.marginLeft = '6.75rem'
+  listboxOptionsDesign.style.marginTop = '-1rem'
+  listboxOptionsDesign.style.zIndex = 5;
+  listboxOptionsDesign.style.position= "absolute";
+  containerListbox.after(listboxOptionsDesign);
+  let div = document.createElement("div");
+  div.style.background="#901C1C";
+  div.style.width="9.92rem";
+  div.style.height="7rem";
+  div.style.overflow="hidden"
+  div.style.borderRadius = "0 0 5px 5px"
+  listboxOptionsDesign.appendChild(div);
+  containerListboxState.style.borderRadius = "5px 5px 0 0";
+  // // le border radius est laissé sur select uniquement pour que l'encadré s'affiche bien après accès avec tab ou clique (accssibilité) // en faite on va le mettre en outline none donc on va s'en foutre de l'encadré normalement à tester
+  select.style.outline = "none";
+
+  //aafficher des div à la place des option et les rendres cliquables
+  console.log();
 }
 
 function filterBy(e) {

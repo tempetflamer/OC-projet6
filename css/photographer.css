@@ -183,6 +183,7 @@ h1 {
   z-index: 1;
 }
 .gallery__listbox-container__listbox, .gallery__listbox-container__listbox:focus {
+  outline: none;
   appearance: none;
   display: flex;
   position: relative;
@@ -198,9 +199,15 @@ h1 {
   z-index: 2;
 }
 .gallery__listbox-container__listbox option, .gallery__listbox-container__listbox:focus option {
+  appearance: none;
+  border: none;
+  outline: none;
   background-color: #901C1C;
   padding: 1rem;
-  border: 10px solid blue;
+}
+.gallery__listbox-container__listbox option:disabled, .gallery__listbox-container__listbox:focus option:disabled {
+  width: 100%;
+  color: blue !important;
 }
 .gallery__listbox-container__listbox option::after, .gallery__listbox-container__listbox:focus option::after {
   border-radius: 10px;

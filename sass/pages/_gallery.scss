@@ -43,6 +43,7 @@
 
     &__listbox,
     &__listbox:focus {
+      outline: none;
       appearance: none;
       display: flex;
       //position: unset;
@@ -62,11 +63,20 @@
       z-index: 2;
 
       option{
+        appearance: none;
+        border: none;
+        outline: none;
         background-color: #901C1C;
+        //background-color: transparent;
         padding: 1rem;
-        border : 10px solid blue;
+        //border : 10px solid blue;
         //visibility: hidden; // a combiner avec transparent si on veut faire passer le menu créer avec des divs devant
 
+      }
+
+      option:disabled {
+        width: 100%;
+    color: blue !important;
       }
 
       option::after {
