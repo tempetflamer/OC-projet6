@@ -37,22 +37,42 @@
     <!--Photographer Gallery section-->
     <section class="gallery" aria-label="Galerie Photographe" role="information">
       <!--filter container-->
+
       <div class="gallery__listbox-container">
         <span class="gallery__listbox-container__filter-by" aria-label="liste filtrante">Trier par</span>
+        <div aria-label="filtrer par" class="gallery__listbox-container--state" tabindex="0" role="list">
+          <div name="filtre" id="listbox" class="gallery__listbox-container__listbox"
+            data-selected="popularité">Popularité</div>
+          <i class="fa-sharp fa-solid fa-chevron-down fa-sm"></i> 
+          <i class="fa-sharp fa-solid fa-chevron-up fa-sm hidden"></i>
+        </div>
+        <div></div>
+        <div class="gallery__listbox-options hidden">
+          <hr>
+          <div data-option="popularité" role="listitem" tabindex="0">Popularité</div>
+          <hr>
+          <div data-option="date" role="listitem" tabindex="0">Date</div>
+          <hr>
+          <div data-option="titre" role="listitem" tabindex="0">Titre</div>
+        </div>
+      </div>
+      <!--display de test mais ce sera chiant même si pas trop problématique pour le responsive-->
+      <!--       <div class="gallery__listbox-container">
+        <span class="gallery__listbox-container__filter-by" aria-label="liste filtrante">Trier par</span>
         <div class="gallery__listbox-container--state">
-          <select aria-label="filtrer par" name="filtre" id="listbox" class="gallery__listbox-container__listbox" tabindex="0">
-            <option value="popularité">Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
-            </option>
-            <!-- <option disabled>───────────</option> -->
-            <option disabled></option>
-            <option value="date">Date</option>
-            <!-- <option disabled>──────────</option> -->
-            <option disabled></option>
-            <option value="titre">Titre</option>
-          </select>
+          <div aria-label="filtrer par" name="filtre" id="listbox" class="gallery__listbox-container__listbox" tabindex="0" data-selected="popularité">Popularité</div>
           <i class="fa-sharp fa-solid fa-chevron-down fa-sm"></i> <i class="fa-sharp fa-solid fa-chevron-up fa-sm hidden"></i>
         </div>
       </div>
+      <div class="gallery__listbox-options">
+        <hr>
+        <div data-option="popularité">Popularité</div>
+        <hr>
+        <div data-option="date">Date</div>
+        <hr>
+        <div data-option="titre">Titre</div>
+      </div> -->
+
       <!--End of filter container-->
       <!--Gallery list container-->
       <div class="gallery__list"></div>

@@ -2,11 +2,14 @@
 .hidden {
   display: none;
 }
+
 .gallery {
 
   /* Filter */
   &__listbox-container {
-    display: flex;
+    //display: flex;
+    display: grid;
+    grid-template-columns: 120px 160px;
     align-items: center;
     font-size: 1.5rem;
     margin: 1rem 0;
@@ -17,7 +20,8 @@
       display: unset;
     }
 
-    &--state{
+    &--state {
+      // normalement il faut le modifier car il set plus du totu à la même chose, en effet avant il faisait office de design tandis que la listbox n'afficher que le texte avec un fond tarsparent, maintenant c'est plus le cas
       //width: 100%;
       position: relative;
       display: flex;
@@ -34,7 +38,7 @@
       z-index: 1;
       overflow: hidden; // cache le blanc en plus qui va ressortir du cadre
 
-      i{
+      i {
         //background: #901C1C;
         margin-left: -45px;
         z-index: 1;
@@ -61,8 +65,9 @@
       border: none;
       border-radius: 5px;
       z-index: 2;
+      cursor: pointer;
 
-      option{
+      option {
         appearance: none;
         border: none;
         outline: none;
@@ -76,7 +81,7 @@
 
       option:disabled {
         width: 100%;
-    color: blue !important;
+        color: blue !important;
       }
 
       option::after {
@@ -85,11 +90,16 @@
         line-height: 1rem;
       }
 
-      br{
+      br {
         width: 50px;
-        border : 10px solid blue;
+        border: 10px solid blue;
       }
     }
+
+    // On nous a pas spécialement demander de nosu occuper du hover sur listbox
+    /*     &__listbox:hover {
+      @include secondary-color;
+    } */
 
     /* .hidden {
     display: none;
@@ -156,6 +166,62 @@
       }
 
     }
+  }
+
+  &__listbox-options {
+    z-index: 2;
+    font-size: 1.2rem;
+    //position: absolute;
+    //margin-left:  6.75rem;
+    margin-top: -1rem;
+    z-index: 1;
+    background-color: #901C1C;
+    color: #fff;
+    //width: 9.92rem;
+    //height: 8rem;
+    overflow: hidden;
+    border-radius: 0 0 5px 5px;
+    padding-bottom: 0.75rem;
+    /*     display: flex;
+    flex-direction: column; */
+    cursor: pointer;
+
+    div {
+      /* haut | droit | bas | gauche */
+      //padding: 0.5rem 0 0.5rem 1rem;
+      padding-left: 1rem;
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
+
+
+      //padding-top: 0.25rem;
+      //padding-bottom: 0.25rem;
+
+      // pour le hover
+      //padding-top: 0.5rem;
+      //padding-bottom: 0.5rem;
+      //margin-top: -0.5rem;
+      //margin-bottom: -0.6rem;
+    }
+
+    div:hover,
+    div:focus {
+      @include secondary-color;
+      outline: none;
+      //font-weight: 500; //théoriqument c'est 700 sur figma masi c'est trop
+    }
+
+    //On nous a pas spécialement demander de nosu occuper du hover sur listbox
+    /*     div:hover {
+      @include secondary-color;
+    } */
+
+    hr {
+      width: 90%;
+      align-items: center;
+    }
+
+
   }
 
 }
