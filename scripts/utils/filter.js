@@ -9,10 +9,6 @@ const galeryList = document.querySelector(".gallery__list");
 let arrayFilter = [];
 let indexFilter = 0;
 
-//By defaut, order by popularity, so popularity option id hidden
-//select.children[0].style.display = "none";
-//select.dataset.selected = "popularité" // pour une raison que je ne comrpend pas mon data select est  à popularité
-
 /**
  * Filter array initialization 
  * @param {*} title - media title
@@ -90,8 +86,6 @@ function openListbox() {
   swapArrow();
   //escTrapFocusFilter();
   //mettre al box en display absolute
-  //galeryList.style.marginTop = "-5.72rem"
-  //galeryList.style.marginTop = "-6.87rem"
   galeryList.style.marginTop = "-6.95rem"
   containerListboxState.classList.add("listbox-close");
   const domCloseListbox = document.querySelector(".listbox-close");
@@ -108,34 +102,6 @@ function openListbox() {
 /*   document.querySelector(".listbox-close").addEventListener("keydown", (e) => {
     if (e.code === "Enter") { resetListbox(); }
   }); */
-  //faire passer toute la listbox sur state
-  //ajouter une classe close pour suivre si on quite autre part et de nouveau sur le bouton
-  //y'a un outline en permanence sur la lisbox là
-
-
-
-  /*   
-    let listboxOptionsDesign = document.createElement("div");
-    listboxOptionsDesign.classList.add("gallery__listbox-container__options-design");
-    listboxOptionsDesign.style.marginLeft = '6.75rem'
-    listboxOptionsDesign.style.marginTop = '-1rem'
-    listboxOptionsDesign.style.zIndex = 5;
-    listboxOptionsDesign.style.position= "absolute";
-    containerListbox.after(listboxOptionsDesign);
-    let div = document.createElement("div");
-    div.style.background="#901C1C";
-    div.style.width="9.92rem";
-    div.style.height="7rem";
-    div.style.overflow="hidden"
-    div.style.borderRadius = "0 0 5px 5px"
-    listboxOptionsDesign.appendChild(div);
-    containerListboxState.style.borderRadius = "5px 5px 0 0";
-    // // le border radius est laissé sur select uniquement pour que l'encadré s'affiche bien après accès avec tab ou clique (accssibilité) // en faite on va le mettre en outline none donc on va s'en foutre de l'encadré normalement à tester
-    select.style.outline = "none"; 
-    */
-
-  //aafficher des div à la place des option et les rendres cliquables
-  console.log();
 }
 
 function swapArrow() {
@@ -147,19 +113,7 @@ function swapArrow() {
 }
 
 function filterBy(e) {
-  //console.log("enter in filter", e.dataset.option, e.dataset.option)
-  //e.dataset.option;
   let filter = '';
-/*   if (e.currentTarget.dataset.option === null){
-    filter = document.activeElement; // aps besoin , jsute besoin s'enlever  current target
-  }
-  else {filter = e.currentTarget.dataset.option;} */
-/*   try {
-    filter = e.currentTarget.dataset.option;
-    
-  } catch {
-    filter = document.activeElement;
-  } */
   try {
     filter = e.currentTarget.dataset.option; // click
     
@@ -170,24 +124,12 @@ function filterBy(e) {
   let arrayStart = arrayFilter;
   let arrayEnd;
   let i = 0;
-  //console.log(select.dataset.selected);
   closeListbox();
 
 
 
   switch (filter) {
     case "popularité":
-      // Display or hide value selected and separator // pas sur d'avori besoin de metrte ça surement juste besoin de changer data-selected et textcontent comme à=ça se lit à l'ouvertur =e de la modale
-/*       // Popularity
-      optionListbox.children[0].style.display = "none";
-      optionListbox.children[1].style.display = "none";
-      // Date
-      optionListbox.children[2].style.display = "block";
-      optionListbox.children[3].style.display = "block";
-      //Title
-      optionListbox.children[4].style.display = "block";
-      optionListbox.children[5].style.display = "block"; */
-
       // Changer value selected
       select.dataset.selected = "popularité";
       select.textContent = "Popularité";
@@ -234,6 +176,7 @@ function filterBy(e) {
       arrayEnd.forEach((element) => {
         const childData = document.querySelector('.gallery__list__data:nth-child(' + element.index + ')');
         childData.style.order = i + 1;
+        //if (i ==0) {childData.focus();}        
         i = i + 1;
       });
       break;
