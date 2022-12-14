@@ -64,6 +64,8 @@ function trapFocusFilter() {
   const nextFocusableEl = focusableEls[0 + 1];
   const prevFocusableEl = focusableEls[0 - 1];
   const KEYCODE_TAB = 9;
+  let boolClose = false;
+
 
   element.addEventListener('keydown', function (e) {
     // 37 = left arrow & 39 = right arrow & 27 = esc key & 38 = up arrow & 40 = down arrow
@@ -73,9 +75,13 @@ function trapFocusFilter() {
       return;
     }
     // left, right arrow and esc key
-    if (e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 27) {
-      closeListbox();
-      //e.preventDefault();
+    if (e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 27) { // duplication d'entrée de listbox
+      console.log("entrée dans esc key");
+      if (boolClose === false){
+        closeListbox();
+        //e.preventDefault();
+        boolClose = true;
+      }
     }
     else {
       if (e.shiftKey/*  || e.keyCode === 38 */) /* shift + tab */ {

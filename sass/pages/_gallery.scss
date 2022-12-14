@@ -14,6 +14,11 @@
     font-size: 1.5rem;
     margin: 1rem 0;
 
+    //nouveau
+    position: absolute;
+    margin-top: -5rem;
+    z-index: 10;
+
     &__filter-by {
       margin-right: 1rem;
       color: #000;
@@ -68,6 +73,10 @@
       cursor: pointer;
 
       option {
+        //changement
+/*         position: relative;
+        z-index: 10; */
+
         appearance: none;
         border: none;
         outline: none;
@@ -75,7 +84,7 @@
         //background-color: transparent;
         padding: 1rem;
         //border : 10px solid blue;
-        //visibility: hidden; // a combiner avec transparent si on veut faire passer le menu créer avec des divs devant
+        //visibility: hidden; // a combiner avec transparent si on veut faire passer le menu créer avec des divs devant  
 
       }
 
@@ -125,6 +134,7 @@
   }
 
   &__list {
+    margin-top: 8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

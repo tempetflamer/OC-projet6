@@ -142,6 +142,9 @@ h1 {
   align-items: center;
   font-size: 1.5rem;
   margin: 1rem 0;
+  position: absolute;
+  margin-top: -5rem;
+  z-index: 10;
   /*     &__listbox:hover {
     @include secondary-color;
   } */
@@ -204,6 +207,8 @@ h1 {
   cursor: pointer;
 }
 .gallery__listbox-container__listbox option, .gallery__listbox-container__listbox:focus option {
+  /*         position: relative;
+          z-index: 10; */
   appearance: none;
   border: none;
   outline: none;
@@ -224,6 +229,7 @@ h1 {
   border: 10px solid blue;
 }
 .gallery__list {
+  margin-top: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
