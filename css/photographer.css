@@ -129,14 +129,25 @@ h1 {
 }
 
 /* Section Gallery */
+.hidden {
+  display: none;
+}
+
 .gallery {
   /* Filter */
 }
 .gallery__listbox-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 160px;
   align-items: center;
   font-size: 1.5rem;
   margin: 1rem 0;
+  position: absolute;
+  margin-top: -5rem;
+  z-index: 10;
+  /*     &__listbox:hover {
+    @include secondary-color;
+  } */
   /* .hidden {
     display: none;
   } */
@@ -161,24 +172,64 @@ h1 {
   color: #000;
   display: unset;
 }
+.gallery__listbox-container--state {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 5px;
+  padding-right: 1.5rem;
+  z-index: 1;
+  overflow: hidden;
+}
+.gallery__listbox-container--state i {
+  margin-left: -45px;
+  z-index: 1;
+}
 .gallery__listbox-container__listbox, .gallery__listbox-container__listbox:focus {
+  outline: none;
+  appearance: none;
   display: flex;
   position: relative;
   top: unset;
   left: unset;
   padding: 1rem;
+  padding-right: 3.5rem;
   font-size: 1.2rem;
-  background: #901C1C;
+  background-color: transparent;
   color: #fff;
   border: none;
   border-radius: 5px;
+  z-index: 2;
+  cursor: pointer;
+}
+.gallery__listbox-container__listbox option, .gallery__listbox-container__listbox:focus option {
+  /*         position: relative;
+          z-index: 10; */
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: #901C1C;
+  padding: 1rem;
+}
+.gallery__listbox-container__listbox option:disabled, .gallery__listbox-container__listbox:focus option:disabled {
+  width: 100%;
+  color: blue !important;
 }
 .gallery__listbox-container__listbox option::after, .gallery__listbox-container__listbox:focus option::after {
   border-radius: 10px;
   width: 7rem;
   line-height: 1rem;
 }
+.gallery__listbox-container__listbox br, .gallery__listbox-container__listbox:focus br {
+  width: 50px;
+  border: 10px solid blue;
+}
 .gallery__list {
+  margin-top: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -211,6 +262,39 @@ h1 {
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+.gallery__listbox-options {
+  z-index: 2;
+  font-size: 1.2rem;
+  margin-top: -1rem;
+  z-index: 1;
+  background-color: #901C1C;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 0 0 5px 5px;
+  padding-bottom: 0.75rem;
+  /*     display: flex;
+  flex-direction: column; */
+  cursor: pointer;
+  /*     div:hover {
+    @include secondary-color;
+  } */
+}
+.gallery__listbox-options div {
+  /* haut | droit | bas | gauche */
+  padding-left: 1rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+.gallery__listbox-options div:hover,
+.gallery__listbox-options div:focus {
+  background: #DB8876;
+  color: black;
+  outline: none;
+}
+.gallery__listbox-options hr {
+  width: 90%;
+  align-items: center;
 }
 
 .stats {

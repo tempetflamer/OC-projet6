@@ -32,9 +32,9 @@ async function init() {
 
     data.medias.forEach((photographer) => {
         if (photographer.photographerId == idUrl) {
-            const photographerModel = mediasFactory(photographer, data.photographers);
-            const userCardDOM = photographerModel.getGalleryCardDOM();
-            GallerySection.appendChild(userCardDOM);
+            const mediaModel = mediasFactory(photographer, data.photographers);
+            const galleryCardDOM = mediaModel.getGalleryCardDOM();
+            GallerySection.appendChild(galleryCardDOM);
 
             totaLikeStats = totaLikeStats + photographer.likes;
         }
