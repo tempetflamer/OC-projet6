@@ -1,6 +1,7 @@
 //or use URLSearchParams
-const searchURL = window.location.search;
-const idUrl = searchURL.slice(4)
+let searchURL = window.location.search;
+searchURL = new URLSearchParams(searchURL);
+let idUrl = searchURL.get("id");
 
 async function init() {
 

@@ -7,7 +7,7 @@ function photographerFactory(data) {
         const article = document.createElement('article');
         article.classList.add('photographer__data');
         const imageLink = document.createElement('a');
-        imageLink.href = './photographer.html?id=' + id;
+        imageLink.href = './photographer.html?search&id=' + id;
         imageLink.tabIndex = "0";
         const img = document.createElement('img');
         img.setAttribute("src", picture)
