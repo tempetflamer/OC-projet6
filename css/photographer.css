@@ -23,6 +23,10 @@ h1 {
   margin-left: 100px;
 }
 
+.hidden {
+  display: none;
+}
+
 @keyframes modalopen {
   from {
     opacity: 0;
@@ -126,10 +130,6 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.hidden {
-  display: none;
 }
 
 /* Section Gallery */
@@ -287,7 +287,7 @@ h1 {
   align-items: center;
   gap: 0 5px;
 }
-/*** Contact modal ***/
+/* Contact modal */
 .contact {
   display: none;
   position: fixed;
