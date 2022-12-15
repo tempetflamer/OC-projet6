@@ -1,4 +1,9 @@
-function changelikes(e, icon, number) {
+/**
+ * Function to add or remove a like
+ * @param {HTMLElement} icon 
+ * @param {HTMLElement} number 
+ */
+function changelikes(icon, number) {
     const totaLikes = document.querySelector(".stats__likes__number");
     if (icon.classList.contains("heart--empty")){
         number.textContent = parseInt(number.textContent) + 1; 

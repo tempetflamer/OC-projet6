@@ -32,7 +32,7 @@ btnCloseContactModal.addEventListener("click", closeModal);
 
 /**
  *  Function check firstname and lastname fields
- * @param {*} element - Dom element
+ * @param {HTMLElement} element - lastname or firstname field
  * @param {string} value - field value
  * @returns - Bool value
  */
@@ -57,8 +57,8 @@ function getCheckName(element, value) {
 
 /**
  * Function check email field
- * @param {*} element - Dom element
- * @param {*} value - field value
+ * @param {HTMLElement} element - email field
+ * @param {string} value - field value
  * @returns - Bool value
  */
 function getCheckMail(element, value) {
@@ -82,8 +82,8 @@ function getCheckMail(element, value) {
 
 /**
  *  Function check message field
- * @param {*} element - Dom element
- * @param {*} value - field value
+ * @param {HTMLElement} element - message field
+ * @param {string} value - field value
  * @returns - Bool value
  */
 function getCheckMessage(element, value) {

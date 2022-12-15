@@ -1,4 +1,10 @@
-// merge function
+/**
+ * Media creation factory
+ * @param {Json} dataMedia
+ * @param {Json} dataPhotographers
+ * @param {Boolean} firstLoad 
+ * @returns getGalleryCardDOM
+ */
 function mediasFactory(dataMedia, dataPhotographers, firstLoad) { // ajouter les medias
     const { id, photographerId, title, image, video, likes, date, price } = dataMedia; //image or video
     
@@ -81,9 +87,9 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad) { // ajouter les
         article.appendChild(desc);
 
         //Add or remove medias liked
-        iconLike.addEventListener("click", (e) =>  { changelikes(e, iconLike, numberLike);});
+        iconLike.addEventListener("click", (e) =>  { changelikes(iconLike, numberLike);});
         iconLike.addEventListener("keydown", (e) => {
-            if (e.code === "Enter") { changelikes(e, iconLike, numberLike); }
+            if (e.code === "Enter") { changelikes(iconLike, numberLike); }
         });
 
         return (article);

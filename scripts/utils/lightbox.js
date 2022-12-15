@@ -16,9 +16,9 @@ let setIndexMedia = 0;
 /**
  * Function to display the media (picture or video) in lightbox
  * @param {number} index - numéro du média
- * @param {*} value - media type (video or picture)
- * @param {*} img - media link
- * @param {*} title - media name
+ * @param {string} value - media type (video or picture)
+ * @param {string} img - media link
+ * @param {string} title - media name
  * @param {Boolean} firstOpen - true display media, false swap media
  */
 function displayLightboxMedia(index, value, img, title, firstOpen) {
@@ -71,12 +71,12 @@ let picturelistenKey = function (e, value, img, title) {
 }
 
 /**
- * @param {number} e - numéro du média
- * @param {*} value - media type (video or picture)
- * @param {*} img - media link
- * @param {*} title - media name
+ * @param {number} index - numéro du média
+ * @param {string} value - media type (video or picture)
+ * @param {string} img - media link
+ * @param {string} title - media name
  */
-function displayLightboxModal(e, value, img, title) {
+function displayLightboxModal(index, value, img, title) {
     // Change accessibility focus
     sectionPhotographer.ariaHidden = true;
     sectionStats.ariaHidden = true;
@@ -86,7 +86,7 @@ function displayLightboxModal(e, value, img, title) {
     lightboxModal.style.display = "block";
     btnPrevLightbox.focus()
     disableScroll();
-    displayLightboxMedia(e, value, img, title, true);
+    displayLightboxMedia(index, value, img, title, true);
     btnCloseLightbox.addEventListener("click", closeLightboxModal);
 
     var lightboxModalMedia = document.querySelector(".lightbox-modal__content__slides__media");
@@ -122,9 +122,9 @@ function closeLightboxModal() {
 }
 
 /**
- * @param {*} value - media type (video or picture)
- * @param {*} img - media link
- * @param {*} title - media name
+ * @param {string} value - media type (video or picture)
+ * @param {string} img - media link
+ * @param {string} title - media name
  */
 function prevPictureLightboxModal(value, img, title) {
     // Remove the picture and title elements created in lightbox
@@ -142,9 +142,9 @@ function prevPictureLightboxModal(value, img, title) {
 }
 
 /**
- * @param {*} value - media type (video or picture)
- * @param {*} img - media link
- * @param {*} title - media name
+ * @param {string} value - media type (video or picture)
+ * @param {string} img - media link
+ * @param {string} title - media name
  */
 function nextPictureLightboxModal(value, img, title) {
     // Remove the picture and title elements created in lightbox
