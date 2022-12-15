@@ -1,14 +1,10 @@
-//import dataReader from "./../../data/photographers.json"
-
 //or use URLSearchParams
 const searchURL = window.location.search;
 const idUrl = searchURL.slice(4)
 
-
 async function init() {
 
     const data = await dataFetch();
-
     const photographerSection = document.querySelector(".photographer");
     const GallerySection = document.querySelector(".gallery__list");
     const StatsDiv = document.querySelector(".stats");

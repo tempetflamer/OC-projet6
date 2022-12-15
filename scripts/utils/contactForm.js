@@ -20,12 +20,12 @@ function displayModal() {
     contactModal.style.display = "flex";
     inputFirstname.focus()
     disableScroll();
-    trapFocusContact();
 }
 
 function closeModal() {
     contactModal.style.display = "none";
     enableScroll();
+    document.querySelector(".photographer__contact__btn").focus();
 }
 
 btnCloseContactModal.addEventListener("click", closeModal);
@@ -33,7 +33,7 @@ btnCloseContactModal.addEventListener("click", closeModal);
 /**
  *  Function check firstname and lastname fields
  * @param {*} element - Dom element
- * @param {*} value - field value
+ * @param {string} value - field value
  * @returns - Bool value
  */
 function getCheckName(element, value) {
@@ -141,3 +141,4 @@ function submitContact(e) {
 }
 
 submitContactForm.addEventListener("click", (e) => submitContact(e));
+trapFocus("contact");

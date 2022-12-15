@@ -4,7 +4,7 @@ function mediasFactory(dataMedia, dataPhotographers) { // ajouter les medias
     function getGalleryCardDOM() {
         const namePhotographer = dataPhotographers.find(photographer => photographer.id === photographerId);
         const namePhotographerArray = namePhotographer.name.split(" ");
-        const chemin = namePhotographerArray[0].replace('-', ' '); // dans l'architecture des dossiers, nous en mettons pas de tiret mais des espaces pour les noms composé
+        const chemin = namePhotographerArray[0].replace('-', ' ');
 
         const article = document.createElement('article');
         article.classList.add('gallery__list__data');
@@ -16,12 +16,10 @@ function mediasFactory(dataMedia, dataPhotographers) { // ajouter les medias
             video.role = "link";
             video.classList.add('gallery__list__data__img');
             video.tabIndex = 0;
-            video.dataset.num = indexLightbox; // number used to init the array for the lightbox and controllers (prev, next) 
+            video.dataset.num = indexMedia; // number used to init the array for the lightbox and controllers (prev, next) 
             article.appendChild(video);
 
-            //initArrayLightbox("video", video.src, title); // un seul tableau pour lightbox et trie
-            initArrayLightbox("video", video.src, title);
-            initArrayMedia(title, dataMedia.likes, dataMedia.date, 'video', video.src, indexLightbox);
+            initArrayMedia(title, dataMedia.likes, dataMedia.date, 'video', video.src, indexMedia);
 
             const valueTypeLightbox = "video";
             video.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, "video", video.src, title);});
@@ -36,12 +34,10 @@ function mediasFactory(dataMedia, dataPhotographers) { // ajouter les medias
             img.role = "link";
             img.classList.add('gallery__list__data__img');
             img.tabIndex = 0;
-            img.dataset.num = indexLightbox; // number used to init the array for the lightbox and controllers (prev, next)             
+            img.dataset.num = indexMedia; // number used to init the array for the lightbox and controllers (prev, next)             
             article.appendChild(img);
 
-            //initArrayLightbox("img", img.src, title); // un seul tableau pour lightbox et trie
-            initArrayLightbox("img", img.src, title);
-            initArrayMedia(title, dataMedia.likes, dataMedia.date, 'img', img.src, indexLightbox);
+            initArrayMedia(title, dataMedia.likes, dataMedia.date, 'img', img.src, indexMedia);
 
             img.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, "img", img.src, title);});
             img.addEventListener("keydown", (e) => {
@@ -87,8 +83,6 @@ function mediasFactory(dataMedia, dataPhotographers) { // ajouter les medias
     return { getGalleryCardDOM }
 }
 
-// Filter /: faire un tableau où on retient le nom du photographe
-// il me faut nom du photographe (chemin stcoké dans un variable let), indexLightbox passé en paramètre aussi, dataMedia.video ou .image, title, dataMedia.likes, dataMedia.date
 // si je dois fusionner les deux function alors transmettre la variable elt directement dedans
 function mediasFactoryFilter(dataMedia) { // ajouter les medias
 
@@ -107,9 +101,6 @@ function mediasFactoryFilter(dataMedia) { // ajouter les medias
             video.dataset.num = dataMedia.index; // number used to init the array for the lightbox and controllers (prev, next) 
             article.appendChild(video);
 
-            //initArrayLightbox("video", video.src, title); // un seul tableau pour lightbox et trie
-            //initArrayLightbox("video", video.src, title);
-
             video.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, "video", video.src, dataMedia.title);});
             video.addEventListener("keydown", (e) => {
                 if (e.code === "Enter") { displayLightboxModal(e.target.dataset.num, "video", video.src, dataMedia.title); }
@@ -122,11 +113,8 @@ function mediasFactoryFilter(dataMedia) { // ajouter les medias
             img.role = "link";
             img.classList.add('gallery__list__data__img');
             img.tabIndex = 0;
-            img.dataset.num = indexLightbox; // number used to init the array for the lightbox and controllers (prev, next)             
+            img.dataset.num = indexMedia; // number used to init the array for the lightbox and controllers (prev, next)             
             article.appendChild(img);
-
-            //initArrayLightbox("img", img.src, title); // un seul tableau pour lightbox et trie
-            //initArrayLightbox("img", img.src, dataMedia.title);
 
             img.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, "img", img.src, dataMedia.title);});
             img.addEventListener("keydown", (e) => {

@@ -1,23 +1,21 @@
-/* Section Gallery */
 .hidden {
   display: none;
 }
 
+/* Section Gallery */
 .gallery {
 
   /* Filter */
   &__listbox-container {
-    //display: flex;
     display: grid;
     grid-template-columns: 120px 160px;
     align-items: center;
     font-size: 1.5rem;
     margin: 1rem 0;
 
-    //nouveau
     position: absolute;
     margin-top: -5rem;
-    z-index: 10;
+    z-index: 1;
 
     &__filter-by {
       margin-right: 1rem;
@@ -26,25 +24,19 @@
     }
 
     &--state {
-      // normalement il faut le modifier car il set plus du totu à la même chose, en effet avant il faisait office de design tandis que la listbox n'afficher que le texte avec un fond tarsparent, maintenant c'est plus le cas
-      //width: 100%;
       position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
       color: white;
-      // width: 141px;
-      //background-color: transparent;
       background-color: #901C1C;
       border: none;
       border-radius: 5px;
-      //padding: 1rem;
       padding-right: 1.5rem;
       z-index: 1;
-      overflow: hidden; // cache le blanc en plus qui va ressortir du cadre
+      overflow: hidden;
 
       i {
-        //background: #901C1C;
         margin-left: -45px;
         z-index: 1;
       }
@@ -55,7 +47,6 @@
       outline: none;
       appearance: none;
       display: flex;
-      //position: unset;
       position: relative;
       top: unset;
       left: unset;
@@ -63,7 +54,6 @@
       padding-right: 3.5rem;
       font-size: 1.2rem;
 
-      //background: #901C1C;
       background-color: transparent;
       color: #fff;
       //outline: none; // cache le cadre du focus
@@ -73,19 +63,11 @@
       cursor: pointer;
 
       option {
-        //changement
-/*         position: relative;
-        z-index: 10; */
-
         appearance: none;
         border: none;
         outline: none;
         background-color: #901C1C;
-        //background-color: transparent;
         padding: 1rem;
-        //border : 10px solid blue;
-        //visibility: hidden; // a combiner avec transparent si on veut faire passer le menu créer avec des divs devant  
-
       }
 
       option:disabled {
@@ -105,32 +87,6 @@
       }
     }
 
-    // On nous a pas spécialement demander de nosu occuper du hover sur listbox
-    /*     &__listbox:hover {
-      @include secondary-color;
-    } */
-
-    /* .hidden {
-    display: none;
-  } */
-
-    /* .fa-chevron-up {
-    display: none;
-  } */
-
-    /* .fa-chevron-down {
-    margin-left: 0.5rem;
-  } */
-
-    /* #listbox,
-  #listbox:focus {
-    background: #901C1C;
-    //outline: none; // cache le cadre du focus
-    border: none;
-    border-radius: 12px;
-    color: #fff;
-    position: relative;
-  } */
   }
 
   &__list {
@@ -181,56 +137,29 @@
   &__listbox-options {
     z-index: 2;
     font-size: 1.2rem;
-    //position: absolute;
-    //margin-left:  6.75rem;
     margin-top: -1rem;
     z-index: 1;
     background-color: #901C1C;
     color: #fff;
-    //width: 9.92rem;
-    //height: 8rem;
     overflow: hidden;
     border-radius: 0 0 5px 5px;
     padding-bottom: 0.75rem;
-    /*     display: flex;
-    flex-direction: column; */
     cursor: pointer;
 
     div {
-      /* haut | droit | bas | gauche */
-      //padding: 0.5rem 0 0.5rem 1rem;
-      padding-left: 1rem;
-      padding-top: 0.35rem;
-      padding-bottom: 0.35rem;
-
-
-      //padding-top: 0.25rem;
-      //padding-bottom: 0.25rem;
-
-      // pour le hover
-      //padding-top: 0.5rem;
-      //padding-bottom: 0.5rem;
-      //margin-top: -0.5rem;
-      //margin-bottom: -0.6rem;
+      padding: 0.35rem 0 0.35rem 1rem;
     }
 
     div:hover,
     div:focus {
       @include secondary-color;
       outline: none;
-      //font-weight: 500; //théoriqument c'est 700 sur figma masi c'est trop
     }
-
-    //On nous a pas spécialement demander de nosu occuper du hover sur listbox
-    /*     div:hover {
-      @include secondary-color;
-    } */
 
     hr {
       width: 90%;
-      align-items: center;
+      color: white;
     }
-
 
   }
 

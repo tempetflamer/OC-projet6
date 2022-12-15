@@ -1,25 +1,21 @@
 @media screen and (max-width: 1250px) {
     .photographer {
         grid-template-columns: 1.2fr 0.6fr 1.2fr;
-
     }
 }
 
 @media screen and (max-width: 1080px) {
     .photographer {
         grid-template-columns: 1.4fr 0.6fr 1fr;
-
     }
 }
 
-//iphone se de 375 * 667 est considéré comme du 980
 @media screen and (max-width: 978px) {
     .photographer {
         margin-top: 25px;
-        grid-template-columns: 1fr; // subgrid do the same thing
+        grid-template-columns: 1fr;
         order: 3 1 2;
         height: 100%;
-        //background-color: aqua; // pour test
         padding: 20px 0; 
         gap: 0;
 

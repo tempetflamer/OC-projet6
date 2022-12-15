@@ -1,6 +1,5 @@
 async function init() {
     const data = await dataFetch();
-
     const photographersSection = document.querySelector(".photographer");
 
     data.photographers.forEach((photographer) => {

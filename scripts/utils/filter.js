@@ -6,23 +6,6 @@ const select = document.querySelector(".gallery__listbox-container__listbox");
 const galeryListData = document.querySelector(".gallery__list__data");
 const galeryList = document.querySelector(".gallery__list");
 
-let arrayFilter = [];
-let indexFilter = 0;
-
-/**
- * Filter array initialization 
- * @param {*} title - media title
- * @param {*} likes - number of like for media
- * @param {*} date - media date
- * @param {*} type - media type (video or picture)
- * @param {*} media - media link
- * @param {*} indexFilter - media index given at init
- */
-function initArrayMedia(title, likes, date, type, media, indexFilter) {
-  arrayFilter.push({ 'title': title, 'likes': likes, 'date': date, 'type': type, 'media': media, 'index': indexFilter });
-  console.log(title, likes, date, type, media, indexFilter);
-  indexFilter = indexFilter + 1;
-}
 
 /**
  * Remove all children in Gallery
@@ -90,7 +73,7 @@ function filterBy(e) {
     filter = e.dataset.option; // key
   }
 
-  let arrayStart = arrayFilter;
+  let arrayStart = arrayMedia;
   let arrayEnd;
   let i = 0;
   swapStateListbox();
@@ -173,4 +156,4 @@ optionAllListbox.forEach((e) => e.addEventListener("keydown", (k) => {
 }));
 
 // Allow to block focus inside listbox open
-trapFocusFilter();
+trapFocus("filter");

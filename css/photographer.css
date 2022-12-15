@@ -128,11 +128,11 @@ h1 {
   justify-content: center;
 }
 
-/* Section Gallery */
 .hidden {
   display: none;
 }
 
+/* Section Gallery */
 .gallery {
   /* Filter */
 }
@@ -144,28 +144,7 @@ h1 {
   margin: 1rem 0;
   position: absolute;
   margin-top: -5rem;
-  z-index: 10;
-  /*     &__listbox:hover {
-    @include secondary-color;
-  } */
-  /* .hidden {
-    display: none;
-  } */
-  /* .fa-chevron-up {
-    display: none;
-  } */
-  /* .fa-chevron-down {
-    margin-left: 0.5rem;
-  } */
-  /* #listbox,
-  #listbox:focus {
-    background: #901C1C;
-    //outline: none; // cache le cadre du focus
-    border: none;
-    border-radius: 12px;
-    color: #fff;
-    position: relative;
-  } */
+  z-index: 1;
 }
 .gallery__listbox-container__filter-by {
   margin-right: 1rem;
@@ -207,8 +186,6 @@ h1 {
   cursor: pointer;
 }
 .gallery__listbox-container__listbox option, .gallery__listbox-container__listbox:focus option {
-  /*         position: relative;
-          z-index: 10; */
   appearance: none;
   border: none;
   outline: none;
@@ -273,18 +250,10 @@ h1 {
   overflow: hidden;
   border-radius: 0 0 5px 5px;
   padding-bottom: 0.75rem;
-  /*     display: flex;
-  flex-direction: column; */
   cursor: pointer;
-  /*     div:hover {
-    @include secondary-color;
-  } */
 }
 .gallery__listbox-options div {
-  /* haut | droit | bas | gauche */
-  padding-left: 1rem;
-  padding-top: 0.35rem;
-  padding-bottom: 0.35rem;
+  padding: 0.35rem 0 0.35rem 1rem;
 }
 .gallery__listbox-options div:hover,
 .gallery__listbox-options div:focus {
@@ -294,7 +263,7 @@ h1 {
 }
 .gallery__listbox-options hr {
   width: 90%;
-  align-items: center;
+  color: white;
 }
 
 .stats {

@@ -5,38 +5,30 @@ const lightboxModal = document.querySelector(".lightbox-modal");
 const lightboxModalSlides = document.querySelector(".lightbox-modal__content__slides");
 const btnPrevLightbox = document.getElementById("prev");
 const btnNextLightbox = document.getElementById("next");
-
-/* const lightboxModalMedia = document.querySelector(".lightbox-modal__content__slides__media");
-const mediaDataset = parseInt(lightboxModalMedia.dataset.num) */
-let setIndexMedia = 0;
-
+// Used to change accessibility focus
 const sectionPhotographer = document.querySelector(".photographer");
 const sectionStats = document.querySelector(".stats");
 const sectionGallery = document.querySelector(".gallery");
 const partHeader = document.querySelector("header");
 
-let arrayLightbox = new Map();
-let indexLightbox = 0;
+let setIndexMedia = 0;
 
 /**
- * Function to init an array of all media
- * @param {*} value - media type (video or picture)
- * @param {*} media - media link
- * @param {*} title - media name
- */
-function initArrayLightbox(value, media, title) {
-    arrayLightbox.set(indexLightbox, [title, media, value]);
-    indexLightbox = indexLightbox + 1;
-}
-
-/**
- * @param {*} e - numéro du média
+ * Function to display the media (picture or video) in lightbox
+ * @param {number} index - numéro du média
  * @param {*} value - media type (video or picture)
  * @param {*} img - media link
  * @param {*} title - media name
+ * @param {Boolean} firstOpen - true display media, false swap media
  */
-function displayLightboxMedia(e, value, img, title) {
+function displayLightboxMedia(index, value, img, title, firstOpen) {
     let createLlightboxModalMedia = "";
+    // If lightbox already open (false), then swap media
+    if (firstOpen == false) {
+        img = arrayMedia[index].media
+        title = arrayMedia[index].title
+        value = arrayMedia[index].type
+    }
 
     if (value == "video") {
         createLlightboxModalMedia = document.createElement('video');
@@ -47,60 +39,45 @@ function displayLightboxMedia(e, value, img, title) {
     else {
         createLlightboxModalMedia = document.createElement('img');
         createLlightboxModalMedia.src = img;
-
     }
     createLlightboxModalMedia.alt = title;
     createLlightboxModalMedia.classList.add('lightbox-modal__content__slides__media');
-    createLlightboxModalMedia.dataset.num = e
+    createLlightboxModalMedia.dataset.num = index;
     lightboxModalSlides.appendChild(createLlightboxModalMedia);
 
-    //Create image title on <p> balise
     const createtitlePictureLightbox = document.createElement('p');
     createtitlePictureLightbox.textContent = title;
     createtitlePictureLightbox.classList.add('lightbox-modal__content__slides__title');
     lightboxModalSlides.appendChild(createtitlePictureLightbox);
 }
 
-/**
- * @param {*} indexMedia - numéro du média
- * @param {*} value - media type (video or picture)
- * @param {*} img - media link
- * @param {*} title - media name
- */
-function swapLightboxMedia(indexMedia, value, img, title) {
-    let createLlightboxModalMedia = "";
-
-    if (arrayLightbox.get(indexMedia)[2] == "video") {
-        createLlightboxModalMedia = document.createElement('video');
-        createLlightboxModalMedia.src = arrayLightbox.get(indexMedia)[1];
-        createLlightboxModalMedia.type = "video/mp4";
-        createLlightboxModalMedia.controls = true;
+// Function previous and next arrows listening events stored in variables
+let prevPicturelisten = function (value, img, title) { prevPictureLightboxModal(value, img, title); }
+let nextPicturelisten = function (value, img, title) { nextPictureLightboxModal(value, img, title); }
+let picturelistenKey = function (e, value, img, title) {
+    if (e.keyCode === 39) /* right arrow */ {
+        e.preventDefault();
+        btnNextLightbox.focus()
+        nextPictureLightboxModal(value, img, title);
     }
     else {
-        createLlightboxModalMedia = document.createElement('img');
-        createLlightboxModalMedia.src = arrayLightbox.get(indexMedia)[1];
-
+        if (e.keyCode === 37) /* left arrow */ {
+            e.preventDefault();
+            btnPrevLightbox.focus()
+            prevPictureLightboxModal(value, img, title);
+        }
     }
-    createLlightboxModalMedia.alt = arrayLightbox.get(indexMedia)[0];
-    createLlightboxModalMedia.classList.add('lightbox-modal__content__slides__media');
-    createLlightboxModalMedia.dataset.num = indexMedia;
-    lightboxModalSlides.appendChild(createLlightboxModalMedia);
 
-    //Create image title on <p> balise
-    const createtitlePictureLightbox = document.createElement('p');
-    createtitlePictureLightbox.textContent = arrayLightbox.get(indexMedia)[0];
-    createtitlePictureLightbox.classList.add('lightbox-modal__content__slides__title');
-    lightboxModalSlides.appendChild(createtitlePictureLightbox);
 }
 
 /**
- * @param {*} e - numéro du média
+ * @param {number} e - numéro du média
  * @param {*} value - media type (video or picture)
  * @param {*} img - media link
  * @param {*} title - media name
  */
 function displayLightboxModal(e, value, img, title) {
-    //change accessibility focus
+    // Change accessibility focus
     sectionPhotographer.ariaHidden = true;
     sectionStats.ariaHidden = true;
     sectionGallery.ariaHidden = true;
@@ -109,66 +86,79 @@ function displayLightboxModal(e, value, img, title) {
     lightboxModal.style.display = "block";
     btnPrevLightbox.focus()
     disableScroll();
-    displayLightboxMedia(e, value, img, title);
+    displayLightboxMedia(e, value, img, title, true);
     btnCloseLightbox.addEventListener("click", closeLightboxModal);
 
     var lightboxModalMedia = document.querySelector(".lightbox-modal__content__slides__media");
     setIndexMedia = parseInt(lightboxModalMedia.dataset.num);
 
-    btnPrevLightbox.addEventListener("click", (event) => { prevPictureLightboxModal(setIndexMedia, value, img, title); });
-    btnNextLightbox.addEventListener("click", (event) => { nextPictureLightboxModal(setIndexMedia, value, img, title); });
-    trapFocusLightbox();
+    // Add the previous and next arrows listening events & key listening event
+    btnPrevLightbox.addEventListener("click", prevPicturelisten);
+    btnNextLightbox.addEventListener("click", nextPicturelisten);
+    lightboxModal.addEventListener('keydown', picturelistenKey);
+
 }
 
 function closeLightboxModal() {
     lightboxModal.style.display = "none";
     enableScroll();
-    // remove the created elements in lightbox
+
+    // Remove the created elements in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();
 
-    //change accessibility focus
+    // Remove the previous and next arrows listening events when closing the lightbox
+    btnPrevLightbox.removeEventListener("click", prevPicturelisten);
+    btnNextLightbox.removeEventListener("click", nextPicturelisten);
+    lightboxModal.removeEventListener('keydown', picturelistenKey);
+
+    // Change accessibility focus
     sectionPhotographer.ariaHidden = false;
     sectionStats.ariaHidden = false;
     sectionGallery.ariaHidden = false;
     partHeader.ariaHidden = false;
+
+    document.querySelector('[data-num="' + setIndexMedia + '"]').focus();
 }
 
 /**
- * @param {*} e - numéro du média
  * @param {*} value - media type (video or picture)
  * @param {*} img - media link
  * @param {*} title - media name
  */
-function prevPictureLightboxModal(indexMedia, value, img, title) {
-    // remove the created elements in lightbox
+function prevPictureLightboxModal(value, img, title) {
+    // Remove the picture and title elements created in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();
 
+    // If first image, go to the last one, otherwise to the previous one
     if (setIndexMedia == 0) {
-        setIndexMedia = arrayLightbox.size - 1;
+        setIndexMedia = indexMedia - 1;
     }
-    else{
+    else {
         setIndexMedia = setIndexMedia - 1;
     }
-    swapLightboxMedia(parseInt(setIndexMedia), value, img, title);
+    displayLightboxMedia(parseInt(setIndexMedia), value, img, title, false);
 }
 
 /**
- * @param {*} e - numéro du média
  * @param {*} value - media type (video or picture)
  * @param {*} img - media link
  * @param {*} title - media name
  */
-function nextPictureLightboxModal(mediaDataset, value, img, title) {
+function nextPictureLightboxModal(value, img, title) {
+    // Remove the picture and title elements created in lightbox
     document.querySelector(".lightbox-modal__content__slides__media").remove();
     document.querySelector(".lightbox-modal__content__slides__title").remove();
 
-    if (setIndexMedia === arrayLightbox.size - 1) {
+    // If last image, go to the first one, otherwise to the next one
+    if (setIndexMedia === indexMedia - 1) {
         setIndexMedia = 0;
-     }
-     else{
+    }
+    else {
         setIndexMedia = setIndexMedia + 1;
-     }
-    swapLightboxMedia(parseInt(setIndexMedia), value, img, title);
+    }
+    displayLightboxMedia(parseInt(setIndexMedia), value, img, title, false);
 }
+
+trapFocus("lightbox");
