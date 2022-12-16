@@ -20,12 +20,24 @@ function displayModal() {
     contactModal.style.display = "flex";
     inputFirstname.focus()
     disableScroll();
+
+    // Change accessibility focus
+    sectionPhotographer.ariaHidden = true;
+    sectionStats.ariaHidden = true;
+    sectionGallery.ariaHidden = true;
+    partHeader.ariaHidden = true;
 }
 
 function closeModal() {
     contactModal.style.display = "none";
     enableScroll();
     document.querySelector(".photographer__contact__btn").focus();
+
+    // Change accessibility focus
+    sectionPhotographer.ariaHidden = false;
+    sectionStats.ariaHidden = false;
+    sectionGallery.ariaHidden = false;
+    partHeader.ariaHidden = false;
 }
 
 btnCloseContactModal.addEventListener("click", closeModal);
