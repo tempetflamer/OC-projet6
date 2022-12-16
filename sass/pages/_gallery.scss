@@ -89,7 +89,8 @@
     margin-top: 8rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    //justify-content: space-between; space-around
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 20px 25px;
 

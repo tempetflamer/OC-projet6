@@ -209,7 +209,7 @@ h1 {
   margin-top: 8rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px 25px;
 }
@@ -415,6 +415,16 @@ form input {
 @media screen and (max-width: 1080px) {
   .photographer {
     grid-template-columns: 1.4fr 0.6fr 1fr;
+  }
+}
+@media screen and (max-width: 2083px) {
+  .gallery__list {
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 1046px) {
+  .gallery__list {
+    justify-content: flex-start;
   }
 }
 @media screen and (max-width: 978px) {
