@@ -3,7 +3,6 @@ const optionListbox = document.querySelector(".gallery__listbox-options");
 const optionAllListbox = document.querySelectorAll(".gallery__listbox-options > div");
 const containerListboxState = document.querySelector(".gallery__listbox-container--state");
 const select = document.querySelector(".gallery__listbox-container__listbox");
-const galeryListData = document.querySelector(".gallery__list__data");
 const galeryList = document.querySelector(".gallery__list");
 
 
@@ -91,7 +90,7 @@ function filterBy(e) {
       arrayEnd.forEach((element) => {
         console.log(element.title, element.likes, element.date, element.type, element.media, element.index);
         element.index = i;
-        let mediaModel = mediasFactoryFilter(element, '', false);
+        let mediaModel = mediasFactory(element, '', false);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
         galeryList.appendChild(galleryCardDOM);
         i++
@@ -109,7 +108,7 @@ function filterBy(e) {
       arrayEnd.forEach((element) => {
         console.log(element.title, element.likes, element.date, element.type, element.media, element.index);
         element.index = i;
-        let mediaModel = mediasFactoryFilter(element, '', false);
+        let mediaModel = mediasFactory(element, '', false);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
         galeryList.appendChild(galleryCardDOM);
         i++

@@ -2,10 +2,6 @@
 const contactModal = document.querySelector(".contact");
 const btnCloseContactModal = document.querySelector(".contact__content__close");
 const contactForm = document.getElementById("contact-form");
-const inputFirstname = document.getElementById("prenom");
-const inputLastname = document.getElementById("nom");
-const inputEmail = document.getElementById("email");
-const inputMessage = document.getElementById("message");
 const submitContactForm = document.getElementById("submit-btn");
 
 function disableScroll() {
@@ -18,7 +14,7 @@ function enableScroll() {
 
 function displayModal() {
     contactModal.style.display = "flex";
-    inputFirstname.focus()
+    document.getElementById("prenom").focus()
     disableScroll();
 
     // Change accessibility focus
