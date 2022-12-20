@@ -29,6 +29,8 @@ function displayLightboxMedia(index, value, media, title, firstOpen) {
         title = arrayMedia[index].title
         value = arrayMedia[index].type
     }
+    // Display medium size media
+    media = media.replace('/small/', '/medium/');
 
     if (value == "video") {
         createLlightboxModalMedia = document.createElement('video');

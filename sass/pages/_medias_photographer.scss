@@ -2,6 +2,13 @@
     .photographer {
         grid-template-columns: 1.2fr 0.6fr 1.2fr;
     }
+
+    .lightbox-modal__content__btn {
+        font-size: 2.25rem;
+    }
+    .lightbox-modal__content__close{
+        font-size: 2.75rem;
+    }
 }
 
 @media screen and (max-width: 1080px) {
@@ -51,6 +58,39 @@
 
     }
 
+    .lightbox-modal__content__btn {
+        font-size: 2rem;
+    }
+    .lightbox-modal__content__close{
+        font-size: 2.5rem;
+    }
+    .lightbox-modal__content__slides__title{
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .lightbox-modal__content__btn {
+        font-size: 1.75rem;
+    }
+    .lightbox-modal__content__close{
+        font-size: 2.25rem;
+    }
+    .lightbox-modal__content__slides__title{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .lightbox-modal__content__btn {
+        font-size: 1.5rem;
+    }
+    .lightbox-modal__content__close{
+        font-size: 2rem;
+    }
+    .lightbox-modal__content__slides__title{
+        font-size: 0.9rem;
+    }
 }
 
 // en dessous de 609 px y a un probleme de responsive

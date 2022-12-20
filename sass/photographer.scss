@@ -1,5 +1,8 @@
 @import "./base/set";
 @import "./utils/animations", "./utils/mixins";
 @import "./layouts/photographers";
-@import "./pages/photographer", "./pages/gallery", "./pages/stats", "./pages/contact", "./pages/medias_photographer";
+@import "./pages/photographer", "./pages/gallery", "./pages/stats", "./pages/contact";
 @import "./components/lightbox";
+
+// Medias Queries
+@import "./pages/medias_photographer";

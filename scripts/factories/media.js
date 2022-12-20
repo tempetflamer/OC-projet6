@@ -30,7 +30,7 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) { // ajou
         article.classList.add('gallery__list__data');
         if (dataMedia.video || dataMedia.type == "video") {
             const video = document.createElement('video');
-            if (firstLoad === true) { video.src = `./assets/images/${chemin}/${dataMedia.video}`; } else { video.src = dataMedia.media; }
+            if (firstLoad === true) { video.src = `./assets/images/gallery/small/${chemin}/${dataMedia.video}`; } else { video.src = dataMedia.media; }
             video.alt = title;
             video.type = "video/mp4";
             video.role = "link";
@@ -49,7 +49,7 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) { // ajou
         }
         else {
             const img = document.createElement('img');
-            if (firstLoad === true) { img.src = `./assets/images/${chemin}/${image}`; } else { img.src = dataMedia.media; }
+            if (firstLoad === true) { img.src = `./assets/images/gallery/small/${chemin}/${image}`; } else { img.src = dataMedia.media; }
 
             img.alt = title;
             img.role = "link";
