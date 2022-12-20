@@ -29,7 +29,7 @@ async function init() {
 
     data.medias.forEach((photographer) => {
         if (photographer.photographerId == idUrl) {
-            const mediaModel = mediasFactory(photographer, data.photographers, true);
+            const mediaModel = mediasFactory(photographer, data.photographers, true, false);
             const galleryCardDOM = mediaModel.getGalleryCardDOM();
             GallerySection.appendChild(galleryCardDOM);
 

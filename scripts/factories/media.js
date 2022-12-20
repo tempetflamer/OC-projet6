@@ -3,20 +3,27 @@
  * @param {Json} dataMedia
  * @param {Json} dataPhotographers
  * @param {Boolean} firstLoad 
+ * @param {Boolean} liked - state of media, if liked or not 
  * @returns getGalleryCardDOM
  */
-function mediasFactory(dataMedia, dataPhotographers, firstLoad) { // ajouter les medias
+function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) { // ajouter les medias
     const { id, photographerId, title, image, video, likes, date, price } = dataMedia; //image or video
-    
+
     function getGalleryCardDOM() {
         let namePhotographer;
         let namePhotographerArray;
         let chemin;
+        let dataNum;
 
         if (firstLoad === true) {
             namePhotographer = dataPhotographers.find(photographer => photographer.id === photographerId);
             namePhotographerArray = namePhotographer.name.split(" ");
             chemin = namePhotographerArray[0].replace('-', ' ');
+
+            dataNum = indexMedia;
+        }
+        else {
+            dataNum = dataMedia.index;
         }
 
         const article = document.createElement('article');
@@ -30,12 +37,12 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad) { // ajouter les
             video.classList.add('gallery__list__data__img');
             video.tabIndex = 0;
             // Number used to init the array for the lightbox and controllers (prev, next) 
-            if (firstLoad === true) { video.dataset.num = indexMedia; } else { video.dataset.num = dataMedia.index; }
+            video.dataset.num = dataNum
             article.appendChild(video);
 
-            if (firstLoad === true) { initArrayMedia(title, dataMedia.likes, dataMedia.date, 'video', video.src, indexMedia); }
-            
-            video.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, "video", video.src, title);});
+            if (firstLoad === true) { initArrayMedia(title, dataMedia.likes, dataMedia.date, 'video', video.src, indexMedia, liked); }
+
+            video.addEventListener("click", (e) => { displayLightboxModal(e.target.dataset.num, "video", video.src, title); });
             video.addEventListener("keydown", (e) => {
                 if (e.code === "Enter") { displayLightboxModal(e.target.dataset.num, "video", video.src, title); }
             });
@@ -43,22 +50,22 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad) { // ajouter les
         else {
             const img = document.createElement('img');
             if (firstLoad === true) { img.src = `./assets/images/${chemin}/${image}`; } else { img.src = dataMedia.media; }
-            
+
             img.alt = title;
             img.role = "link";
             img.classList.add('gallery__list__data__img');
             img.tabIndex = 0;
             // Number used to init the array for the lightbox and controllers (prev, next) 
-            if (firstLoad === true) { img.dataset.num = indexMedia; } else { img.dataset.num = dataMedia.index; }            
+            img.dataset.num = dataNum
             article.appendChild(img);
 
-            if (firstLoad === true) { initArrayMedia(title, dataMedia.likes, dataMedia.date, 'img', img.src, indexMedia); }
+            if (firstLoad === true) { initArrayMedia(title, dataMedia.likes, dataMedia.date, 'img', img.src, indexMedia, liked); }
 
-            img.addEventListener("click", (e) =>  { displayLightboxModal(e.target.dataset.num, "img", img.src, title);});
+            img.addEventListener("click", (e) => { displayLightboxModal(e.target.dataset.num, "img", img.src, title); });
             img.addEventListener("keydown", (e) => {
                 if (e.code === "Enter") { displayLightboxModal(e.target.dataset.num, "img", img.src, title); }
             });
-            
+
         }
 
         const desc = document.createElement('div')
@@ -70,15 +77,23 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad) { // ajouter les
         const like = document.createElement('div')
         like.classList.add("gallery__list__data__description__likes");
         const numberLike = document.createElement('p')
-        numberLike.textContent = likes;
+        if (liked === false) { numberLike.textContent = likes; } else {numberLike.textContent = parseInt(likes) + 1;}
         numberLike.classList.add("gallery__list__data__description__likes__number");
         const iconLike = document.createElement('i')
-        iconLike.classList.add("fa-regular");
-        iconLike.classList.add("fa-heart");
-        iconLike.classList.add("fa-lg");
-        iconLike.classList.add("heart--empty");
+        if (liked === false) {
+            iconLike.classList.add("fa-regular");
+            iconLike.classList.add("fa-heart");
+            iconLike.classList.add("fa-lg");
+            iconLike.classList.add("heart--empty");
+        }
+        else {
+            iconLike.classList.add("fa-solid");
+            iconLike.classList.add("fa-heart");
+            iconLike.classList.add("fa-lg");
+            iconLike.classList.add("heart--filled");
+        }
         iconLike.ariaLabel = "likes";
-        iconLike.tabIndex = 0; 
+        iconLike.tabIndex = 0;
 
         desc.appendChild(titlePhotographer);
         desc.appendChild(like);
@@ -87,9 +102,9 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad) { // ajouter les
         article.appendChild(desc);
 
         //Add or remove medias liked
-        iconLike.addEventListener("click", (e) =>  { changelikes(iconLike, numberLike);});
+        iconLike.addEventListener("click", (e) => { changelikes(iconLike, numberLike, dataNum); });
         iconLike.addEventListener("keydown", (e) => {
-            if (e.code === "Enter") { changelikes(iconLike, numberLike); }
+            if (e.code === "Enter") { changelikes(iconLike, numberLike, dataNum); }
         });
 
         return (article);

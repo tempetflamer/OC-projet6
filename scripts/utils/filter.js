@@ -88,9 +88,9 @@ function filterBy(e) {
       i = 0;
       arrayEnd = arrayStart.sort((a, b) => b.likes - a.likes);
       arrayEnd.forEach((element) => {
-        console.log(element.title, element.likes, element.date, element.type, element.media, element.index);
+        console.log(element.title, element.likes, element.date, element.type, element.media, element.index, element.liked);
         element.index = i;
-        let mediaModel = mediasFactory(element, '', false);
+        let mediaModel = mediasFactory(element, '', false, element.liked);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
         galeryList.appendChild(galleryCardDOM);
         i++
@@ -106,9 +106,9 @@ function filterBy(e) {
       i = 0;
       arrayEnd = arrayStart.sort((a, b) => new Date(b.date) - new Date(a.date));
       arrayEnd.forEach((element) => {
-        console.log(element.title, element.likes, element.date, element.type, element.media, element.index);
+        console.log(element.title, element.likes, element.date, element.type, element.media, element.index, element.liked);
         element.index = i;
-        let mediaModel = mediasFactory(element, '', false);
+        let mediaModel = mediasFactory(element, '', false, element.liked);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
         galeryList.appendChild(galleryCardDOM);
         i++
@@ -133,10 +133,10 @@ function filterBy(e) {
       });
 
       arrayEnd.forEach((element) => {
-        console.log(element.title, element.likes, element.date, element.type, element.media, element.index);
+        console.log(element.title, element.likes, element.date, element.type, element.media, element.index, element.liked);
         element.index = i;
         //let mediaModel = mediasFactoryFilter(element);
-        let mediaModel = mediasFactory(element, '', false);
+        let mediaModel = mediasFactory(element, '', false, element.liked);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
         galeryList.appendChild(galleryCardDOM);
         i++

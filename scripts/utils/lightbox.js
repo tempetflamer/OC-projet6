@@ -17,28 +17,28 @@ let setIndexMedia = 0;
  * Function to display the media (picture or video) in lightbox
  * @param {number} index - numéro du média
  * @param {string} value - media type (video or picture)
- * @param {string} img - media link
+ * @param {string} media - media link
  * @param {string} title - media name
  * @param {Boolean} firstOpen - true display media, false swap media
  */
-function displayLightboxMedia(index, value, img, title, firstOpen) {
+function displayLightboxMedia(index, value, media, title, firstOpen) {
     let createLlightboxModalMedia = "";
     // If lightbox already open (false), then swap media
     if (firstOpen == false) {
-        img = arrayMedia[index].media
+        media = arrayMedia[index].media
         title = arrayMedia[index].title
         value = arrayMedia[index].type
     }
 
     if (value == "video") {
         createLlightboxModalMedia = document.createElement('video');
-        createLlightboxModalMedia.src = img;
+        createLlightboxModalMedia.src = media;
         createLlightboxModalMedia.type = "video/mp4";
         createLlightboxModalMedia.controls = true;
     }
     else {
         createLlightboxModalMedia = document.createElement('img');
-        createLlightboxModalMedia.src = img;
+        createLlightboxModalMedia.src = media;
     }
     createLlightboxModalMedia.alt = title;
     createLlightboxModalMedia.classList.add('lightbox-modal__content__slides__media');
