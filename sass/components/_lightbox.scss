@@ -21,14 +21,14 @@
         justify-content: center;
         flex-direction: row;
 
-        //changer le fonctionnement plutôt qu'un vieux position absolute le metrte en display, mais techniquement il est dans slide
+        //changer le fonctionnement plutôt qu'un vieux position absolute le mettre en display, mais techniquement il est dans slide
         &__close {
             max-height: 84%;
             font-size: 3rem;
             color: #911c1c;
             border: none;
             background: none;
-            cursor: pointer; 
+            cursor: pointer;
         }
 
         &__btn {
@@ -37,9 +37,9 @@
             color: #911c1c;
             border: none;
             background: none;
-            cursor: pointer;   
+            cursor: pointer;
 
-            &--gray{
+            &--gray {
                 color: gray;
             }
         }
@@ -52,7 +52,7 @@
             max-height: 84%;
             max-width: 70%;
 
-            &--top{
+            &--top {
                 display: flex;
                 justify-content: flex-end;
                 margin-bottom: -38px; // correspond à la largeur de l'objet
@@ -64,7 +64,10 @@
                 max-width: 100%;
             }
 
-            &__title {color: #911c1c;}
+            &__title {
+                color: #911c1c;
+                font-size: 1.2rem;
+            }
         }
 
     }

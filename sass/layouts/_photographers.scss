@@ -4,48 +4,47 @@
     gap: 70px;
     margin-top: 100px;
     border-radius: 5px;
-}
 
-.photographer__data {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap : -200px 0;
+    &__data {
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap : -200px 0;
+    
+        a{
+            text-decoration: none;
+            text-align: center;
+        }
 
-    a{
-        text-decoration: none;
-        text-align: center;
+        &__name {
+            color: #D3573C;
+            font-size: 36px;
+        }
+
+        &__img {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            object-fit:cover; /* pas besoin */
+        }
+
+        &__location {
+            color: #911C1C;
+            font-size: 1.3rem;
+            margin-top: -1.5rem;
+        }
+
+        &__tagline {
+            font-size: 1.2rem;
+            margin-top: -1.2rem;
+        }
+
+        &__price {
+            font-size: 1.1rem;
+            color: #757575;
+            margin-top: -1rem;
+        }
     }
-}
-
-.photographer__data__name {
-    color: #D3573C;
-    font-size: 36px;
-}
-
-.photographer__data__img {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    object-fit:cover; /* pas besoin */
-}
-/* corriger flex at 1072px;*/
-
-.photographer__data__location{
-    color: #911C1C;
-    font-size: 1.5rem;
-    margin-top: -8%;
-}
-
-.photographer__data__tagline{
-    font-size: 1.2rem;
-    margin-top: -8%;
-}
-
-.photographer__data__price{
-    font-size: 1.2rem;
-    color: #757575;
-    margin-top: -6%;
 }

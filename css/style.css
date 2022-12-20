@@ -27,6 +27,11 @@ h1 {
   display: none;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .photographer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -34,7 +39,6 @@ h1 {
   margin-top: 100px;
   border-radius: 5px;
 }
-
 .photographer__data {
   justify-self: center;
   display: flex;
@@ -47,35 +51,29 @@ h1 {
   text-decoration: none;
   text-align: center;
 }
-
 .photographer__data__name {
   color: #D3573C;
   font-size: 36px;
 }
-
 .photographer__data__img {
   height: 200px;
   width: 200px;
   border-radius: 50%;
   object-fit: cover; /* pas besoin */
 }
-
-/* corriger flex at 1072px;*/
 .photographer__data__location {
   color: #911C1C;
-  font-size: 1.5rem;
-  margin-top: -8%;
+  font-size: 1.3rem;
+  margin-top: -1.5rem;
 }
-
 .photographer__data__tagline {
   font-size: 1.2rem;
-  margin-top: -8%;
+  margin-top: -1.2rem;
 }
-
 .photographer__data__price {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #757575;
-  margin-top: -6%;
+  margin-top: -1rem;
 }
 
 @media screen and (max-width: 1320px) {

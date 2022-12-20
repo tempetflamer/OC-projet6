@@ -1,5 +1,5 @@
 @import "./base/set";
 @import "./utils/animations", "./utils/mixins";
-@import "./layouts/scroll", "./layouts/photographers"; // bon normalemnt scroll faudrait le mettre dans util ou dans base
+@import "./layouts/photographers";
 @import "./pages/photographer", "./pages/gallery", "./pages/stats", "./pages/contact", "./pages/medias_photographer";
 @import "./components/lightbox";
