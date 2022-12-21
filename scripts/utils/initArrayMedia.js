@@ -13,6 +13,5 @@ let indexMedia = 0;
  */
 function initArrayMedia(title, likes, date, type, media, index, liked) {
     arrayMedia.push({ 'title': title, 'likes': likes, 'date': date, 'type': type, 'media': media, 'index': index, 'liked': liked });
-    console.log(title, likes, date, type, media, index, liked);
     indexMedia = indexMedia + 1;
   }

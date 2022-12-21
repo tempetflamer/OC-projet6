@@ -11,9 +11,7 @@ const galeryList = document.querySelector(".gallery__list");
  * @param {*} parent - galeryList
  */
 function clearGallery(parent) {
-  console.log("clear gallery")
   while (parent.firstChild) {
-    console.log(parent.firstChild)
     parent.removeChild(parent.firstChild);
   }
 }
@@ -88,7 +86,6 @@ function filterBy(e) {
       i = 0;
       arrayEnd = arrayStart.sort((a, b) => b.likes - a.likes);
       arrayEnd.forEach((element) => {
-        console.log(element.title, element.likes, element.date, element.type, element.media, element.index, element.liked);
         element.index = i;
         let mediaModel = mediasFactory(element, '', false, element.liked);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
@@ -106,7 +103,6 @@ function filterBy(e) {
       i = 0;
       arrayEnd = arrayStart.sort((a, b) => new Date(b.date) - new Date(a.date));
       arrayEnd.forEach((element) => {
-        console.log(element.title, element.likes, element.date, element.type, element.media, element.index, element.liked);
         element.index = i;
         let mediaModel = mediasFactory(element, '', false, element.liked);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
@@ -133,9 +129,7 @@ function filterBy(e) {
       });
 
       arrayEnd.forEach((element) => {
-        console.log(element.title, element.likes, element.date, element.type, element.media, element.index, element.liked);
         element.index = i;
-        //let mediaModel = mediasFactoryFilter(element);
         let mediaModel = mediasFactory(element, '', false, element.liked);
         let galleryCardDOM = mediaModel.getGalleryCardDOM();
         galeryList.appendChild(galleryCardDOM);

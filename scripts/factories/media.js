@@ -6,8 +6,8 @@
  * @param {Boolean} liked - state of media, if liked or not 
  * @returns getGalleryCardDOM
  */
-function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) { // ajouter les medias
-    const { id, photographerId, title, image, video, likes, date, price } = dataMedia; //image or video
+function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) {
+    const { id, photographerId, title, image, video, likes, date, price } = dataMedia;
 
     function getGalleryCardDOM() {
         let namePhotographer;
@@ -36,7 +36,6 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) { // ajou
             video.role = "link";
             video.classList.add('gallery__list__data__img');
             video.tabIndex = 0;
-            // Number used to init the array for the lightbox and controllers (prev, next) 
             video.dataset.num = dataNum
             article.appendChild(video);
 
@@ -55,7 +54,6 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) { // ajou
             img.role = "link";
             img.classList.add('gallery__list__data__img');
             img.tabIndex = 0;
-            // Number used to init the array for the lightbox and controllers (prev, next) 
             img.dataset.num = dataNum
             article.appendChild(img);
 

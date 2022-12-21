@@ -1,4 +1,4 @@
-// Preload lightbox image
+// Preload lightbox images
 arrayMedia.forEach((element) => {
     let media = element.media
     media = media.replace('/small/', '/medium/');

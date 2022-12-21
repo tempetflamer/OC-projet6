@@ -54,8 +54,8 @@ function displayLightboxMedia(index, value, media, title, firstOpen) {
 }
 
 // Function previous and next arrows listening events stored in variables
-let prevPicturelisten = function (value, img, title) { prevPictureLightboxModal(value, img, title); }
-let nextPicturelisten = function (value, img, title) { nextPictureLightboxModal(value, img, title); }
+const prevPicturelisten = function (value, img, title) { prevPictureLightboxModal(value, img, title); }
+const nextPicturelisten = function (value, img, title) { nextPictureLightboxModal(value, img, title); }
 let picturelistenKey = function (e, value, img, title) {
     if (e.keyCode === 39) /* right arrow */ {
         e.preventDefault();
@@ -112,9 +112,6 @@ function closeLightboxModal() {
         document.querySelector(".lightbox-modal__content__slides__media").remove();
         document.querySelector(".lightbox-modal__content__slides__title").remove();
     }, 480);
-
-
-
 
     // Remove the previous and next arrows listening events when closing the lightbox
     btnPrevLightbox.removeEventListener("click", prevPicturelisten);

@@ -72,8 +72,8 @@ function photographerFactory(data) {
         contactPhotographer.href = '';
         contactPhotographer.textContent = 'Contactez-moi';
         contactPhotographer.tabIndex = "0";
-        contactPhotographer.type = "button" //accessibility
-        contactPhotographer.classList.add('photographer__contact__btn'); // ça restera peut être pas mais c'est pour tester
+        contactPhotographer.type = "button";
+        contactPhotographer.classList.add('photographer__contact__btn');
         contactPhotographer.addEventListener("click", displayModal);
         divPhotographerContact.appendChild(contactPhotographer);
     

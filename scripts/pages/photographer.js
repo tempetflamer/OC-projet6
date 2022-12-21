@@ -12,6 +12,7 @@ async function init() {
 
     let totaLikeStats = 0;
 
+    // Created data photographer
     data.photographers.forEach((photographer) => {
         if (photographer.id == idUrl) {
 
@@ -27,6 +28,9 @@ async function init() {
         }
     });
 
+    // Filter data medias by popularity
+    data.medias.sort((a, b) => b.likes - a.likes);
+    // Create photographer's media gallery
     data.medias.forEach((photographer) => {
         if (photographer.photographerId == idUrl) {
             const mediaModel = mediasFactory(photographer, data.photographers, true, false);
