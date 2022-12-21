@@ -15,8 +15,6 @@
     &__content {
         width: 100%;
         max-width: 500px;
-        animation-name: modalopen;
-        animation-duration: 0.8s ease-in-out;
         background: #db8876;
         border-radius: 10px;
         overflow: hidden;
@@ -88,7 +86,6 @@
             }
 
             #submit-btn {
-                //position: relative; // plus besoin de le centrer
                 margin-top: 1rem;
                 margin-bottom: 1rem;
                 padding: 1rem 2rem;

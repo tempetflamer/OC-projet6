@@ -41,6 +41,66 @@ h1 {
     opacity: 1;
   }
 }
+@keyframes modalclose {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*   @keyframes fadein {
+    0% {
+        display: "none";
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    99% {
+        display: flex;
+        opacity: 1;
+    }
+
+    100% {
+
+        display: flex;
+        opacity: 1;
+    }
+} */
+/*
+  @keyframes fadeout {
+    1% {
+        display: flex;
+      opacity:1;
+    }
+    99% {
+        display: flex;
+        opacity:0;
+    }
+    0%, 100% {
+      display: "none";
+    }
+  } */
 .photographer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -59,6 +119,10 @@ h1 {
 .photographer__data a {
   text-decoration: none;
   text-align: center;
+  transition: transform 0.5s ease-in-out;
+}
+.photographer__data a:hover {
+  transform: scale(1.1);
 }
 .photographer__data__name {
   color: #D3573C;
@@ -68,7 +132,7 @@ h1 {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  object-fit: cover; /* pas besoin */
+  object-fit: cover;
 }
 .photographer__data__location {
   color: #911C1C;
@@ -208,7 +272,8 @@ h1 {
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 20px 25px;
+  gap: 20px 30px;
+  margin-bottom: 4rem;
 }
 .gallery__list__data__img {
   border-radius: 5px;
@@ -219,6 +284,10 @@ h1 {
   display: block;
   object-fit: cover;
   cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+.gallery__list__data__img:hover {
+  transform: scale(1.1);
 }
 .gallery__list__data__description {
   display: flex;
@@ -302,8 +371,6 @@ h1 {
 .contact__content {
   width: 100%;
   max-width: 500px;
-  animation-name: modalopen;
-  animation-duration: 0.8s ease-in-out;
   background: #db8876;
   border-radius: 10px;
   overflow: hidden;
@@ -468,93 +535,6 @@ form input {
   font-size: 1.2rem;
 }
 
-/* @media screen and (max-width: 1600px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                right: 9%;
-                top: -5%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                right: 8%;
-                top: -7%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1080px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 5rem;
-                height: 5rem;
-                font-size: 2.5rem;
-                right: 6%;
-                top: -8%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 4rem;
-                height: 4rem;
-                font-size: 2.5rem;
-                right: 6%;
-                top: -8%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 4rem;
-                height: 4rem;
-                font-size: 2rem;
-                right: 5%;
-                top: -9%;
-            }
-
-            &__btn {
-                width: 3rem;
-                font-size: 2rem;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 4rem;
-                height: 4rem;
-                font-size: 2rem;
-                right: 3%;
-                top: -11%;
-            }
-
-            &__btn {
-                width: 2.5rem;
-                font-size: 1.5rem;
-            }
-        }
-    }
-} */
 @media screen and (max-width: 1250px) {
   .photographer {
     grid-template-columns: 1.2fr 0.6fr 1.2fr;
@@ -571,12 +551,12 @@ form input {
     grid-template-columns: 1.4fr 0.6fr 1fr;
   }
 }
-@media screen and (max-width: 2083px) {
+@media screen and (max-width: 2120px) {
   .gallery__list {
     justify-content: space-around;
   }
 }
-@media screen and (max-width: 1046px) {
+@media screen and (max-width: 1052px) {
   .gallery__list {
     justify-content: flex-start;
   }

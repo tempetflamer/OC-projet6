@@ -1,6 +1,5 @@
-// remplacer tous les % par des vh
 .lightbox-modal {
-    display: none; // Il ya !important mas voir si on peut aps faire autrement
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -21,7 +20,6 @@
         justify-content: center;
         flex-direction: row;
 
-        //changer le fonctionnement plutôt qu'un vieux position absolute le mettre en display, mais techniquement il est dans slide
         &__close {
             max-height: 84%;
             font-size: 3rem;
@@ -55,7 +53,7 @@
             &--top {
                 display: flex;
                 justify-content: flex-end;
-                margin-bottom: -38px; // correspond à la largeur de l'objet
+                margin-bottom: -38px;
                 margin-right: -50px;
             }
 
@@ -73,94 +71,3 @@
     }
 
 }
-
-
-//Medias Queries lightbox
-//a remodifié mais la taille est importante
-/* @media screen and (max-width: 1600px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                right: 9%;
-                top: -5%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                right: 8%;
-                top: -7%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1080px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 5rem;
-                height: 5rem;
-                font-size: 2.5rem;
-                right: 6%;
-                top: -8%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 4rem;
-                height: 4rem;
-                font-size: 2.5rem;
-                right: 6%;
-                top: -8%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 4rem;
-                height: 4rem;
-                font-size: 2rem;
-                right: 5%;
-                top: -9%;
-            }
-
-            &__btn {
-                width: 3rem;
-                font-size: 2rem;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .lightbox-modal {
-        &__content {
-            &__close {
-                width: 4rem;
-                height: 4rem;
-                font-size: 2rem;
-                right: 3%;
-                top: -11%;
-            }
-
-            &__btn {
-                width: 2.5rem;
-                font-size: 1.5rem;
-            }
-        }
-    }
-} */

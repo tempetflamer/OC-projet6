@@ -16,6 +16,10 @@
         a{
             text-decoration: none;
             text-align: center;
+            transition: transform 0.5s ease-in-out;
+        }
+        a:hover {
+            transform: scale(1.1);
         }
 
         &__name {
@@ -27,7 +31,7 @@
             height: 200px;
             width: 200px;
             border-radius: 50%;
-            object-fit:cover; /* pas besoin */
+            object-fit:cover;
         }
 
         &__location {

@@ -1,5 +1,6 @@
 // DOM Elements
 const contactModal = document.querySelector(".contact");
+const contactContentModal = document.querySelector(".contact__content");
 const btnCloseContactModal = document.querySelector(".contact__content__close");
 const contactForm = document.getElementById("contact-form");
 const submitContactForm = document.getElementById("submit-btn");
@@ -13,7 +14,11 @@ function enableScroll() {
 }
 
 function displayModal() {
+    // Display
     contactModal.style.display = "flex";
+    contactModal.style.animation = "fadein 0.5s ease-in-out";
+    contactContentModal.style.animation = "modalopen 0.5s ease-in-out";
+
     document.getElementById("prenom").focus()
     disableScroll();
 
@@ -25,8 +30,11 @@ function displayModal() {
 }
 
 function closeModal() {
-    contactModal.style.display = "none";
-    enableScroll();
+    contactModal.style.animation = "fadeout 0.5s ease-in-out";
+    setTimeout(function() {
+        contactModal.style.display = "none";
+        enableScroll();
+    }, 480);
     document.querySelector(".photographer__contact__btn").focus();
 
     // Change accessibility focus

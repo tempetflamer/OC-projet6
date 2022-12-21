@@ -86,6 +86,7 @@ function displayLightboxModal(index, value, img, title) {
     partHeader.ariaHidden = true;
 
     lightboxModal.style.display = "block";
+    lightboxModal.style.animation = "modalopen 0.5s ease-in-out";
     btnPrevLightbox.focus()
     disableScroll();
     displayLightboxMedia(index, value, img, title, true);
@@ -102,12 +103,18 @@ function displayLightboxModal(index, value, img, title) {
 }
 
 function closeLightboxModal() {
-    lightboxModal.style.display = "none";
-    enableScroll();
+    lightboxModal.style.animation = "modalclose 0.5s ease-in-out";
+    setTimeout(function () {
+        lightboxModal.style.display = "none";
+        enableScroll();
 
-    // Remove the created elements in lightbox
-    document.querySelector(".lightbox-modal__content__slides__media").remove();
-    document.querySelector(".lightbox-modal__content__slides__title").remove();
+        // Remove the created elements in lightbox
+        document.querySelector(".lightbox-modal__content__slides__media").remove();
+        document.querySelector(".lightbox-modal__content__slides__title").remove();
+    }, 480);
+
+
+
 
     // Remove the previous and next arrows listening events when closing the lightbox
     btnPrevLightbox.removeEventListener("click", prevPicturelisten);

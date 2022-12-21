@@ -2,13 +2,13 @@
     background-color: #FAFAFA;
     height: 300px;
     width: 100%;
-    
+
     &__data {
         align-items: start;
         margin-left: 30px;
         margin-right: 30px;
-    
-        &__tagline{
+
+        &__tagline {
             color: #525252;
             margin-top: -5%;
         }
@@ -16,37 +16,37 @@
         &__location {
             font-size: 1.5rem;
         }
-      }
-      
-      &__contact {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          
-          &__btn {
-             font-size: 20px;
-             font-weight: bold;
-             color: white;
-             width: 170px;
-             height: 70px;
-             border: none;
-             background-color: #901C1C;
-             border-radius: 5px;
-             cursor: pointer;
-          }
-          &__btn:hover, &__btn:focus  {
+    }
+
+    &__contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__btn {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            width: 170px;
+            height: 70px;
+            border: none;
+            background-color: #901C1C;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        &__btn:hover,
+        &__btn:focus {
             @include secondary-color;
         }
-      }
+    }
 
-      &__picture {
-          margin-right: -30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      
-      }
+    &__picture {
+        margin-right: -30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
 
 }
-
-

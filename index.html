@@ -8,7 +8,7 @@
   <meta name="description" content="FishEye, la plateforme des photographes freelances">
   <meta name="copyright" content="&copy; fisheye.com">
   <meta name="author" content="Nicolas Lecroq">
-  <meta name="robots" content="none"> <!-- a creuser-->
+  <meta name="robots" content="none">
   <title>Fisheye</title>
   <link href="./css/style.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/png" href="./assets/favicon.png">
@@ -16,17 +16,28 @@
 </head>
 
 <body>
-  <header>
+  <!--Header-->
+  <header aria-label="header">
     <a href="./index.html" class="logo-link" aria-label="page d'accueil FishEye" tabindex="0"><img
-      src="./assets/images/logo.png" class="logo" alt="page d'accueil FishEye"></a>
+        src="./assets/images/logo.png" class="logo" alt="page d'accueil FishEye"></a>
     <h1>Nos photographes</h1>
   </header>
+  <!--End of Header-->
+  <!--Main-->
   <main id="main">
+    <!--Photographer section-->
     <section class="photographer"></section>
+    <!--End of photographer section-->
   </main>
+  <!--End of Main-->
+
+  <!--Factories-->
   <script src="./scripts/factories/photographer.js"></script>
+  <!--Utils init data-->
   <script src="./scripts/utils/dataReader.js"></script>
+  <!--Page-->
   <script src="./scripts/pages/index.js"></script>
+  
 </body>
 
 </html>

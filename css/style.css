@@ -50,6 +50,10 @@ h1 {
 .photographer__data a {
   text-decoration: none;
   text-align: center;
+  transition: transform 0.5s ease-in-out;
+}
+.photographer__data a:hover {
+  transform: scale(1.1);
 }
 .photographer__data__name {
   color: #D3573C;
@@ -59,7 +63,7 @@ h1 {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  object-fit: cover; /* pas besoin */
+  object-fit: cover;
 }
 .photographer__data__location {
   color: #911C1C;

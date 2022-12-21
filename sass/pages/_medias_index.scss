@@ -33,7 +33,7 @@
 
 }
 
-@media screen and (max-width: 565px) { // 565 passe sur chrome mais aps sur firefox, ya un pixel qui casse les couilles sur firefox mais d'après le html je suis en 557px ?
+@media screen and (max-width: 565px) {
 
     header {
         flex-direction: column;
@@ -48,6 +48,3 @@
     }
 
 }
-
-//Responsive jusqu'à 400px;
-//faire attention ce responsive est appliqué à la page des photographe aussi
