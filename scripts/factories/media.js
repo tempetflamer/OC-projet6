@@ -100,7 +100,7 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) {
         article.appendChild(desc);
 
         //Add or remove medias liked
-        iconLike.addEventListener("click", (e) => { changelikes(iconLike, numberLike, dataNum); });
+        iconLike.addEventListener("click", () => { changelikes(iconLike, numberLike, dataNum); });
         iconLike.addEventListener("keydown", (e) => {
             if (e.code === "Enter") { changelikes(iconLike, numberLike, dataNum); }
         });

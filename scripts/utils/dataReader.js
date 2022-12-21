@@ -10,4 +10,4 @@ async function dataFetch() {
         'photographers': dataPhotographers,
         'medias': dataMedias
     };
-};
+}

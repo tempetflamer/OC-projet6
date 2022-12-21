@@ -1,5 +1,4 @@
 // DOM Elements
-const titlePictureLightbox = document.querySelector(".lightbox-modal__content__slides__title");
 const btnCloseLightbox = document.querySelector(".lightbox-modal__content__close");
 const lightboxModal = document.querySelector(".lightbox-modal");
 const lightboxModalSlides = document.querySelector(".lightbox-modal__content__slides");

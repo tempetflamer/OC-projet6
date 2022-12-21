@@ -64,7 +64,7 @@ async function init() {
     StatsDiv.appendChild(likesStats);
     StatsDiv.appendChild(priceStats);
 
-};
+}
 
 init();
 
