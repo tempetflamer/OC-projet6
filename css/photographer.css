@@ -79,7 +79,6 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: -200px 0;
 }
 .photographer__data a {
   text-decoration: none;
@@ -211,26 +210,6 @@ h1 {
   z-index: 2;
   cursor: pointer;
 }
-.gallery__listbox-container__listbox option, .gallery__listbox-container__listbox:focus option {
-  appearance: none;
-  border: none;
-  outline: none;
-  background-color: #901C1C;
-  padding: 1rem;
-}
-.gallery__listbox-container__listbox option:disabled, .gallery__listbox-container__listbox:focus option:disabled {
-  width: 100%;
-  color: blue !important;
-}
-.gallery__listbox-container__listbox option::after, .gallery__listbox-container__listbox:focus option::after {
-  border-radius: 10px;
-  width: 7rem;
-  line-height: 1rem;
-}
-.gallery__listbox-container__listbox br, .gallery__listbox-container__listbox:focus br {
-  width: 50px;
-  border: 10px solid blue;
-}
 .gallery__list {
   margin-top: 8rem;
   display: flex;
@@ -273,7 +252,6 @@ h1 {
   cursor: pointer;
 }
 .gallery__listbox-options {
-  z-index: 2;
   font-size: 1.2rem;
   margin-top: -1rem;
   z-index: 1;
@@ -482,7 +460,6 @@ form input {
 }
 .lightbox-modal__content__slides {
   display: flex;
-  align-items: right;
   justify-content: center;
   flex-direction: column;
   max-height: 84%;

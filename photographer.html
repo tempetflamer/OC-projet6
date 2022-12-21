@@ -27,7 +27,7 @@
   <main id="main">
 
     <!--Photographer info section-->
-    <section class="photographer" aria-label="Informations Photographe" role="information"></section>
+    <section class="photographer" aria-label="Informations Photographe"></section>
     <!--End of photographer info section-->
 
     <!--Stats-->
@@ -35,14 +35,14 @@
     <!--End of Stats-->
 
     <!--Photographer Gallery section-->
-    <section class="gallery" aria-label="Galerie Photographe" role="information">
+    <section class="gallery" aria-label="Galerie Photographe">
       <!--filter container-->
 
       <div class="gallery__listbox-container">
         <span class="gallery__listbox-container__filter-by" aria-label="liste filtrante">Trier par</span>
         <div aria-label="filtrer par" class="gallery__listbox-container--state listbox-close" tabindex="0"
           role="listbox">
-          <div name="filtre" id="listbox" class="gallery__listbox-container__listbox" data-selected="popularité">
+          <div id="listbox" class="gallery__listbox-container__listbox" data-selected="popularité">
             Popularité</div>
           <i class="fa-sharp fa-solid fa-chevron-down fa-sm"></i>
           <i class="fa-sharp fa-solid fa-chevron-up fa-sm hidden"></i>
@@ -71,8 +71,7 @@
         <button class="contact__content__close" aria-label="Fermer le formulaire de contact"><i
             class="fas fa-times"></i></button>
         <div class="contact__content__body" id="modal-div" role="dialog">
-          <form name="contact__photographer" action="./photographerPage.html" method="post" id="contact-form"
-            role="dialog">
+          <form name="contact__photographer" action="./photographerPage.html" method="post" id="contact-form">
 
             <div class="contact__content__body__formData" aria-label="Entrer votre prénom">
               <label for="prenom">Prénom</label>
@@ -88,7 +87,7 @@
             </div>
             <div class="contact__content__body__formData" aria-label="Entrer votre message">
               <label for="message">Votre message</label>
-              <textarea class="text-control" type="text" name="message" id="message" required></textarea>
+              <textarea class="text-control" name="message" id="message" required></textarea>
             </div>
 
             <div class="contact__content__body--flex-start">
