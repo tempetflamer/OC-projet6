@@ -7,9 +7,40 @@ function trapFocus(value) {
   let focusableEls;
   let firstFocusableEl;
   let lastFocusableEl;
+
+  function focuslisten(e) {
+    const isTabPressed = (e.key === 'Tab' || e.keyCode === 9 || e.keyCode === 27);
+
+    if (!isTabPressed) {
+      return;
+    }
+    if (e.keyCode === 27) {
+      if (value == "contact") { closeModal(); }
+      if (value == "lightbox") { closeLightboxModal(); }
+      if (value == "filter") { stateListbox(); }
+    }
+    else {
+      if (e.shiftKey) {
+        console.log(lastFocusableEl);
+        console.log(firstFocusableEl);
+        if (document.activeElement === firstFocusableEl) {
+          lastFocusableEl.focus();
+          e.preventDefault();
+        }
+      } else {
+        console.log(lastFocusableEl);
+        console.log(firstFocusableEl);
+        if (document.activeElement === lastFocusableEl) {
+          firstFocusableEl.focus();
+          e.preventDefault();
+        }
+      }
+    }    
+  }
+
   if (value == "contact") {
     element = contactModal;
-    focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+    focusableEls = element.querySelectorAll('button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled])');
     firstFocusableEl = focusableEls[0];
     lastFocusableEl = focusableEls[focusableEls.length - 1];
   }
@@ -22,37 +53,26 @@ function trapFocus(value) {
     else {
       if (value == "filter") {
         element = containerListbox;
-        focusableEls = element.querySelectorAll('div:not([disabled])');
+        focusableEls = element.querySelectorAll('div[tabindex="0"]:not([disabled])');
+        console.log(focusableEls)
         firstFocusableEl = focusableEls[0];
         lastFocusableEl = focusableEls[focusableEls.length - 1];
+        console.log(lastFocusableEl)
       }
     }
   }
 
-  element.addEventListener('keydown', function (e) {
-    const isTabPressed = (e.key === 'Tab' || e.keyCode === 9 || e.keyCode === 27);
 
-    if (!isTabPressed) {
-      return;
-    }
-    if (e.keyCode === 27) /* ESC */ {
-      if (value == "contact") { closeModal(); }
-      if (value == "lightbox") { closeLightboxModal(); }
-      if (value == "filter") { stateListbox(); }
-    }
-    else {
-      if (e.shiftKey) /* shift + tab */ {
-        if (document.activeElement === firstFocusableEl) {
-          lastFocusableEl.focus();
-          e.preventDefault();
-        }
-      } else /* tab */ {
-        if (document.activeElement === lastFocusableEl) {
-          firstFocusableEl.focus();
-          e.preventDefault();
-        }
-      }
-    }
+  if (value == "filter") {
+    try {element.removeEventListener("keydown", filterListen(e)) } catch {}
+    element.addEventListener('keydown', function filterListen(e) {
+      focuslisten(e)
+    });
+  }
+  else {
+    element.addEventListener('keydown', function (e) {
+      focuslisten(e)
+    });
+  }
 
-  });
 }

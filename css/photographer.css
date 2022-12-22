@@ -164,7 +164,7 @@ h1 {
 .gallery__listbox-container {
   display: grid;
   grid-template-columns: 120px 160px;
-  align-items: center;
+  align-items: flex-start;
   font-size: 1.5rem;
   margin: 1rem 0;
   position: absolute;
@@ -176,7 +176,12 @@ h1 {
   color: #000;
   display: unset;
 }
-.gallery__listbox-container--state {
+.gallery__listbox-container__filter-by--state {
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+.gallery__listbox-container--group {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -189,7 +194,7 @@ h1 {
   z-index: 1;
   overflow: hidden;
 }
-.gallery__listbox-container--state i {
+.gallery__listbox-container--group i {
   margin-left: -45px;
   z-index: 1;
 }
@@ -209,6 +214,30 @@ h1 {
   border-radius: 5px;
   z-index: 2;
   cursor: pointer;
+}
+.gallery__listbox-container__options {
+  font-size: 1.2rem;
+  margin-top: -0.2rem;
+  z-index: 1;
+  background-color: #901C1C;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 0 0 5px 5px;
+  padding-bottom: 0.75rem;
+  cursor: pointer;
+}
+.gallery__listbox-container__options div {
+  padding: 0.35rem 0 0.35rem 1rem;
+}
+.gallery__listbox-container__options div:hover,
+.gallery__listbox-container__options div:focus {
+  background: #DB8876;
+  color: black;
+  outline: none;
+}
+.gallery__listbox-container__options hr {
+  width: 90%;
+  color: white;
 }
 .gallery__list {
   margin-top: 8rem;
@@ -250,30 +279,6 @@ h1 {
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-.gallery__listbox-options {
-  font-size: 1.2rem;
-  margin-top: -1rem;
-  z-index: 1;
-  background-color: #901C1C;
-  color: #fff;
-  overflow: hidden;
-  border-radius: 0 0 5px 5px;
-  padding-bottom: 0.75rem;
-  cursor: pointer;
-}
-.gallery__listbox-options div {
-  padding: 0.35rem 0 0.35rem 1rem;
-}
-.gallery__listbox-options div:hover,
-.gallery__listbox-options div:focus {
-  background: #DB8876;
-  color: black;
-  outline: none;
-}
-.gallery__listbox-options hr {
-  width: 90%;
-  color: white;
 }
 
 .stats {

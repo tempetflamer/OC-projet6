@@ -1,6 +1,6 @@
 const containerListbox = document.querySelector(".gallery__listbox-container");
-const optionListbox = document.querySelector(".gallery__listbox-options");
-const optionAllListbox = document.querySelectorAll(".gallery__listbox-options > div");
+const optionListbox = document.querySelector(".gallery__listbox-container__options");
+const optionAllListbox = document.querySelectorAll(".gallery__listbox-container__options > div");
 const containerListboxState = document.querySelector(".gallery__listbox-container--state");
 const select = document.querySelector(".gallery__listbox-container__listbox");
 const galeryList = document.querySelector(".gallery__list");
@@ -92,6 +92,11 @@ function filterBy(e) {
         galeryList.appendChild(galleryCardDOM);
         i++
       });
+
+      optionListbox.children[1].setAttribute("disabled", "disabled");
+      optionListbox.children[3].removeAttribute("disabled");
+      optionListbox.children[5].removeAttribute("disabled");
+      trapFocus("filter");
       break;
 
     case "date":
@@ -109,6 +114,11 @@ function filterBy(e) {
         galeryList.appendChild(galleryCardDOM);
         i++
       });
+
+      optionListbox.children[1].removeAttribute("disabled");
+      optionListbox.children[3].setAttribute("disabled", "disabled");
+      optionListbox.children[5].removeAttribute("disabled");
+      trapFocus("filter");
       break;
 
     case "titre":
@@ -135,11 +145,17 @@ function filterBy(e) {
         galeryList.appendChild(galleryCardDOM);
         i++
       });
+
+      optionListbox.children[1].removeAttribute("disabled");
+      optionListbox.children[3].removeAttribute("disabled");
+      optionListbox.children[5].setAttribute("disabled", "disabled");
+      trapFocus("filter");
       break;
 
     default:
       break;
   }
+  optionListbox.classList.toggle("hidden");
 
 }
 

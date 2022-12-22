@@ -39,23 +39,27 @@
       <!--filter container-->
 
       <div class="gallery__listbox-container">
-        <span class="gallery__listbox-container__filter-by" aria-label="liste filtrante">Trier par</span>
-        <div aria-label="filtrer par" class="gallery__listbox-container--state listbox-close" tabindex="0"
-          role="listbox">
-          <div id="listbox" class="gallery__listbox-container__listbox" data-selected="popularité">
-            Popularité</div>
-          <i class="fa-sharp fa-solid fa-chevron-down fa-sm"></i>
-          <i class="fa-sharp fa-solid fa-chevron-up fa-sm hidden"></i>
+        <div class="gallery__listbox-container__filter-by--state">
+          <span class="gallery__listbox-container__filter-by" aria-label="liste filtrante">Trier par</span>
         </div>
-        <div></div>
-        <div class="gallery__listbox-options hidden">
-          <hr>
-          <div data-option="popularité" role="option" tabindex="0">Popularité</div>
-          <hr>
-          <div data-option="date" role="option" tabindex="0">Date</div>
-          <hr>
-          <div data-option="titre" role="option" tabindex="0">Titre</div>
+
+        <div aria-label="filtrer par" class="gallery__listbox-container--state listbox-close" tabindex="0" role="listbox">
+          <div class="gallery__listbox-container--group">
+            <div id="listbox" class="gallery__listbox-container__listbox" data-selected="popularité">
+              Popularité</div>
+            <i class="fa-sharp fa-solid fa-chevron-down fa-sm"></i>
+            <i class="fa-sharp fa-solid fa-chevron-up fa-sm hidden"></i>
+            </div>
+          <div class="gallery__listbox-container__options hidden">
+            <hr>
+            <div data-option="popularité" role="option" tabindex="0" disabled>Popularité</div>
+            <hr>
+            <div data-option="date" role="option" tabindex="0">Date</div>
+            <hr>
+            <div data-option="titre" role="option" tabindex="0">Titre</div>
+          </div>
         </div>
+
       </div>
       <!--End of filter container-->
       <!--Gallery list container-->
