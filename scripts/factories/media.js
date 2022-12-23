@@ -31,7 +31,7 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) {
         if (dataMedia.video || dataMedia.type == "video") {
             const video = document.createElement('video');
             if (firstLoad === true) { video.src = `./assets/images/gallery/small/${chemin}/${dataMedia.video}`; } else { video.src = dataMedia.media; }
-            video.ariaLabel = title;
+            video.title = title;
             video.type = "video/mp4";
             video.role = "link";
             video.classList.add('gallery__list__data__img');
@@ -90,7 +90,8 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) {
             iconLike.classList.add("fa-lg");
             iconLike.classList.add("heart--filled");
         }
-        iconLike.ariaLabel = "likes";
+        iconLike.role = "button";
+        iconLike.title = "aimer ce média";
         iconLike.tabIndex = 0;
 
         desc.appendChild(titlePhotographer);

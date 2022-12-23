@@ -36,7 +36,7 @@ function displayLightboxMedia(index, value, media, title, firstOpen) {
         createLlightboxModalMedia.src = media;
         createLlightboxModalMedia.type = "video/mp4";
         createLlightboxModalMedia.controls = true;
-        createLlightboxModalMedia.ariaLabel = title;
+        createLlightboxModalMedia.title = title;
     }
     else {
         createLlightboxModalMedia = document.createElement('img');
