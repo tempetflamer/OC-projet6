@@ -92,11 +92,6 @@ function filterBy(e) {
         galeryList.appendChild(galleryCardDOM);
         i++
       });
-
-      optionListbox.children[1].setAttribute("disabled", "disabled");
-      optionListbox.children[3].removeAttribute("disabled");
-      optionListbox.children[5].removeAttribute("disabled");
-      trapFocus("filter");
       break;
 
     case "date":
@@ -114,11 +109,6 @@ function filterBy(e) {
         galeryList.appendChild(galleryCardDOM);
         i++
       });
-
-      optionListbox.children[1].removeAttribute("disabled");
-      optionListbox.children[3].setAttribute("disabled", "disabled");
-      optionListbox.children[5].removeAttribute("disabled");
-      trapFocus("filter");
       break;
 
     case "titre":
@@ -145,11 +135,6 @@ function filterBy(e) {
         galeryList.appendChild(galleryCardDOM);
         i++
       });
-
-      optionListbox.children[1].removeAttribute("disabled");
-      optionListbox.children[3].removeAttribute("disabled");
-      optionListbox.children[5].setAttribute("disabled", "disabled");
-      trapFocus("filter");
       break;
 
     default:

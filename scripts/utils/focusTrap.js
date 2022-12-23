@@ -11,6 +11,9 @@ function trapFocus(value) {
   function focuslisten(e) {
     const isTabPressed = (e.key === 'Tab' || e.keyCode === 9 || e.keyCode === 27);
 
+    if (optionListbox.children[5].style.display == "none") {lastFocusableEl = focusableEls[focusableEls.length - 2];}
+    else {lastFocusableEl = focusableEls[focusableEls.length - 1];}
+
     if (!isTabPressed) {
       return;
     }
@@ -31,6 +34,7 @@ function trapFocus(value) {
         console.log(lastFocusableEl);
         console.log(firstFocusableEl);
         if (document.activeElement === lastFocusableEl) {
+          console.log(optionListbox.children[5].style.display);
           firstFocusableEl.focus();
           e.preventDefault();
         }
@@ -53,26 +57,15 @@ function trapFocus(value) {
     else {
       if (value == "filter") {
         element = containerListbox;
-        focusableEls = element.querySelectorAll('div[tabindex="0"]:not([disabled])');
-        console.log(focusableEls)
+        focusableEls = element.querySelectorAll('div[tabindex="0"]');
         firstFocusableEl = focusableEls[0];
         lastFocusableEl = focusableEls[focusableEls.length - 1];
-        console.log(lastFocusableEl)
       }
     }
   }
 
-
-  if (value == "filter") {
-    try {element.removeEventListener("keydown", filterListen(e)) } catch {}
-    element.addEventListener('keydown', function filterListen(e) {
-      focuslisten(e)
-    });
-  }
-  else {
     element.addEventListener('keydown', function (e) {
       focuslisten(e)
     });
-  }
 
 }
