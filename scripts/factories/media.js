@@ -31,7 +31,7 @@ function mediasFactory(dataMedia, dataPhotographers, firstLoad, liked) {
         if (dataMedia.video || dataMedia.type == "video") {
             const video = document.createElement('video');
             if (firstLoad === true) { video.src = `./assets/images/gallery/small/${chemin}/${dataMedia.video}`; } else { video.src = dataMedia.media; }
-            video.alt = title;
+            video.ariaLabel = title;
             video.type = "video/mp4";
             video.role = "link";
             video.classList.add('gallery__list__data__img');
