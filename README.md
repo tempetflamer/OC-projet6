@@ -99,6 +99,18 @@ Je serais chargé de fournir tout le HTML, le CSS et le JavaScript nécessaires 
 - `pages/`, contient les fichiers JS `index.js` et `photographer.js` nécessaire à la création des pages de l'application
 - `utils/`, contient les différents composants JS utilisés dans les pages de l'applications 
 
+`index.html`, page d'index du site contenant la liste des photographes
+
+`photographer.html`, page des photographes
+
+`package.json` & `package-lock.json`, fichiers utilisés par npm pour gérer les dépendances
+
+`.gitignore`, fichier qui permet de définir les fichiers à ignorer dans la liste des fichiers modifiés à "push"
+
+`.eslintrc.js`, fichier de ESLint (outil d'analyse de code statique) permettant de le configurer
+
+`README.md`, fichier de présentation et d'explication du projet que vous lisez actuellement
+
 
 ## Compétences évaluées
 
