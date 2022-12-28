@@ -37,6 +37,7 @@ function displayLightboxMedia(index, value, media, title, firstOpen) {
         createLlightboxModalMedia.type = "video/mp4";
         createLlightboxModalMedia.controls = true;
         createLlightboxModalMedia.title = title;
+        createLlightboxModalMedia.tabIndex = "2";
     }
     else {
         createLlightboxModalMedia = document.createElement('img');
