@@ -76,7 +76,7 @@ Je serais chargé de fournir tout le HTML, le CSS et le JavaScript nécessaires 
 - `images/`, contient les images utilisées dans l'application
     - `avatar/`, contients les avatars des photographes
     - `gallery/`, contient les images des photographes à des formats différents
-        - `medium/`, medias (images et vidéos) des photographes pour un affichage dans la listbox
+        - `medium/`, medias (images et vidéos) des photographes pour un affichage dans la lightbox
         - `small/`, medias (images et vidéos) des photographes à un petit format pour affichage en gallery
     - `logo.png`, logo de FishEye (nom)
 - `favicon`, icon du logo de FishEye
