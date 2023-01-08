@@ -38,6 +38,11 @@ function trapFocus(value) {
         }
       }
     }
+
+    if ((document.activeElement == document.querySelector('.listbox-close')) && (e.shiftKey)) {
+      (document.querySelector('.photographer__contact__btn')).focus();
+      e.preventDefault();
+    }
   }
 
   if (value == "contact") {
