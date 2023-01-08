@@ -1,4 +1,3 @@
-//or use URLSearchParams
 let searchURL = window.location.search;
 searchURL = new URLSearchParams(searchURL);
 let idUrl = searchURL.get("id");
